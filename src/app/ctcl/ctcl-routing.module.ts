@@ -8,10 +8,16 @@ import {HomeComponent} from "./homepage/home.component";
 const routes: Routes = [{
   path: '',
   component: CtclComponent,
-  children: [{
-    path: '',
-    component: HomeComponent,
-  },],
+    children: [
+
+        {
+            path: 'matches',
+            loadChildren: './Matches/matches.module#MatchesModule',
+        },
+        {
+            path: '',
+            component: HomeComponent,
+        }],
 }];
 /* , {
    path: 'ui-features',

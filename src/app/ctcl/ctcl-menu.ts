@@ -12,13 +12,13 @@ export const CTCL_MENU_ITEMS: NbMenuItem[] = [
     group: true,
   },
   {
-    title: 'CTCL UI Features',
+    title: 'Matches',
     icon: 'nb-keypad',
-    link: '/pages/ui-features',
+    link: '/ctcl/matches',
     children: [
       {
-        title: 'CTCL Buttons',
-        link: '/pages/ui-features/buttons',
+        title: 'Results',
+        link: '/ctcl/matches/results',
       },
       {
         title: 'Grid',

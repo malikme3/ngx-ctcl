@@ -1,0 +1,82 @@
+<!--<div class="row">
+  <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-1">
+    <h2 class="box" translate> {{'matches.title'}}
+      <p class="float-right h5 ">
+        <select class="btn-outline-warning" [(ngModel)]="leagueType" (ngModelChange)="getLeagueResults()">
+          <option *ngFor=" let option of options2017" value={{option.id}}>{{option.name}}</option>
+        </select>
+      </p>
+    </h2>
+    <ba-card baCardClass="with-scroll">
+      <ng2-smart-table [settings]="settings" [source]="result" (edit)="onRowEdit($event)"
+                       (userRowSelect)="getDetailedScore($event)">
+      </ng2-smart-table>
+
+    </ba-card>
+  </div>
+</div>-->
+<ng-container>
+
+  <!--<ba-card title="'Score Card Details'">-->
+  <!--<div class="ui-widget-header col-xlg-12 col-lg-12 col-md-12 col-sm-12" style="padding:4px 10px;border-bottom: 0 none">
+    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+    <input #gb type="text" placeholder="Global Filter">
+  </div>
+  <p-dataTable [value]="result" [rows]="10" [paginator]="true" [globalFilter]="gb" #dt>
+
+
+    <p-column field="game_date" header="Match Date" [filter]="true" [sortable]="true" filterMatchMode="in">
+      <ng-template pTemplate="filter" let-col>
+        <i class="fa fa-close" (click)="yearFilter=null;dt.filter(null,col.field,col.filterMatchMode)"></i>
+        <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="yearFilter" [min]="2017-01-01" [max]="2018-01-01"
+                  (onSlideEnd)="dt.filter($event.value,col.field,col.filterMatchMode)"></p-slider>
+      </ng-template>
+    </p-column>
+    <p-column field="host_team" header="Filter by Host Team" [filter]="true" filterMatchMode="equals">
+      <ng-template pTemplate="filter" let-col>
+        <p-dropdown [options]="host_team_opt" [style]="{'width':'100%'}"
+                    (onChange)="dt.filter($event.value,col.field,col.filterMatchMode)"
+                    styleClass="ui-column-filter"></p-dropdown>
+      </ng-template>
+    </p-column>
+
+    <p-column field="guest_team" header="Filter by Guest Team" [filter]="true" [sortable]="true" filterMatchMode="equals">
+      <ng-template pTemplate="filter" let-col>
+        <p-dropdown [options]="guest_team_opt" [style]="{'width':'100%'}"
+                    (onChange)="dt.filter($event.value,col.field,col.filterMatchMode)"
+                    styleClass="ui-column-filter"></p-dropdown>
+      </ng-template>
+    </p-column>
+    <p-column field="man_of_the_match" header="Man of the Match" [filter]="true" filterPlaceholder="Search"></p-column>
+    <p-column field="result" header="Result" [filter]="true" filterPlaceholder="Search"></p-column>
+  </p-dataTable>-->
+  <!--</ba-card>-->
+  <ng-container *ngIf="result; else loading;">
+    <p-fieldset  [toggleable]="true" [collapsed]="collapsed">
+
+      <p-header >
+        Matches Results
+            <p class="float-right h5 " id="options" (onClick)="onCliked($event)">
+              <select class="btn-outline-warning" [(ngModel)]="leagueType" (ngModelChange)="getLeagueResults()">
+                <option *ngFor=" let option of options2017" value={{option.id}}>{{option.name}}</option>
+              </select>
+            </p>
+      </p-header>
+
+      <div class="ui-widget-header col-xlg-12 col-lg-12 col-md-12 col-sm-12"
+           style="padding:4px 10px;border-bottom: 0 none">
+        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+        <input #gb type="text" placeholder="Global Filter">
+      </div>
+
+      <p-dataTable [value]="result" selectionMode="single" (onRowSelect)="onRowSelect($event)"
+                   [rows]="30" [paginator]="true" [globalFilter]="gb" #dt>
+        <p-column field="game_date" header="Game Date" [sortable]="true"></p-column>
+        <p-column field="host_team" header="Host Team" [sortable]="true"></p-column>
+        <p-column field="guest_team" header="Guest Team" [sortable]="true"></p-column>
+        <p-column field="man_of_the_match" header="Man of the Match" [sortable]="true"></p-column>
+        <p-column field="result" header="Result" [sortable]="true"></p-column>
+      </p-dataTable>
+    </p-fieldset>
+  </ng-container>
+  <ng-template #loading> Wait Pleaee, Schdule Sheet is loading for you ...</ng-template>
