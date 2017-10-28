@@ -1,0 +1,23 @@
+.card-title {
+  font-weight: normal;
+  /*font-size: ;*/
+  text-transform: uppercase;
+  opacity: 0.9;
+  /*color: $content-text;*/
+}
+
+:host /deep/ {
+  .nb-theme-cosmic nb-card-header {
+    padding: .3rem;
+    border-bottom: 2px solid #00d977;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(212, 142, 57);
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    color: #310808;
+    font-family: Exo;
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+}

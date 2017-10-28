@@ -10,19 +10,22 @@ import {TeamsPointsService} from "../common/services/teamspoints.service";
 import {TabMenuComponent} from "./components/tabmenu/tabmenu.component";
 import {ChartsModule} from "../../pages/charts/charts.module";
 import {BorderedTableComponent} from "./components/tables/borderedtable/borderedTable.component";
+import {StylesComopnent} from "./components/styles/styles.comopnent";
+import {ThemeModule} from "../../@theme/theme.module";
 
 
 @NgModule({
-    imports: [
-        CommonModule,
-        ChartsModule,
-        ChartModule,
-        RouterModule
-    ],
+  imports: [
+    CommonModule,
+    ThemeModule,
+    ChartsModule,
+    ChartModule,
+    RouterModule
+  ],
 
-    declarations: [PolarChartComponent, TeamsPointsComponent, TabMenuComponent,BorderedTableComponent],
-    exports: [PolarChartComponent, TeamsPointsComponent, TabMenuComponent,BorderedTableComponent],
-    providers: [TeamsPointsService]
+  declarations: [PolarChartComponent, TeamsPointsComponent, TabMenuComponent, BorderedTableComponent, StylesComopnent],
+  exports: [PolarChartComponent, TeamsPointsComponent, TabMenuComponent, BorderedTableComponent, StylesComopnent],
+  providers: [TeamsPointsService]
 })
 export class CtclSharedModule {
 }
