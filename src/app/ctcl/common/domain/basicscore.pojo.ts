@@ -6,4 +6,4 @@ export class BasicScorePojo {
   player_last_name: String;
   man_of_the_match: String;
   match_status: String;
-};
+}
