@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Oxygen');
+@import '../../../../theme/sass/conf/conf';
+
+:host /deep/ .widgets {
+  .smart-table-container {
+    width: 100%;
+  }
+}
+
+:host /deep/ {
+  .ui-datatable * {
+    border : 0px !important;
+  }
+}
+:host /deep/ {
+  .ui-datatable .ui-datatable-thead > tr > th {
+    background: #7d1ac0;
+    font-weight: bold;
+    color: white;
+  }
+}
+:host /deep/ {
+  .data-table-no-header thead {
+    display: none;
+  }
+}
+
+/*:host /deep/ {
+  .ui-widget-content {
+    border: 2px solid rgba(178, 53, 68, 0.85);
+    background: #457c7d;
+  }
+}*/
+
+:host /deep/ {
+  .ui-widget-content {
+    border: 2px solid #b29e35;
+    background: rgba(106, 199, 186, 0.24);
+    color: #000000;
+  }
+}
+
+
+:host /deep/ {
+  ng2-smart-table {
+    th, td {
+      //border: 1px solid $border-light !important;
+      line-height: 35px;
+      vertical-align: middle;
+      border: none;
+    }
+    th {
+      background-color :darkslategrey;
+    }
+
+    table tr td {
+      padding: 0 8px;
+      border: none;
+    }
+    table {
+      background-color: darkcyan;
+
+    }
+
+    color: $default-text;
+
+    input {
+      line-height: 1.5 !important;
+    }
+
+    ng2-smart-table-cell {
+      color: $default-text;
+      line-height: 35px;
+    }
+
+    tbody {
+      tr {
+        color: $default-text;
+      }
+      tr:hover {
+        background: rgba(0, 0, 0, 0.03);
+      }
+    }
+
+    a.ng2-smart-sort-link {
+      font-size: 14px !important;
+      color: $default-text;
+      font-weight: $font-bolder;
+      &.sort {
+        font-weight: $font-bolder !important;
+
+        &::after {
+          border-bottom-color: $default-text !important;
+        }
+      }
+    }
+
+    .ng2-smart-actions {
+      width: 70px;
+      text-align: center;
+      .actions {
+        float: none;
+        text-align: center;
+      }
+    }
+
+    .ng2-smart-actions-title-add {
+      text-align: center;
+    }
+
+    a.ng2-smart-action, .ng2-smart-title {
+      font-size: 14px !important;
+      color: $default-text;
+      padding: 0 5px;
+      display: inline-block;
+
+      &.ng2-smart-action-add-add {
+        font-size: 25px !important;
+      }
+    }
+
+    nav.ng2-smart-pagination-nav {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+table.vitamins {
+  margin: 20px 0 0 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background: oldlace;
+  color: #fff;
+}
+
+table.vitamins th, table.vitamins td {
+  text-align: left;
+}
+
+table.vitamins thead {
+  line-height: 12px;
+  background: darkolivegreen;
+  text-transform: uppercase;
+  border: double;
+
+}
+
+table.vitamins thead th {
+  color: white;
+  padding: 10px;
+  letter-spacing: 1px;
+  vertical-align: bottom;
+}
+
+table.vitamins thead th:nth-child(1) {
+  width: 20%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+table.vitamins thead th:nth-child(2) {
+  width: 30%;
+}
+
+table.vitamins thead th:nth-child(3) {
+  width: 35%;
+}
+
+table.vitamins thead th:nth-child(4) {
+  width: 15%;
+}
+
+table.vitamins tbody {
+  font-size: 1em;
+  line-height: 15px;
+  border: double;
+  border-color: black;
+}
+
+table.vitamins tbody tr {
+  border-top: 2px solid rgba(109, 176, 231, 0.8);
+  transition: background 0.6s, color 0.6s;
+  background-color: white;
+  color: brown;
+  font-family: 'Source Sans Pro', sans-serif;
+  border: none;
+}
+
+table.vitamins tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.2);
+  background-color: ghostwhite;
+}
+
+table.vitamins tbody tr:hover {
+  color: #000;
+  background: rgba(255, 255, 255, 0.7);
+  font-weight: 900;
+}
+
+table.vitamins tbody td {
+  padding: 12px;
+}
+
+table.vitamins tbody tr:hover td:first-child {
+  background: rgba(0,0,0,0);
+  color: darkblue;
+}
+
+table.vitamins tbody td:first-child {
+  text-align: left;
+  padding-left: 20px;
+  font-weight: 700;
+  background: rgba(109, 176, 231, 0.35);
+  transition: backgrounf 0.6s;
+}
+
+table.vitamins tfoot {
+  font-size: 0.8em;
+}
+
+table.vitamins tfoot tr {
+  border-top: 2px solid #2e63e7;
+}
+
+.topscore {
+  border: 1px solid #8959a8;
+  width: 22%;
+  text-align: left;
+  color: white;
+}
+
+table.vitamins tfoot td {
+  color: #3b5998;
+  text-align: left;
+  line-height: 15px;
+  padding: 15px 20px;
+  background: lightsalmon;
+  border: double;
+}
+
+table.score {
+  width:100%;
+  height:100%;
+  font-size: 150%;
+  text-align: left;
+  color: #583707;
+}
+
+.box {
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  text-align: center;
+  color: darkred;
+  font-weight: bold;
+  font-family: 'Courier New', Monospace;
+}
+
+
+/* Mobile Layout */
+
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 34px;
+    line-height: 36px;
+    padding-left: 15px;
+  }
+
+  article {
+    margin: 10px 15px;
+  }
+
+  table.vitamins {
+    font-size: 0.8em;
+  }
+}
+
+

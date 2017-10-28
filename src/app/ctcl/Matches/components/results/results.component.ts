@@ -29,7 +29,7 @@ export class ResultsComponent {
   colors: SelectItem[];
 
   yearFilter: number;
-  private url: string = '/pages/matches/scoreView';
+  private url: string = '/ctcl/matches/scoreView';
 
   constructor(private router: Router,
               private _resultsService: ResultsService,

@@ -1,0 +1,120 @@
+<div class="row">
+  <ng-container *ngIf="batting_data_1; else loading;">
+    <!--First Innings Score Card Details-->
+
+    <ctcl-style title = "Detailed Score: Batting First Team" >
+      <p-fieldset legend="{{batting_first_team}} Innings" [toggleable]="true">
+        <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-12">
+          <p-dataTable [value]="batting_data_1" scrollable="true" [responsive]="true" [stacked]="stacked">
+            <!--<p-header><h3 align="left">{{batting_first_team}}'s Batting</h3></p-header>-->
+            <p-column field="batsman_full_name" header="BATSMAN"
+                      [style]="{'width':'20%','text-align':'left'}"></p-column>
+            <p-column field="out_info" header="" [style]="{'width':'40%'}"></p-column>
+            <p-column field="runs" header="Runs" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="balls" header="Balls" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="fours" header="4s" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="sixes" header="6s" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="strike_rate" header="SR" [style]="{'width':'8%','text-align':'left'}"></p-column>
+          </p-dataTable>
+        </div>
+        <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-12">
+          <p-dataTable [value]="score_card_info_1" styleClass="data-table-no-header"
+                       scrollable="true" [responsive]="true" [stacked]="stacked">
+            <p-column field="extras_title" [style]="{'width':'20%'}"></p-column>
+            <p-column field="extras_info" header="" [style]="{'width':'40%'}"></p-column>
+            <p-column field="extras_total" header="" [style]="{'width':'8%'}"></p-column>
+            <p-column field="" [style]="{'width':'auto'}"></p-column>
+          </p-dataTable>
+          <p-dataTable [value]="score_card_info_1" styleClass="data-table-no-header"
+                       scrollable="true" [responsive]="true" [stacked]="stacked">
+            <p-column field="total_title" [style]="{'width':'20%'}"></p-column>
+            <p-column field="totals_info" [style]="{'width':'40%'}"></p-column>
+            <p-column field="total_score" [style]="{'width':'8%'}"></p-column>
+            <p-column field="" [style]="{'width':'auto'}"></p-column>
+          </p-dataTable>
+        </div>
+        <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-12">
+          <p-dataTable [value]="dnb_data_1" styleClass="data-table-no-header"
+                       scrollable="true" [responsive]="true" [stacked]="stacked">
+            <p-column field="dnb_title" [style]="{'width':'30%'}"></p-column>
+            <p-column field="did_not_bat" [style]="{'width':'70%'}"></p-column>
+          </p-dataTable>
+          <!--</ctcl-style>-->
+          <p-dataTable [value]="bowling_data_1">
+            <!--<p-header><h3 align="left">{{batting_second_team}}'s Bowling</h3></p-header>-->
+            <p-column field="bowler_full_name" header="BOWLING"
+                      [style]="{'width':'auto','text-align':'left'}"></p-column>
+            <p-column field="overs" header="O" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="maidens" header="M" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="runs" header="R" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="wickets" header="W"
+                      [style]="{'width':'8%','text-align':'left','font-weight': '400'}"></p-column>
+            <p-column field="bowler_economy" header="Eco" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="wides" header="WD" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="noballs" header="NB" [style]="{'width':'8%','text-align':'left'}"></p-column>
+          </p-dataTable>
+        </div>
+      </p-fieldset>
+    </ctcl-style>
+
+    <!--Seond Innings Score Card Details-->
+
+    <ctcl-style title = "Detailed Score: Batting Second Team">
+      <p-fieldset legend="{{batting_second_team}} Innings" [toggleable]="true" [collapsed]="false">
+        <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-12">
+          <p-dataTable [value]="batting_data_2" scrollable="true" [responsive]="true" [stacked]="stacked">
+            <!--<p-header><h3 align="left">{{batting_second_team}}'s Batting</h3></p-header>-->
+            <p-column field="batsman_full_name" header="BATSMAN"
+                      [style]="{'width':'20%','text-align':'left'}"></p-column>
+            <p-column field="out_info" header="" [style]="{'width':'40%'}"></p-column>
+            <p-column field="runs" header="Runs" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="balls" header="Balls" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="fours" header="4s" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="sixes" header="6s" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="strike_rate" header="SR" [style]="{'width':'8%','text-align':'left'}"></p-column>
+          </p-dataTable>
+        </div>
+        <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-12">
+          <p-dataTable [value]="score_card_info_2" styleClass="data-table-no-header"
+                       scrollable="true" [responsive]="true" [stacked]="stacked">
+            <p-column field="extras_title" [style]="{'width':'20%'}"></p-column>
+            <p-column field="extras_info" header="" [style]="{'width':'40%'}"></p-column>
+            <p-column field="extras_total" header="" [style]="{'width':'8%'}"></p-column>
+            <p-column field="" [style]="{'width':'auto'}"></p-column>
+          </p-dataTable>
+          <p-dataTable [value]="score_card_info_2" styleClass="data-table-no-header"
+                       scrollable="true" [responsive]="true" [stacked]="stacked">
+            <p-column field="total_title" [style]="{'width':'20%'}"></p-column>
+            <p-column field="totals_info" [style]="{'width':'40%'}"></p-column>
+            <p-column field="total_score" [style]="{'width':'8%'}"></p-column>
+            <p-column field="" [style]="{'width':'auto'}"></p-column>
+          </p-dataTable>
+        </div>
+        <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-12">
+          <p-dataTable [value]="dnb_data_2" styleClass="data-table-no-header"
+                       scrollable="true" [responsive]="true" [stacked]="stacked">
+            <p-column field="dnb_title" [style]="{'width':'20%'}"></p-column>
+            <p-column field="did_not_bat" [style]="{'width':'auto%'}"></p-column>
+          </p-dataTable>
+          <!--</ctcl-style>-->
+          <p-dataTable [value]="bowling_data_2">
+            <!--<p-header><h3 align="left">{{batting_first_team}}'s Bowling</h3></p-header>-->
+            <p-column field="bowler_full_name" header="Bowler"
+                      [style]="{'width':'auto','text-align':'left'}"></p-column>
+            <p-column field="overs" header="O" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="maidens" header="M" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="runs" header="R" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="wickets" header="W"
+                      [style]="{'width':'8%','text-align':'left','font-weight': '400'}"></p-column>
+            <p-column field="bowler_economy" header="Eco" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="wides" header="WD" [style]="{'width':'8%','text-align':'left'}"></p-column>
+            <p-column field="noballs" header="NB" [style]="{'width':'8%','text-align':'left'}"></p-column>
+          </p-dataTable>
+        </div>
+      </p-fieldset>
+    </ctcl-style>
+
+  </ng-container>
+  <ng-template #loading> Wait Please, Scorecard is Loading for you !!! ...</ng-template>
+</div>
+

@@ -1,0 +1,203 @@
+<div class="row">
+    <div class="col-xlg-12 col-lg-12 col-md-12 col-sm-12">
+        <ctcl-style title="{{firstInnings_info?.BatFirst}} vs {{firstInnings_info?.BatSecond}}">
+            <table with="100%" align="center">
+                <tr>
+                    <th class="topscore"> League: 35 overs</th>
+                    <th class="topscore">Toss won by: <strong>{{firstInnings_info?.WonToss | uppercase }}</strong></th>
+                    <th class="topscore"> Match Result: <strong>{{firstInnings_info?.result}}</strong></th>
+                    <th class="topscore"> Played at: {{firstInnings_info?.GroundName}}</th>
+                </tr>
+            </table>
+        </ctcl-style>
+    </div>
+</div>
+<!-- ************************ For batting details :: 1st Innings  starts *********************-->
+<div class="row" data-toggle="collapse" data-target="#batting-1">
+    <div class="col-xlg-7 col-lg-7 col-md-12 col-sm-1">
+        <ctcl-style>
+            <!--<h3 class="box">1st: Batting</h3>-->
+            <table class="vitamins" width="100%" id="batting-1">
+                <thead>
+                <tr>
+                    <th style="width:20%">Batsman</th>
+                    <th style="width:40%">{{firstInnings_info?.BatFirst}} Innings : 30 over max</th>
+                    <th style="width:8%">R</th>
+                    <th style="width:8%">B</th>
+                    <th style="width:8%">4s</th>
+                    <th style="width:8%">6s</th>
+                    <th style="width:8%">SR</th>
+                </tr>
+                </thead>
+                <tfoot style="background-color:#FF0000;">
+
+                <tr *ngFor="let ext of extras_score; let i = index">
+                    <td colspan="5" *ngIf="ext.innings_id=='1' && i == 1">
+                        <strong>Extras : </strong> Bye: {{ext.byes}}, Leg byes: {{ext.legbyes}} , Wides: {{ext.wides}},
+                        No
+                        Balls:{{ext.noballs}}, Extras Total: {{ext.extraTotal}}
+                    </td>
+                    <td colspan="2" *ngIf="ext.innings_id=='1' && i == 1">
+                        <strong>{{ext.totalRuns}} / {{ext.totalWickets}} ({{ext.totalOvers}})</strong>
+                    </td>
+                </tr>
+
+                </tfoot>
+                <tbody *ngFor="let bat_1 of batting_data ">
+                <tr *ngIf="bat_1.innings_id =='1'">
+                    <td>{{bat_1.BatterFullName}}</td>
+                    <td align="left">{{bat_1.HowOutAbbrev}} {{bat_1.AssistFullName}} b&nbsp;{{bat_1.BowlerFullName}}
+                        {{bat_1.BowlerLName}}
+                    </td>
+                    <td>{{bat_1.runs}}</td>
+                    <td>{{bat_1.balls}}</td>
+                    <td>{{bat_1.fours}}</td>
+                    <td>{{bat_1.sixes}}</td>
+                    <td>{{bat_1.game_id}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="vitamins" width="100%" style="background-color:darkgoldenrod;,font-weight: 800 ">
+                <strong>Did not bat:</strong>
+                <th *ngFor="let ex of extras_score; let i = index">
+                    <ul *ngIf="ex.innings_id == 1">
+                        {{ex.batsmanFullName | uppercase}}
+                    </ul>
+                </th>
+            </table>
+        </ctcl-style>
+    </div>
+    <!-- ************************ For batting details :: Ist Innings  ends *********************-->
+    <!-- ************************ For bowling details :: Ist Innings starts *********************-->
+    <div class="col-xlg-5 col-lg-5 col-md-12 col-sm-1">
+        <ctcl-style title="{{firstInnings_info?.BatSecond}}: First Innings Bowling">
+            <!--<h3 class="box">1st: Bowling</h3>-->
+            <table class="vitamins" width="100%" hight="100%" id="bowling-1">
+                <thead>
+                <tr>
+                    <th style="width:20%">Bowler</th>
+                    <th style="width:11.4286%">Overs</th>
+                    <th style="width:11.4286%">Maidens</th>
+                    <th style="width:11.4286%">Runs</th>
+                    <th style="width:11.4286%">Wickets</th>
+                    <th style="width:11.4286%">Wides</th>
+                    <th style="width:11.4286%">NB</th>
+                    <th style="width:11.4286%">Eco</th>
+                </tr>
+                </thead>
+                <tbody *ngFor="let bow_1 of bowling_data">
+                <tr *ngIf="bow_1.innings_id =='1'">
+                    <td>{{bow_1.BowlerFName}} {{bow_1.BowlerLName}}</td>
+                    <td>{{bow_1.overs}}</td>
+                    <td>{{bow_1.maidens}}</td>
+                    <td>{{bow_1.runs}}</td>
+                    <td>{{bow_1.wickets}}</td>
+                    <td>{{bow_1.wides}}</td>
+                    <td>{{bow_1.noballs}}</td>
+                    <td>{{bow_1.runs/bow_1.overs}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </ctcl-style>
+    </div>
+    <!-- ************************ For bowling details :: Ist Innings  ends *********************-->
+</div>
+
+<!-- ************************ For batting details :: 2nd Innings  starts *********************-->
+<div class="row" data-toggle="collapse" data-target="#batting-2">
+    <div class="col-xlg-7 col-lg-7 col-md-12 col-sm-1">
+        <ctcl-style>
+            <!--<h3 class="box">2nd: Batting</h3>-->
+            <table class="vitamins" width="100%" id="batting-2">
+                <thead>
+                <tr>
+                    <th style="width:20%">Batsman</th>
+                    <th style="width:40%">{{firstInnings_info?.BatSecond}} Innings : 30 over max</th>
+                    <th style="width:8%">R</th>
+                    <th style="width:8%">B</th>
+                    <th style="width:8%">4s</th>
+                    <th style="width:8%">6s</th>
+                    <th style="width:8%">SR</th>
+                </tr>
+                </thead>
+                <tfoot style="background-color:#FF0000;">
+
+                <tr *ngFor="let ext of extras_score; let i = index">
+
+                    <td colspan="5" *ngIf="ext.innings_id=='2' && i == extras_score.length-1">
+                        <strong>Extras : </strong> Bye: {{ext.byes}}, Leg byes: {{ext.legbyes}} , Wides: {{ext.wides}},
+                        No
+                        Balls:{{ext.noballs}}, Extras Total: {{ext.extraTotal}}
+                    </td>
+                    <td colspan="2" *ngIf="ext.innings_id=='2' && i == extras_score.length-1">
+                        <strong>{{ext.totalRuns}} / {{ext.totalWickets}} ({{ext.totalOvers}})</strong>
+                    </td>
+                </tr>
+                </tfoot>
+                <tbody *ngFor="let bat_2 of batting_data">
+                <tr *ngIf="bat_2.innings_id =='2'">
+                    <td>{{bat_2.BatterFullName}}</td>
+                    <td align="left">{{bat_2.HowOutAbbrev}} {{bat_2.AssistFullName}} b&nbsp;{{bat_2.BowlerFullName}}
+                        {{bat_2.BowlerLName}}
+                    </td>
+                    <td>{{bat_2.runs}}</td>
+                    <td>{{bat_2.balls}}</td>
+                    <td>{{bat_2.fours}}</td>
+                    <td>{{bat_2.sixes}}</td>
+                    <td>{{bat_2.game_id}}</td>
+                </tr>
+
+                </tbody>
+            </table>
+            <table class="vitamins" width="100%" style="background-color:darkgoldenrod;,font-weight: 800">
+                <strong>Did not bat:</strong>
+                <th *ngFor="let ex of extras_score; let i = index">
+                    <ul *ngIf="ex.innings_id == 2">
+                        {{ex.batsmanFullName | uppercase}}
+                    </ul>
+                </th>
+            </table>
+        </ctcl-style>
+    </div>
+    <!-- ************************ For batting details :: 2nd Innings  ends *********************-->
+    <!-- ************************ For bowling details :: 2nd Innings starts *********************-->
+    <div class="col-xlg-5 col-lg-5 col-md-12 col-sm-1">
+        <ctcl-style title="{{firstInnings_info?.BatFirst}} : Second Innings Bowling">
+            <!--<h3 class="box">2nd: Bowling</h3>-->
+            <table class="vitamins" width="100%" id="bowling-2">
+                <thead>
+                <tr>
+                    <th style="width:23.5%">Bowling</th>
+                    <th style="width:11.4286%">Overs</th>
+                    <th style="width:11.4286%">Maidens</th>
+                    <th style="width:11.4286%">Runs</th>
+                    <th style="width:11.4286%">Wickets</th>
+                    <th style="width:11.4286%">Wides</th>
+                    <th style="width:11.4286%">No Balles</th>
+                    <th style="width:11.4286%">Economy</th>
+                </tr>
+                </thead>
+                <tbody *ngFor="let bow_2 of bowling_data">
+                <tr *ngIf="bow_2.innings_id =='2'">
+                    <td>{{bow_2.BowlerFName}} {{bow_2.BowlerLName}}</td>
+                    <td>{{bow_2.overs}}</td>
+                    <td>{{bow_2.maidens}}</td>
+                    <td>{{bow_2.runs}}</td>
+                    <td>{{bow_2.wickets}}</td>
+                    <td>{{bow_2.wides}}</td>
+                    <td>{{bow_2.noballs}}</td>
+                    <td>{{bow_2.game_id}}</td>
+                </tr>
+
+                </tbody>
+            </table>
+            <!-- ************************ For bowling details :: 2nd Innings  Ends *********************-->
+        </ctcl-style>
+    </div>
+</div>
+
+<!--<div class="row" data-toggle="collapse" data-target="#bowling-2">
+
+</div>-->
+<!-- ************************ For bowling details :: 2nd Innings  ends *********************-->
+
