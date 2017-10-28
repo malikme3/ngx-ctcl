@@ -1,37 +1,89 @@
 /* tslint:disable */
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {HomePageService} from "../common/services/homepage.service";
+import {ClubsService} from "../common/services/clubs.service";
+import {Subject} from "rxjs/Subject";
+import {Router} from "@angular/router";
+import 'rxjs/add/operator/takeUntil';
 
 @Component({
-  selector: 'ctcl-home',
-  styleUrls: ['./home.component.scss'],
-  templateUrl: './home.component.html',
+    selector: 'ctcl-home',
+    styleUrls: ['./home.component.scss'],
+    templateUrl: './home.component.html',
 })
 export class HomeComponent {
-    cars: any[];
+    private ngUnsubscribe: Subject<void> = new Subject<void>();
+    points;
+    newsList: any;
+    groups;
+    data: any;
+    images: any[];
+    images_odd: any[];
+    //Default year : 2017
+    year: String = '2017';
 
-    msgs: any[];
+    constructor(private router: Router, private homePageService: HomePageService, private clubsService: ClubsService) {
 
-    constructor() {
-        this.msgs = [];
-        this.cars = [
-            {vin: 'r3278r2', year: 2010, brand: 'Audi', color: 'Black'},
-            {vin: 'jhto2g2', year: 2015, brand: 'BMW', color: 'White'},
-            {vin: 'h453w54', year: 2012, brand: 'Honda', color: 'Blue'},
-            {vin: 'g43gwwg', year: 1998, brand: 'Renault', color: 'White'},
-            {vin: 'gf45wg5', year: 2011, brand: 'VW', color: 'Red'},
-            {vin: 'bhv5y5w', year: 2015, brand: 'Jaguar', color: 'Blue'},
-            {vin: 'ybw5fsd', year: 2012, brand: 'Ford', color: 'Yellow'},
-            {vin: '45665e5', year: 2011, brand: 'Mercedes', color: 'Brown'},
-            {vin: 'he6sb5v', year: 2015, brand: 'Ford', color: 'Black'}
-        ];
+        this.data = {
+            datasets: [{
+                data: [6, 4, 2, 12],
+                backgroundColor: [
+                    "#ff96ec",
+                    "#a9c05e",
+                    "#FFCE56",
+                    "#8bebed"
+                ],
+                label: 'My dataset'
+            }],
+            labels: ['Played', 'Won', 'Lost', 'Total']
+        }
+
+
     }
 
-    selectCar(car: any) {
-        this.msgs = [];
-        this.msgs.push({severity: 'info', summary: 'Car Selected', detail: 'Vin:' + car.vin});
+    ngOnInit(): void {
+        this.points = this.teamsStanding();
+        this.groups = this.seasonGroups(this.year);
+        this.images = this.homePageService.getPhoto();
+        this.images_odd = this.homePageService.getPhoto_odd();
+        this.ctclNews();
+
     }
 
-  selectedCities: string[] = [];
-  selectedCategories: string[] = ['Technology', 'Sports'];
-  checked: boolean = false;
+    seasonGroups(year: String) {
+        const types$ = this.homePageService.getSeasonGroups(year);
+        console.info("types$: ", types$);
+        types$.takeUntil(this.ngUnsubscribe).subscribe(responce => this.groups = responce,
+            (err) => console.error('next matches: Response Error =>', err),
+            () => console.log("Request is completed for season groups"));
+
+    }
+
+    teamsStanding() {
+        const types$ = this.homePageService.getTeamStanding();
+        console.info("types$: ", types$);
+        types$.takeUntil(this.ngUnsubscribe).subscribe(responce => this.points = responce,
+            (err) => console.error('next matches: Response Error =>', err),
+            () => console.log("Request is completed for teams standings"));
+    }
+
+
+    ctclNews() {
+
+        const types$ = this.clubsService.getCtclNews();
+        console.info("types$: ", types$);
+        types$.takeUntil(this.ngUnsubscribe).subscribe(responce => this.newsList = responce,
+            (err) => console.error('next matches: Response Error =>', err),
+            () => console.log("Request is completed for ctcl news"));
+    }
+
+    ctclNewsReqCompleted() {
+        console.log("ctclNews is completed", this.newsList)
+    }
+
+    ngOnDestroy() {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
+    }
+
 }

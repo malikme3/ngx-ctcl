@@ -1,0 +1,26 @@
+<div class="horizontal-scroll">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th class="browser-icons align-center">Team logo</th>
+      <th class="align-center">Team</th>
+      <th class="align-center">Played</th>
+      <th class="align-center">Won</th>
+      <th class="align-center">Points</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of teamPoints ">
+      <!--<td><img src="{{ ( item.team | baAppPicture )}}" width="20" height="20"></td>-->
+      <!--<td ngClass="nowrap">{{ item.team }}</td>-->
+      <td>
+        <img src="assets/images/teams/{{item.team}}.png">
+      </td>
+      <td ngClass="nowrap">{{ item.teamAbbrev }}</td>
+      <td class="align-center">{{ item.played }}</td>
+      <td class="align-center">{{ item.won }}</td>
+      <td class="align-center">{{ item.totalpoints }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -9,7 +9,7 @@ const routes: Routes = [{
   path: '',
   component: CtclComponent,
   children: [{
-    path: 'homepage',
+    path: '',
     component: HomeComponent,
   },],
 }];

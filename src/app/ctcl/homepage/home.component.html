@@ -1,83 +1,63 @@
 <ctcl-latest-matches></ctcl-latest-matches>
 
-<div> Home Page Comopnent on Air !!!</div>
-
-<button pButton type="button" label="Click"></button>
-<button pButton type="button" label="Success" class="ui-button-success"></button>
-
-<div class="ui-g" style="width:250px;margin-bottom:10px">
-    <div class="ui-g-12">
-        <p-checkbox name="group1" value="New York" label="New York" [(ngModel)]="selectedCities"
-                    inputId="ny"></p-checkbox>
+<div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+        <p-galleria [images]="images" panelWidth="50%" panelHeight="313" [showCaption]="false"></p-galleria>
     </div>
-    <div class="ui-g-12">
-        <p-checkbox name="group1" value="San Francisco" label="San Francisco" [(ngModel)]="selectedCities"
-                    inputId="sf"></p-checkbox>
-    </div>
-    <div class="ui-g-12">
-        <p-checkbox name="group1" value="Los Angeles" label="Los Angeles" [(ngModel)]="selectedCities"
-                    inputId="la"></p-checkbox>
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+        <p-galleria [images]="images" panelWidth="50%" panelHeight="313" [showCaption]="false"></p-galleria>
     </div>
 </div>
-<!--
+<ctcl-best-players></ctcl-best-players>
+
+
 <div class="row">
-  <div class="col-xxxl-3 col-md-6">
-    <ngx-status-card title="Light" type="primary">
-      <i class="nb-lightbulb"></i>
-    </ngx-status-card>
-  </div>
+    <div class="col-xlg-6 col-xl-6 col-lg-6  col-md-12 col-sm-12 col-12">
+        <!--<ba-card title="dashboard.match_features" baCardClass="medium-card with-scroll">-->
+            <iframe width="560" height="360" src="https://www.youtube.com/embed/dH7zZPcI1U8" frameborder="0"
+                    allowfullscreen></iframe>
+        <!--</ba-card>-->
+    </div>
 
-  <div class="col-xxxl-3 col-md-6">
-    <ngx-status-card title="Roller Shades" type="success">
-      <i class="nb-roller-shades"></i>
-    </ngx-status-card>
-  </div>
+    <div class="col-xlg-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+        <ctcl-pol-chart></ctcl-pol-chart>
+    </div>
+</div>
 
-  <div class="col-xxxl-3 col-md-6">
-    <ngx-status-card title="Wireless Audio" type="info">
-      <i class="nb-audio"></i>
-    </ngx-status-card>
-  </div>
+<div class="row" *ngFor="let group of groups, let i = index">
+    <div class="col-xlg-6 col-xl-6 col-lg-6  col-md-12 col-sm-12 col-12" *ngIf="i==1">
+        <!--<ba-card title="T30:Point Table" baCardClass="medium-card with-scroll">-->
+            <ctcl-teams-points-table [group]="group"></ctcl-teams-points-table>
+        <!--</ba-card>-->
+    </div>
 
-  <div class="col-xxxl-3 col-md-6">
-    <ngx-status-card title="Coffee Maker" type="warning">
-      <i class="nb-coffee-maker"></i>
-    </ngx-status-card>
-  </div>
+    <div class="col-xlg-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12" *ngIf="i==1">
+        <!--<ba-card title="T20:Point Table" baCardClass="medium-card with-scroll feed-panel">-->
+            <ctcl-bordered-table [group]="group"></ctcl-bordered-table>
+        <!--</ba-card>-->
+    </div>
 </div>
 
 <div class="row">
-  <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
-    <ngx-temperature></ngx-temperature>
-  </div>
+    <!--<ba-card class="col-xlg-6 col-lg-6 col-md-12 col-sm-12 col-12" title="dashboard.ctcl_news"-->
+             <!--baCardClass="xmedium-card feed-comply-panel with-scroll todo-panel">-->
 
-  <div class="col-xxxl-9 col-xxl-8 col-lg-7 col-md-6">
-    <ngx-electricity></ngx-electricity>
-  </div>
+        <ng-container *ngFor=" let news of newsList;  let i=index">
+            <ng-container *ngIf="i<9">
+                <p-panel header="{{news.title}}" [toggleable]="true" collapsed="false" [styleClass]="dashboard"
+                         [style]="{'margin-bottom':'20px', 'background':'rgba(29, 63, 74, 0.53)'}">
+                    {{news.article}}
+                </p-panel>
+            </ng-container>
+
+        </ng-container>
+    <!--</ba-card>-->
+    <!--<ba-card class="col-xlg-6 col-lg-6 col-md-12 col-sm-12 col-12" title="dashboard.calendar"-->
+             <!--baCardClass="xmedium-card feed-comply-panel with-scroll calendar-panel">-->
+        <!--<calendar></calendar>-->
+    <!--</ba-card>-->
+    <!-- <ba-card class="col-xlg-3 col-lg-6 col-md-12 col-sm-12 col-12" title="dashboard.todo_list"
+              baCardClass="xmedium-card feed-comply-panel with-scroll todo-panel">
+       <todo></todo>
+     </ba-card>-->
 </div>
-
-<div class="row">
-  <div class="col-xxxl-9 col-xl-12">
-    <ngx-rooms></ngx-rooms>
-  </div>
-
-  <div class="col-xxxl-3 col-xxl-4 col-lg-7 col-md-6">
-    <ngx-contacts></ngx-contacts>
-  </div>
-
-  <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
-    <ngx-solar [chartValue]="72"></ngx-solar>
-
-    <ngx-kitten></ngx-kitten>
-  </div>
-
-  <div class="col-xxxl-3 col-xxl-4 col-md-5">
-    <ngx-traffic></ngx-traffic>
-    <ngx-weather></ngx-weather>
-  </div>
-
-  <div class="col-xxxl-6 col-xxl-12 col-md-7">
-    <ngx-security-cameras></ngx-security-cameras>
-  </div>
-</div>
--->

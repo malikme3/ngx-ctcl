@@ -47,5 +47,8 @@ import {CarouselModule} from 'primeng/primeng';
     TrafficComponent,
     TrafficChartComponent,
   ],
+    exports:[
+        StatusCardComponent
+    ],
 })
 export class DashboardModule { }
