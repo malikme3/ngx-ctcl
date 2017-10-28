@@ -21,8 +21,8 @@ export const CTCL_MENU_ITEMS: NbMenuItem[] = [
         link: '/ctcl/matches/results',
       },
       {
-        title: 'Grid',
-        link: '/pages/ui-features/grid',
+        title: 'Points Tables',
+        link: '/ctcl/matches/pointsTables',
       },
       {
         title: 'Icons',

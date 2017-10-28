@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {MatchesComponent} from './matches.component';
 import {ResultsComponent} from "./components/results/results.component";
 import {DetailedScoreComponent} from "./components/detailed.score/score.component";
+import {PointsTableComponent} from "./components/teampoints/pointstable.component";
 
 const routes: Routes = [
     {
@@ -11,6 +12,7 @@ const routes: Routes = [
         children: [
             {path: 'results', component: ResultsComponent},
             {path: 'scoreView', component: DetailedScoreComponent},
+            {path: 'pointsTables', component: PointsTableComponent},
             /*{ path: 'scheduleView', component: ScheduleComponent },
             {path: 'pointsTableView', component: PointsTableComponent},
             {path: 'scoreView', component: DetailedScoreComponent},

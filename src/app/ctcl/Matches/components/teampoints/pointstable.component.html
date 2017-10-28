@@ -1,0 +1,7 @@
+<div class="row" *ngFor="let group of groups, let i = index">
+  <div class="col-xlg-12 col-xl-12 col-lg-12 col-sm-12 col-12">
+    <ctcl-style title="{{group.seasonName | slice:4:13}} :: {{group.groupCategory}}" size="medium">
+      <ctcl-teams-points-table [group]="group"></ctcl-teams-points-table>
+    </ctcl-style>
+  </div>
+</div>

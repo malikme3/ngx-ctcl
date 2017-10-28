@@ -24,6 +24,7 @@ import {CtclSharedModule} from "../shared/shared.module";
 import {CarouselService} from "../common/services/carousel.service";
 import {DetailedScoreComponent} from "./components/detailed.score/score.component";
 import {ThemeModule} from "../../@theme/theme.module";
+import {PointsTableComponent} from "./components/teampoints/pointstable.component";
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import {ThemeModule} from "../../@theme/theme.module";
         ResultsComponent,
         LabelComponent,
         DetailedScoreComponent,
+        PointsTableComponent,
         //Score cared workd
         //CricTabMenu,
         Slider,
