@@ -11,6 +11,7 @@ import {
 
 const routes: Routes = [
   { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule' },
+  {path: 'ctcl', loadChildren: 'app/ctcl/ctcl.module#CtclModule' },
   {
     path: 'auth',
     component: NbAuthComponent,
@@ -41,8 +42,8 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  { path: '', redirectTo: 'ctcl', pathMatch: 'full' },
+  { path: '**', redirectTo: 'ctcl' },
 ];
 
 const config: ExtraOptions = {
