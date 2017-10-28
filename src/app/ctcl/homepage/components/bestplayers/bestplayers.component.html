@@ -1,0 +1,113 @@
+<ng-container *ngIf="recordsObjectT20; else loading;">
+  <p-panel header="T20-Top Players" [toggleable]="true">
+
+    <p-carousel headerText="T20 Batting" [value]="recordsObjectT20" [circular]="true" [pageLinks]="5"
+                [autoplayInterval]="10000" [numVisible]="5">
+      <ng-template let-player pTemplate="item">
+        <div class="ui-grid ui-grid-responsive">
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-12 align='center'"><h3>{{player.name}}</h3></div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Matches</div>
+            <div class="ui-grid-col-6 textRight">{{player.matches}}</div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Runs</div>
+            <div class="ui-grid-col-6 textRight">{{player.runs}}</div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Average</div>
+            <div class="ui-grid-col-6 textRight">{{player.average}}</div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Fifties</div>
+            <div class="ui-grid-col-6 textRight">{{player.fifties}}</div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+    <p-carousel headerText="T20 Bowlig" [value]="bowling_data_t20" [circular]="true" [pageLinks]="5"
+                [autoplayInterval]="10000" [numVisible]="4">
+      <ng-template let-player pTemplate="item">
+        <div class="ui-grid ui-grid-responsive">
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-12 align='center'"><h3>{{player.name}}</h3></div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Matches</div>
+            <div class="ui-grid-col-6 textRight">{{player.matches}}</div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Runs</div>
+            <div class="ui-grid-col-6 textRight">{{player.runs}}</div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Average</div>
+            <div class="ui-grid-col-6 textRight">{{player.average}}</div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Wickets</div>
+            <div class="ui-grid-col-6 textRight">{{player.wickets}}</div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </p-panel>
+
+  <p-panel header="T30 Top Players" [toggleable]="true">
+
+    <p-carousel headerText="T30 Batting" [value]="recordsObjectT30" [circular]="true" [pageLinks]="5"
+                [autoplayInterval]="10000" [numVisible]="5">
+      <ng-template let-player pTemplate="item">
+        <div class="ui-grid ui-grid-responsive">
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-12 align='center'"><h3>{{player.name}}</h3></div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Matches</div>
+            <div class="ui-grid-col-6 textRight">{{player.matches}}</div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Runs</div>
+            <div class="ui-grid-col-6 textRight">{{player.runs}}</div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Average</div>
+            <div class="ui-grid-col-6 textRight">{{player.average}}</div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Fifties</div>
+            <div class="ui-grid-col-6 textRight">{{player.fifties}}</div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+    <p-carousel headerText="T30 Bowlig" [value]="bowling_data_t30" [circular]="true" [pageLinks]="5"
+                [autoplayInterval]="10000" [numVisible]="4">
+      <ng-template let-player pTemplate="item">
+        <div class="ui-grid ui-grid-responsive">
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-12 align='center'"><h3>{{player.name}}</h3></div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Matches</div>
+            <div class="ui-grid-col-6 textRight">{{player.matches}}</div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Runs</div>
+            <div class="ui-grid-col-6 textRight">{{player.runs}}</div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Average</div>
+            <div class="ui-grid-col-6 textRight">{{player.average}}</div>
+          </div>
+          <div class="ui-grid-row">
+            <div class="ui-grid-col-6 textLeft">Wickets</div>
+            <div class="ui-grid-col-6 textRight">{{player.wickets}}</div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </p-panel>
+  <ng-template #loading></ng-template>
