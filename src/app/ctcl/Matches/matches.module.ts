@@ -25,6 +25,7 @@ import {CarouselService} from "../common/services/carousel.service";
 import {DetailedScoreComponent} from "./components/detailed.score/score.component";
 import {ThemeModule} from "../../@theme/theme.module";
 import {PointsTableComponent} from "./components/teampoints/pointstable.component";
+import {ScheduleComponent} from "./components/schedule/schedule.component";
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import {PointsTableComponent} from "./components/teampoints/pointstable.componen
         LabelComponent,
         DetailedScoreComponent,
         PointsTableComponent,
+        ScheduleComponent,
         //Score cared workd
         //CricTabMenu,
         Slider,

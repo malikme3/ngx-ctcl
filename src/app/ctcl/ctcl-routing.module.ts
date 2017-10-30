@@ -15,6 +15,10 @@ const routes: Routes = [{
             loadChildren: './Matches/matches.module#MatchesModule',
         },
         {
+            path: 'statistics',
+            loadChildren: './statistics/statistics.module#StatisticsModule',
+        },
+        {
             path: '',
             component: HomeComponent,
         }],

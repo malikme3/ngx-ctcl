@@ -1,0 +1,17 @@
+<ng-container *ngIf="data; else loading;">
+<div baCardBlur class="animated fadeIn card {{cardType}} {{baCardClass || ''}}" zoom-in>
+  <div class="card-header clearfix">
+    <div class="dropdown">
+      <p class="float-left h5 " translate> {{'matches.schedule'}}</p>
+      <p class="float-right h5 ">
+        <select class="btn-outline-warning" [(ngModel)]="leagueType" (ngModelChange)="getLeagueSchedule()">
+          <option *ngFor=" let option of options2017" value={{option.id}}>{{option.name}}</option>
+        </select>
+      </p>
+    </div>
+    <ng-content></ng-content>
+  </div>
+  <ng2-smart-table [settings]="settings" [source]="data" (edit)="onRowEdit($event)"></ng2-smart-table>
+</div>
+</ng-container>
+<ng-template #loading> Wait Pleaee, Schdule Sheet is loading for you ...</ng-template>

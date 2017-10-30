@@ -1,0 +1,126 @@
+<ng-container *ngIf="battingRecordsList; else loading;">
+  <p-steps [model]="items" styleClass="dropdown-item btn btn-warning col-12" [(activeIndex)]="activeIndex"
+           [readonly]="false"></p-steps>
+  <div class="row">
+    <!--Right Side auto displaying current years leagues-->
+    <div class="ui-widget-header col-xlg-12 col-lg-12 col-md-12 col-sm-12"
+         style="padding:4px 10px;border-bottom: 0 none">
+      <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+      <input #gb type="text" placeholder="Global Filter">
+    </div>
+    <p-panel>
+      <p-header>
+        <div class="ui-helper-clearfix">
+          <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">Highest Score: All Years</span>
+
+          <p-splitButton [style]="{'float':'right'}" label="Pick Record Type !!" icon="fa-check" (onClick)="save()"
+                         [model]="items"></p-splitButton>
+        </div>
+      </p-header>
+      <div class="row">
+        <div class="col-xlg-6 col-xl-6 col-lg-6  col-md-12 col-sm-12 col-12">
+
+          <p-dataTable [value]="battingRecordsList" selectionMode="single" (onRowSelect)="onRowSelect($event)"
+                       [rows]="10" [paginator]="true" [globalFilter]="gb" #dt>
+            <p-column field="playerFullName" header="Name" [style]="{'width':'30%','margin-top':'8px'}"
+                      [sortable]="true"></p-column>
+            <p-column field="matches" header="Matches" [sortable]="true"
+                      [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+            <p-column field="runs" header="Runs" [sortable]="true"
+                      [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+            <p-column field="average" header="Avg" [sortable]="true"
+                      [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+            <p-column field="fifties" header="50's" [sortable]="true"
+                      [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+            <p-column field="hundreds" header="100's" [sortable]="true"
+                      [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          </p-dataTable>
+        </div>
+        <div class="col-xlg-6 col-xl-6 col-lg-6  col-md-12 col-sm-12 col-12">
+          <p-chart type="bar" [data]="data"></p-chart>
+        </div>
+      </div>
+    </p-panel>
+    <!--<div class="col-xlg-6 col-xl-6 col-lg-6  col-md-12 col-sm-12 col-12">-->
+
+    <p-accordion>
+      <p-accordionTab header="Higest Score: 20 Overs 2017 League">
+
+        <p-dataTable [value]="t20Records" selectionMode="single" (onRowSelect)="onRowSelect($event)"
+                     [rows]="10" [paginator]="true" [globalFilter]="gb" #dt>
+          <p-column field="playerFullName" header="Name" [style]="{'width':'30%','margin-top':'8px'}"
+                    [sortable]="true"></p-column>
+          <p-column field="matches" header="Matches" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="runs" header="Runs" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="average" header="Avg" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="fifties" header="50's" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="hundreds" header="100's" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+        </p-dataTable>
+      </p-accordionTab>
+
+      <p-accordionTab header="Higest Score: 35 Overs 2017 League">
+
+        <p-dataTable [value]="t35Records" selectionMode="single" (onRowSelect)="onRowSelect($event)"
+                     [rows]="10" [paginator]="true" [globalFilter]="gb" #dt>
+          <p-column field="playerFullName" header="Name" [style]="{'width':'30%','margin-top':'8px'}"
+                    [sortable]="true"></p-column>
+          <p-column field="matches" header="Matches" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="runs" header="Runs" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="average" header="Avg" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="fifties" header="50's" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="hundreds" header="100's" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+        </p-dataTable>
+      </p-accordionTab>
+
+      <p-accordionTab header="Higest Score: All Years">
+
+        <p-dataTable [value]="battingRecordsList" selectionMode="single" (onRowSelect)="onRowSelect($event)"
+                     [rows]="10" [paginator]="true" [globalFilter]="gb" #dt>
+          <p-column field="playerFullName" header="Name" [style]="{'width':'30%','margin-top':'8px'}"
+                    [sortable]="true"></p-column>
+          <p-column field="matches" header="Matches" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="runs" header="Runs" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="average" header="Avg" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="fifties" header="50's" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="hundreds" header="100's" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+        </p-dataTable>
+      </p-accordionTab>
+
+      <p-accordionTab header="Higest Score: Last Five Years" selected="true">
+
+        <p-dataTable [value]="previousFiveYearsRecords" selectionMode="single" (onRowSelect)="onRowSelect($event)"
+                     [rows]="10" [paginator]="true" [globalFilter]="gb" #dt>
+          <p-column field="playerFullName" header="Name" [style]="{'width':'30%','margin-top':'8px'}"
+                    [sortable]="true"></p-column>
+          <p-column field="matches" header="Matches" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="runs" header="Runs" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="average" header="Avg" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="fifties" header="50's" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+          <p-column field="hundreds" header="100's" [sortable]="true"
+                    [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+        </p-dataTable>
+      </p-accordionTab>
+
+    </p-accordion>
+  </div>
+</ng-container>
+<ng-template #loading> Wait Pleaee ...</ng-template>
