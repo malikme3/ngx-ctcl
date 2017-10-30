@@ -1,0 +1,51 @@
+<!--TODO: How to get Lates Year Loaded-->
+<p-accordion>
+
+    <p-accordionTab header="Latest News" [selected]="true">
+        <ng-container *ngFor=" let news of newsList;  let i=index">
+            <ng-container *ngIf="i === 0">
+                <ctcl-style title='{{news.writer_info}}'>
+                    <p-fieldset legend='{{news.title}}' [toggleable]="true">
+                        {{news.article}}
+                    </p-fieldset>
+                </ctcl-style>
+            </ng-container>
+        </ng-container>
+    </p-accordionTab>
+    <p-accordionTab header="Year 2017" [selected]="false">
+        <ng-container *ngFor=" let news of newsList;  let i=index">
+            <ng-container *ngIf="news.news_year === '2017'">
+                <ctcl-style title='{{news.writer_info}}'>
+                    <p-fieldset legend='{{news.title}}' [toggleable]="true" collapsed="true">
+                        {{news.article}}
+                    </p-fieldset>
+                </ctcl-style>
+            </ng-container>
+        </ng-container>
+    </p-accordionTab>
+
+    <p-accordionTab header="Year 2016" [selected]="false">
+        <ng-container *ngFor=" let news of newsList;  let i=index">
+            <ng-container *ngIf="news.news_year === '2016'">
+                <ctcl-style title='{{news.writer_info}}'>
+                    <p-fieldset legend='{{news.title}}' [toggleable]="true" collapsed="true">
+                        {{news.article}}
+                    </p-fieldset>
+                </ctcl-style>
+            </ng-container>
+        </ng-container>
+    </p-accordionTab>
+
+    <p-accordionTab header="Year 2015 ..." [selected]="false">
+        <ng-container *ngFor=" let news of newsList;  let i=index">
+            <ng-container *ngIf="news.news_year < '2016'">
+                <ctcl-style title='{{news.writer_info}}'>
+                    <p-fieldset legend='{{news.title}}' [toggleable]="true" collapsed="true">
+                        {{news.article}}
+                    </p-fieldset>
+                </ctcl-style>
+            </ng-container>
+        </ng-container>
+    </p-accordionTab>
+
+</p-accordion>

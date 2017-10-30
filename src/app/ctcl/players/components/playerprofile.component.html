@@ -1,0 +1,49 @@
+<p-fieldset legend="Zulifqar Ahmad" [toggleable]="true">
+    <div class="row">
+        <div align="center" class="col-xlg-2 col-xl-2 col-lg-2  col-md-12 col-sm-12 col-12">
+            <img src="assets/images/Galleria/babar.jpg">
+        </div>
+        <div align="center" class="col-xlg-4 col-xl-4 col-lg-4  col-md-12 col-sm-12 col-12">
+            <p-dataTable [value]="data" [loading]="true">
+                <p-column field="vin" header="Vin"></p-column>
+                <p-column field="year" header="Year"></p-column>
+                <p-column field="brand" header="Brand"></p-column>
+            </p-dataTable>
+        </div>
+        <div id="show_content" align="center" class="col-xlg-6 col-xl-6 col-lg-6  col-md-12 col-sm-12 col-12">
+            <p-dataTable [value]="data" [loading]="true">
+                <p-column field="vin" header="Vin"></p-column>
+                <p-column field="year" header="Year"></p-column>
+                <p-column field="brand" header="Brand"></p-column>
+            </p-dataTable>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <h2>Profile</h2>
+            A right-hand, top-order batsman known for his discipline and level-headed attitude, Babar Azam laid claim to
+            a long-term spot in Pakistan's batting line-up with a strong performance in 2016, making three consecutive
+            ODI
+            hundreds against West Indies in the UAE, and a 90 in his third Test, in Hamilton. He was 22 years old at the
+            time.
+            <a href class="learn-more">Learn more</a>
+        </div>
+        <div class="col-sm-4">
+            <h4 class="groove">Another excellent matching winning innings</h4>
+            <div class="img-wrapper"><img src="{{ ( 'app/typography/typo05.png' ) }}" alt=""/></div>
+            <p>Augue massa et parturient, suspendisse orci nec scelerisque sit, integer nam mauris pede consequat
+                in
+                velit</p>
+            <a href class="learn-more">Learn more</a>
+        </div>
+        <div class="col-sm-5">
+            <h4>Awais swings semifinal game with ball and bat</h4>
+            <div class="img-wrapper"><img src="{{ ( 'app/typography/typo06.png') }}" alt=""/></div>
+            <p>Eget turpis, tortor lobortis porttitor, vestibulum nullam vehicula aliquam</p>
+            <a href class="learn-more">Learn more</a>
+        </div>
+    </div>
+
+</p-fieldset>
+

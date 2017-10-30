@@ -1,0 +1,23 @@
+<ctcl-style title="Centeral Texas League">
+    <p-fieldset legend="Ctcl Clubs" [toggleable]="true">
+        <p-dataTable [value]="clubsInfor" selectionMode="single" [(selection)]="selectedCar" [contextMenu]="cm">
+            <p-column field="club_name" header="Name" [style]="{}">></p-column>
+            <p-column field="president_name" header="President"></p-column>
+            <p-column field="vice_president_name" header="Vice President"></p-column>
+            <p-column field="secretary_name" header="Secretary"></p-column>
+            <p-column field="ground_name" header="Ground"></p-column>
+        </p-dataTable>
+        <p-contextMenu #cm [model]="items"></p-contextMenu>
+    </p-fieldset>
+</ctcl-style>
+
+<p-fieldset legend="Ctcl Teams" [toggleable]="true">
+    <p-dataTable [value]="teams_rrcc_data" selectionMode="single" [(selection)]="selectedCar" [contextMenu]="cm">
+        <p-column field="name" header="Name" [style]="{}">></p-column>
+        <p-column field="captain" header="Captain"></p-column>
+        <p-column field="vice_captain" header="Vice Captain"></p-column>
+        <!--<p-column field="color" header="Team Color"></p-column>-->
+        <p-column field="clubd" header="Team Club"></p-column>
+    </p-dataTable>
+    <p-contextMenu #cm [model]="items"></p-contextMenu>
+</p-fieldset>
