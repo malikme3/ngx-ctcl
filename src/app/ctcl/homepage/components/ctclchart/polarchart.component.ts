@@ -9,7 +9,9 @@ import {HomePageService} from "../../../common/services/homepage.service";
  */
 @Component({
   selector: 'ctcl-pol-chart',
-  templateUrl: 'polarchart.component.html',
+    template: `
+    <p-chart type="bar" type="horizontalBar" [data]="data"></p-chart>
+  `,
 })
 export class CtclChartComponent {
   private ngUnsubscribe: Subject<void> = new Subject<void>();

@@ -27,6 +27,10 @@ const routes: Routes = [{
             loadChildren: './players/players.module#PlayersModule',
         },
         {
+            path: 'aggregate',
+            loadChildren: './aggregate/aggregate.module#AggregateModule',
+        },
+        {
             path: '',
             component: HomeComponent,
         }],

@@ -64,5 +64,15 @@ export const CTCL_MENU_ITEMS: NbMenuItem[] = [
             },
         ],
     },
+    {
+        title: 'Aggregate',
+        icon: 'nb-edit',
+        children: [
+            {
+                title: 'Aggregate',
+                link: '/ctcl/aggregate/basic-details',
+            },
+        ],
+    },
 
 ];
