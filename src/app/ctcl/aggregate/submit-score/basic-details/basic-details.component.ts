@@ -22,6 +22,9 @@ export class BasicDetailsComponent {
     @Output() notify_date: EventEmitter<string> = new EventEmitter<string>();
     @Output() notify_matchCall: EventEmitter<string> = new EventEmitter<string>();
     private ngUnsubscribe: Subject<void> = new Subject<void>();
+    brands:string[];
+
+
 
     //@Input() innings: string;
     //  options: DatePickerOptions;
@@ -95,7 +98,7 @@ export class BasicDetailsComponent {
     constructor(fb: FormBuilder, private matchesService: MatchesService,
                 private matchesConstants: MatchesConstants,
                 private matchesDataStoreService: MatchesDataStoreService) {
-
+        this.brands  = ['Audi','BMW','Fiat','Ford','Honda','Jaguar','Mercedes','Renault','Volvo','VW'];
         // this.options = new DatePickerOptions();
 
         this.form = fb.group({

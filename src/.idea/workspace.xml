@@ -11,47 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="aggregate.module.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/aggregate.module.ts">
+      <file leaf-file-name="form-inputs.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/forms/form-inputs/form-inputs.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="63" lean-forward="false" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#21#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="basic-details.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="96" column="56" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="374" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#70#153#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="aggregate.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/aggregate.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="aggregate.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/aggregate.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="31" />
+            <state relative-caret-position="107">
+              <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="203" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -60,25 +24,50 @@
       <file leaf-file-name="basic-details.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="44" lean-forward="false" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
-              <folding />
+            <state relative-caret-position="120">
+              <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#nb-card-body#0;n#nb-card#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ctcl-menu.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/ctcl/ctcl-menu.ts">
+      <file leaf-file-name="aggregate.module.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/aggregate.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="710">
-              <caret line="68" column="22" lean-forward="false" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="300">
+              <caret line="20" column="129" lean-forward="false" selection-start-line="20" selection-start-column="129" selection-end-line="20" selection-end-column="129" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#21#60#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="basic-details.component.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form-inputs.component.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/forms/form-inputs/form-inputs.component.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="642">
+              <caret line="86" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form-layouts.component.scss" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pages/forms/form-layouts/form-layouts.component.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -87,26 +76,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="matches-data-store.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/ctcl/common/services/matches-data-store.service.ts">
+      <file leaf-file-name="home.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/ctcl/homepage/home.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="36" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clubs.module.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/ctcl/clubs/clubs.module.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="15" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="15" />
-              <folding>
-                <element signature="e#21#60#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="45">
+              <caret line="3" column="60" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="60" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -135,7 +110,21 @@
       <find>NbLoginComponent</find>
       <find>...</find>
       <find>nb-person</find>
+      <find>ba</find>
+      <find>dynamic-label</find>
+      <find>mater</find>
+      <find>md-radio-button</find>
+      <find>NgDatepickerModule</find>
+      <find>datepicker</find>
+      <find>options</find>
+      <find>ThemeModule</find>
+      <find>form</find>
     </findStrings>
+    <replaceStrings>
+      <replace>label.component.ts</replace>
+      <replace>mat-radio-button</replace>
+      <replace>date</replace>
+    </replaceStrings>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -154,7 +143,6 @@
         <option value="$PROJECT_DIR$/app/ctcl/shared/components/charts/d3charts/d3-barchart.componen.scss" />
         <option value="$PROJECT_DIR$/app/ctcl/shared/components/charts/d3charts/d3-barchart.componen.ts" />
         <option value="$PROJECT_DIR$/app/ctcl/shared/components/charts/d3charts/d3-barchart.component.ts" />
-        <option value="$PROJECT_DIR$/app/ctcl/shared/shared.module.ts" />
         <option value="$PROJECT_DIR$/app/ctcl/shared/components/charts/d3charts/d3-barchart.component.html" />
         <option value="$PROJECT_DIR$/app/pages/charts/d3/d3.component.html" />
         <option value="$PROJECT_DIR$/app/pages/charts/charts.module.ts" />
@@ -165,7 +153,6 @@
         <option value="$PROJECT_DIR$/app/ctcl/homepage/components/ctclchart/polarchart.component.html" />
         <option value="$PROJECT_DIR$/app/ctcl/homepage/components/ctclchart/polarchart.component.ts" />
         <option value="$PROJECT_DIR$/app/ctcl/homepage/home.component.ts" />
-        <option value="$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.scss" />
         <option value="$PROJECT_DIR$/app/ctcl/aggregate/aggregate.component.ts" />
         <option value="$PROJECT_DIR$/app/ctcl/aggregate/aggregate.component.html" />
         <option value="$PROJECT_DIR$/app/ctcl/ctcl.module.ts" />
@@ -173,10 +160,13 @@
         <option value="$PROJECT_DIR$/app/ctcl/aggregate/aggregate.routing.ts" />
         <option value="$PROJECT_DIR$/app/ctcl/ctcl-routing.module.ts" />
         <option value="$PROJECT_DIR$/app/ctcl/common/services/matches-data-store.service.ts" />
-        <option value="$PROJECT_DIR$/app/ctcl/aggregate/aggregate.module.ts" />
-        <option value="$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.ts" />
-        <option value="$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.html" />
         <option value="$PROJECT_DIR$/app/ctcl/ctcl-menu.ts" />
+        <option value="$PROJECT_DIR$/app/ctcl/shared/components/label/label.component.ts" />
+        <option value="$PROJECT_DIR$/app/ctcl/shared/shared.module.ts" />
+        <option value="$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.ts" />
+        <option value="$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.scss" />
+        <option value="$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.html" />
+        <option value="$PROJECT_DIR$/app/ctcl/aggregate/aggregate.module.ts" />
       </list>
     </option>
   </component>
@@ -268,14 +258,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="ctcl" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="src" type="b2602c69:ProjectViewProjectNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="ctcl" type="462c0819:PsiDirectoryNode" />
               <item name="homepage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -290,21 +272,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="ctcl" type="462c0819:PsiDirectoryNode" />
-              <item name="players" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="src" type="b2602c69:ProjectViewProjectNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="ctcl" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="src" type="b2602c69:ProjectViewProjectNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="ctcl" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="Matches" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -326,6 +294,29 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="charts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
+              <item name="form-inputs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="forms" type="462c0819:PsiDirectoryNode" />
+              <item name="form-layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="src" type="b2602c69:ProjectViewProjectNode" />
@@ -363,6 +354,11 @@
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/ctcl/shared/components" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -474,7 +470,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12775000" />
+    <option name="totallyTimeSpent" value="20458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -535,81 +531,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/pages/charts/d3/d3-bar.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="23" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-            <marker date="1509166869000" expanded="true" signature="185:415" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/charts/d3/d3.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/charts/charts.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ctcl/shared/components/charts/d3charts/d3-barchart.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/charts/charts-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/charts/d3/d3.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="15" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/charts/echarts/echarts-multiple-xaxis.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/charts/echarts/echarts-line.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/charts/echarts/echarts.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/pages/charts/echarts/echarts.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -635,14 +556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="16" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ctcl/homepage/home.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -749,14 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/forms/form-layouts/form-layouts.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/ctcl/homepage/home.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -802,14 +707,6 @@
           <folding>
             <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ctcl/shared/shared.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="53" lean-forward="false" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -872,23 +769,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/aggregate.routing.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="53" lean-forward="false" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#21#74#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/ctcl/clubs/clubs.routing.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="53" />
           <folding>
-            <element signature="e#21#74#0" expanded="true" />
+            <element signature="e#21#74#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -898,7 +784,7 @@
         <state relative-caret-position="555">
           <caret line="37" column="15" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="15" />
           <folding>
-            <element signature="e#21#60#0" expanded="true" />
+            <element signature="e#21#60#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -908,12 +794,38 @@
         <state relative-caret-position="105">
           <caret line="7" column="36" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="36" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.scss">
+    <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/aggregate.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ctcl/ctcl-menu.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="755">
+          <caret line="71" column="36" lean-forward="false" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ctcl/shared/components/styles/styles.comopnent.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ctcl/shared/components/label/label.component.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -921,13 +833,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.ts">
+    <entry file="file://$PROJECT_DIR$/app/ctcl/shared/shared.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="96" column="56" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="374" selection-end-column="0" />
+        <state relative-caret-position="405">
+          <caret line="30" column="149" lean-forward="true" selection-start-line="30" selection-start-column="149" selection-end-line="30" selection-end-column="149" />
+          <folding>
+            <element signature="e#299#343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ctcl/shared/components/label/label.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="31" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#70#153#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/aggregate.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="53" lean-forward="false" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#21#74#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -940,38 +872,117 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/aggregate.component.ts">
+    <entry file="file://$PROJECT_DIR$/app/pages/forms/form-inputs/form-inputs.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="31" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/aggregate.module.ts">
+    <entry file="file://$PROJECT_DIR$/app/pages/forms/form-layouts/form-layouts.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="63" lean-forward="false" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
+        <state relative-caret-position="631">
+          <caret line="145" column="14" lean-forward="true" selection-start-line="112" selection-start-column="4" selection-end-line="145" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/forms/form-layouts/form-layouts.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/forms/forms.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="10" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#21#60#0" expanded="true" />
+            <element signature="e#70#153#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ctcl/shared/components/label/label.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/forms/form-inputs/form-inputs.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="203" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ctcl/homepage/home.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="60" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/forms/form-layouts/form-layouts.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pages/forms/form-inputs/form-inputs.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="642">
+          <caret line="86" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/submit-score/basic-details/basic-details.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="44" lean-forward="false" selection-start-line="0" selection-start-column="44" selection-end-line="0" selection-end-column="44" />
-          <folding />
+        <state relative-caret-position="120">
+          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#nb-card-body#0;n#nb-card#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ctcl/ctcl-menu.ts">
+    <entry file="file://$PROJECT_DIR$/app/ctcl/aggregate/aggregate.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="710">
-          <caret line="68" column="22" lean-forward="false" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="300">
+          <caret line="20" column="129" lean-forward="false" selection-start-line="20" selection-start-column="129" selection-end-line="20" selection-end-column="129" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#21#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

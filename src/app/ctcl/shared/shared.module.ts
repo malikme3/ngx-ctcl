@@ -14,6 +14,7 @@ import {BorderedTableComponent} from "./components/tables/borderedtable/bordered
 import {StylesComopnent} from "./components/styles/styles.comopnent";
 import {ThemeModule} from "../../@theme/theme.module";
 import {D3BarChartComponent} from "./components/charts/d3charts/d3-barchart.component";
+import {LabelComponent} from "./components/label/label.component";
 
 
 @NgModule({
@@ -26,8 +27,8 @@ import {D3BarChartComponent} from "./components/charts/d3charts/d3-barchart.comp
         NgxChartsModule
     ],
 
-    declarations: [PolarChartComponent, TeamsPointsComponent, TabMenuComponent, BorderedTableComponent, StylesComopnent, D3BarChartComponent],
-    exports: [PolarChartComponent, TeamsPointsComponent, TabMenuComponent, BorderedTableComponent, StylesComopnent, D3BarChartComponent],
+    declarations: [PolarChartComponent, TeamsPointsComponent, TabMenuComponent, BorderedTableComponent, StylesComopnent, D3BarChartComponent, LabelComponent],
+    exports: [PolarChartComponent, TeamsPointsComponent, TabMenuComponent, BorderedTableComponent, StylesComopnent, D3BarChartComponent,LabelComponent],
     providers: [TeamsPointsService]
 })
 export class CtclSharedModule {

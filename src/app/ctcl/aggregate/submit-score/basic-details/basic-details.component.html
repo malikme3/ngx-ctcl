@@ -1,1 +1,545 @@
-<div>Hello from Basic Details component !!!!</div>
+<div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+        <nb-card>
+            <nb-card-header>Select Ground</nb-card-header>
+            <nb-card-body>
+                <div class="row demo-checkboxes-radio">
+                    <!--TODO: Populate grounds dynamically-->
+                    <div class="demo-radio col-sm-12">
+                        <label class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="customRadio">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">RRCC</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="customRadio" checked>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">HCCA</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="customRadio" checked>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">ACG</span>
+                        </label>
+                    </div>
+
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+        <nb-card>
+            <nb-card-header>Select League</nb-card-header>
+            <nb-card-body>
+                <div class="row demo-checkboxes-radio">
+                    <!--TODO: Populate Leagues dynamically-->
+                    <div class="demo-radio col-sm-12">
+                        <label class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="customRadio">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">20 Overs</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="customRadio" checked>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">30 Overs</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="customRadio" checked>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">35 Overs</span>
+                        </label>
+                    </div>
+
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+        <nb-card>
+            <nb-card-header>Select Match Status</nb-card-header>
+            <nb-card-body>
+                <div class="row demo-checkboxes-radio">
+                    <!--TODO: Populate grounds dynamically-->
+                    <div class="demo-radio col-sm-12">
+                        <label class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="customRadio">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Match Completed with Result</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="customRadio" checked>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Match Tied</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="customRadio" checked>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Won by Forfiet</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="customRadio" checked>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">No Result: Some Play</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" name="customRadio" checked>
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">No Result: Match Cancelled</span>
+                        </label>
+                    </div>
+
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+
+<nb-card>
+    <nb-card-header>Block form</nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <p-autoComplete [(ngModel)]="country" [suggestions]="filteredCountriesSingle"
+                                    (completeMethod)="filterCountrySingle($event)" field="name" [size]="30"
+                                    placeholder="Countries" [minLength]="1" [dropdown]="true"></p-autoComplete>
+                    <div style="margin-left:10px">Country: {{brands ? country ||country : 'none'}}</div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="inputLastName">Last Name</label>
+                    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="inputWebsite">Website</label>
+                    <input type="text" class="form-control" id="inputWebsite" placeholder="Website">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </nb-card-body>
+</nb-card>
+
+
+<!--<div>-->
+<!--<ctcl-style baCardClass="with-scroll" title="Match Basic Details">-->
+<!--<div id="step1">-->
+<!--<form [formGroup]="form" (ngSubmit)="onSubmitBasicDetails(form.value)" class="form-horizontal">-->
+<!--<ctcl-style baCardClass="with-scroll" title="">-->
+<!--<div class="row col-xlg-12 col-lg-12 col-md-12 col-sm-12">-->
+
+<!--<div class="row col-xlg-8 col-lg-8 col-md-8 col-sm-12">-->
+<!--<ctcl-style baCardClass="with-scroll" title="">-->
+<!--<ctcl-dynamic-label *ngIf="!league_id.valid" [labelStatus]="'error'"-->
+<!--[labelText]="'Select League'"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label *ngIf="league_id.valid" [labelStatus]="'success'"-->
+<!--[labelText]="'League Selected'"></ctcl-dynamic-label>-->
+<!--<md-radio-group [formControl]="league_id" class="example-radio-group"-->
+<!--*ngFor="let league of checkLeagues"-->
+<!--[(ngModel)]="selectedLeague"-->
+<!--layout="column"-->
+<!--(click)="onSelected('league_id', league.leagueId); onSelected('season', league.seasonId) "-->
+<!--[disabled]="league.disabled">-->
+<!--<mat-radio-button class="example-radio-button" [value]="league.leagueId">-->
+<!--{{league.name}}-->
+<!--</mat-radio-button>-->
+<!--</md-radio-group>-->
+
+
+<!--<ctcl-dynamic-label *ngIf="!ground_name.valid" [labelStatus]="'error'"-->
+<!--[labelText]="'Select Game Venue'"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label *ngIf="ground_name.valid" [labelStatus]="'success'"-->
+<!--[labelText]="'Game Venue Selected'"></ctcl-dynamic-label>-->
+<!--<md-radio-group [formControl]="ground_name" class="example-radio-group"-->
+<!--[(ngModel)]="selectedVenue"-->
+<!--*ngFor="let venue of checkVenues"-->
+<!--[disabled]="venue.disabled">-->
+<!--<mat-radio-button class="example-radio-button" [value]="venue.name"-->
+<!--(click)="onSelected('ground_id', venue.value)"-->
+<!--(click)="onSelected('ground_name', venue.name)">-->
+<!--{{venue.name}}-->
+<!--</mat-radio-button>-->
+<!--</md-radio-group>-->
+<!--</ctcl-style>-->
+<!--</div>-->
+<!--<div class="row col-xlg-4 col-lg-4 col-md-4 col-sm-12">-->
+<!--<ctcl-style baCardClass="with-scroll" title="">-->
+<!--<ctcl-dynamic-label *ngIf="!matchResult.valid" [labelStatus]="'error'"-->
+<!--[labelText]="'Select Match Result'"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label *ngIf="matchResult.valid" [labelStatus]="'success'"-->
+<!--[labelText]="'Match Result Selected'"></ctcl-dynamic-label>-->
+<!--<md-radio-group [formControl]="matchResult" class="example-radio-group"-->
+<!--[(ngModel)]="selectedResult">-->
+<!--<mat-radio-button class="example-radio-button" *ngFor="let result of checkResults"-->
+<!--[value]="result.value"-->
+<!--(click)="onSelectedResult(result.name, result.value)">-->
+<!--{{result.text}}-->
+<!--</mat-radio-button>-->
+<!--</md-radio-group>-->
+<!--</ctcl-style>-->
+<!--</div>-->
+<!--</div>-->
+<!--</ctcl-style>-->
+<!--<div class="form-group row">-->
+<!--<div class="button-wrapper" class="col-sm-3 ">-->
+<!--<ctcl-dynamic-label *ngIf="!game_date.valid" [labelStatus]="'error'"-->
+<!--[labelText]="'Select Match Date'"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label *ngIf="game_date.valid" [labelStatus]="'success'"-->
+<!--[labelText]="'Date Selected'"></ctcl-dynamic-label>-->
+<!--</div>-->
+<!--<div class="col-lg-3 col-md-3 col-sm-12">-->
+<!--&lt;!&ndash;<ng2-datepicker [formControl]="game_date"&ndash;&gt;-->
+<!--&lt;!&ndash;[(ngModel)]="dateValue"&ndash;&gt;-->
+<!--&lt;!&ndash;[options]="myOptions2"&ndash;&gt;-->
+<!--&lt;!&ndash;&gt;</ng2-datepicker>&ndash;&gt;-->
+<!--&lt;!&ndash;<ng-daterangepicker [formControl]="game_date" [(ngModel)]="valueNew" [options]="myOptions2"></ng-daterangepicker>&ndash;&gt;-->
+<!--</div>-->
+
+<!--&lt;!&ndash;check portable player if are playing&ndash;&gt;-->
+<!--<div class=" button-wrapper" class="col-sm-3 " [ngSwitch]="name">-->
+<!--&lt;!&ndash;<ctcl-dynamic-label *ngIf="'yes'" [labelStatus]="'warning'"-->
+<!--[labelText]="'Portable Players'"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--<ctcl-dynamic-label *ngIf="'no'" [labelStatus]="'success'"-->
+<!--[labelText]="'Portable Players'"></ctcl-dynamic-label>-->
+<!--</div>-->
+<!--<div class="col-lg-3 col-md-3 col-sm-3">-->
+<!--&lt;!&ndash; <input [formControl]="week" type="text" class="form-control" id="potables" placeholder="Portable Yes or No"-->
+<!--[(ngModel)]="weekNo" (change)="onSelected('week', weekNo)">&ndash;&gt;-->
+
+<!--<md-checkbox>Please check</md-checkbox>-->
+
+<!--</div>-->
+<!--</div>-->
+
+
+<!--<ctcl-style baCardClass="with-scroll" title="Select Match Result">-->
+
+<!--<div class="form-group row">-->
+
+<!--<div class="button-wrapper" class="col-sm-4 " [ngSwitch]="true">-->
+<!--<ctcl-dynamic-label [labelStatus]="'info'" [labelText]="'Match Week #'"-->
+<!--*ngSwitchCase="!week.touched && !week.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'success'" [labelText]="'Match  Week #'"-->
+<!--*ngSwitchCase="week.valid"></ctcl-dynamic-label>-->
+<!--&lt;!&ndash; <ctcl-dynamic-label [labelStatus]="'warning'" [labelText]="'Match  Week #'" *ngSwitchCase="week.touched"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--<ctcl-dynamic-label [labelStatus]="'error'" [labelText]="'Match  Week #'"-->
+<!--*ngSwitchCase="!week.valid && week.touched"></ctcl-dynamic-label>-->
+<!--</div>-->
+<!--<div class="col-lg-8 col-md-8 col-sm-8">-->
+<!--<input [formControl]="week" type="text" class="form-control" id="week"-->
+<!--placeholder="Enter Week #"-->
+<!--[(ngModel)]="weekNo" (change)="onSelected('week', weekNo)">-->
+<!--</div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Results&ndash;&gt;-->
+<!--<div class="form-group row">-->
+
+<!--<div class="button-wrapper" class="col-sm-4 " [ngSwitch]="true">-->
+<!--<ctcl-dynamic-label [labelStatus]="'info'" [labelText]="'Match Result'"-->
+<!--*ngSwitchCase="!result.touched && !result.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'success'" [labelText]="'Match Result'"-->
+<!--*ngSwitchCase="result.valid"></ctcl-dynamic-label>-->
+<!--&lt;!&ndash; <ctcl-dynamic-label [labelStatus]="'warning'" [labelText]="'Match Result'" *ngSwitchCase="result.touched"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--<ctcl-dynamic-label [labelStatus]="'error'" [labelText]="'Match Result'"-->
+<!--*ngSwitchCase="!result.valid && result.touched"></ctcl-dynamic-label>-->
+<!--</div>-->
+<!--<div class="col-lg-8 col-md-8 col-sm-8">-->
+<!--<input [formControl]="result" type="text" class="form-control" id="result"-->
+<!--placeholder="Enter Result">-->
+<!--</div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Max Overs&ndash;&gt;-->
+
+<!--<div class="form-group row">-->
+
+<!--<div class="button-wrapper" class="col-sm-4 " [ngSwitch]="true">-->
+<!--<ctcl-dynamic-label [labelStatus]="'info'" [labelText]="'Maximum Overs'"-->
+<!--*ngSwitchCase="!maxovers.touched && !maxovers.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'success'" [labelText]="'Maximum Overs'"-->
+<!--*ngSwitchCase="maxovers.valid"></ctcl-dynamic-label>-->
+<!--&lt;!&ndash; <ctcl-dynamic-label [labelStatus]="'warning'" [labelText]="'Maximum Overs'" *ngSwitchCase="maxovers.touched"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--<ctcl-dynamic-label [labelStatus]="'error'" [labelText]="'Maximum Overs'"-->
+<!--*ngSwitchCase="!maxovers.valid && maxovers.touched"></ctcl-dynamic-label>-->
+<!--</div>-->
+<!--<div class="col-lg-8 col-md-8 col-sm-8">-->
+<!--<input [formControl]="maxovers" type="text" class="form-control" id="maxovers"-->
+<!--placeholder="Maximum Overs">-->
+<!--</div>-->
+<!--</div>-->
+
+<!--</ctcl-style>-->
+
+<!--<ctcl-style baCardClass="with-scroll" title="Select Playing Teams">-->
+
+
+<!--<div class="form-group row">-->
+<!--<label for="result" class="col-sm-4 control-label">Teams for Home Team's Portable-->
+<!--Players</label>-->
+<!--<div class="col-sm-8 ">-->
+<!--<ng-select [formControl]="name"-->
+<!--[options]="teamsList" [multiple]="true" [allowClear]="true"-->
+<!--placeholder="Select Teams for Home Team's Portable Players"-->
+<!--highlightTextColor="black"-->
+<!--(selected)="onTeamsSelected('homeTeamsPortable',$event.value)">-->
+<!--</ng-select>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group row">-->
+<!--<label for="result" class="col-sm-4 control-label">Teams for Away Team's Portable-->
+<!--Players</label>-->
+<!--<div class="col-sm-8 ">-->
+<!--<ng-select [formControl]="name"-->
+<!--[options]="teamsList" [multiple]="true" [allowClear]="true"-->
+<!--placeholder="Select Teams for Away Team's Portable Players"-->
+<!--highlightTextColor="black"-->
+<!--(selected)="onTeamsSelected('awayTeamsPortable',$event.value)"-->
+<!--(selected)="onTeamsSelected('awayTeamsPortable',$event.value)">-->
+<!--</ng-select>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="form-group row">-->
+<!--<div class="button-wrapper" class="col-sm-4 " [ngSwitch]="true">-->
+<!--<ctcl-dynamic-label [labelStatus]="'info'" [labelText]="'Home Team'"-->
+<!--*ngSwitchCase="!hometeam.touched && !hometeam.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'success'" [labelText]="'Home Team'"-->
+<!--*ngSwitchCase="hometeam.valid"></ctcl-dynamic-label>-->
+<!--&lt;!&ndash; <ctcl-dynamic-label [labelStatus]="'warning'" [labelText]="'Home Team'" *ngSwitchCase="hometeam.touched"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--<ctcl-dynamic-label [labelStatus]="'error'" [labelText]="'Home Team'"-->
+<!--*ngSwitchCase="!hometeam.valid && hometeam.touched"></ctcl-dynamic-label>-->
+<!--</div>-->
+<!--<div class="col-sm-8">-->
+<!--<ng-select [formControl]="hometeam"-->
+<!--[options]="teamsList" [allowClear]="true" placeholder="Select Home Team"-->
+<!--highlightColor="#FFCE56"-->
+<!--(selected)="onTeamsSelected('homeTeam',$event.value)"-->
+<!--(selected)="onSelected('hometeam',$event.value)"-->
+<!--(selected)="playing_teams('hometeam',$event)">-->
+<!--</ng-select>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Guest Team&ndash;&gt;-->
+<!--<div class="form-group row">-->
+<!--<div class="button-wrapper" class="col-sm-4 " [ngSwitch]="true">-->
+<!--<ctcl-dynamic-label [labelStatus]="'info'" [labelText]="'Away Team'"-->
+<!--*ngSwitchCase="!awayteam.touched && !awayteam.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'success'" [labelText]="'Away Team'"-->
+<!--*ngSwitchCase="awayteam.valid"></ctcl-dynamic-label>-->
+<!--&lt;!&ndash; <ctcl-dynamic-label [labelStatus]="'warning'" [labelText]="'Home Team'" *ngSwitchCase="awayteam.touched"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--<ctcl-dynamic-label [labelStatus]="'error'" [labelText]="'Away Team'"-->
+<!--*ngSwitchCase="!awayteam.valid && awayteam.touched"></ctcl-dynamic-label>-->
+<!--</div>-->
+<!--<div class="col-sm-8 ">-->
+<!--<ng-select [formControl]="awayteam"-->
+<!--[options]="teamsList" [allowClear]="true" placeholder="Select Visiting Team"-->
+<!--highlightTextColor="black"-->
+<!--(selected)="onTeamsSelected('awayTeam',$event.value)"-->
+<!--(selected)="onSelected('awayteam',$event.value)"-->
+<!--(selected)="playing_teams('awayteam',$event)">-->
+<!--</ng-select>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Umpiring Team&ndash;&gt;-->
+<!--<div class="form-group row">-->
+<!--<div class="button-wrapper" class="col-sm-4 " [ngSwitch]="true">-->
+<!--<ctcl-dynamic-label [labelStatus]="'info'" [labelText]="'Umpiring Team'"-->
+<!--*ngSwitchCase="!umpireTeam.touched && !umpireTeam.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'success'" [labelText]="'Umpiring Team'"-->
+<!--*ngSwitchCase="umpireTeam.valid"></ctcl-dynamic-label>-->
+<!--&lt;!&ndash; <ctcl-dynamic-label [labelStatus]="'warning'" [labelText]="'Umpiring Team'" *ngSwitchCase="umpireTeam.touched"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--<ctcl-dynamic-label [labelStatus]="'error'" [labelText]="'Umpiring Team'"-->
+<!--*ngSwitchCase="!umpireTeam.valid && umpireTeam.touched"></ctcl-dynamic-label>-->
+<!--</div>-->
+<!--<div class="col-sm-8 ">-->
+<!--<ng-select [formControl]="umpireTeam"-->
+<!--[options]="teamsList" [allowClear]="true" placeholder="Select Umpiring Team"-->
+<!--highlightTextColor="black"-->
+<!--(selected)="onTeamsSelected('umpiringTeam',$event.value)"-->
+<!--(selected)="onSelected('umpireTeam',$event.value)">-->
+<!--</ng-select>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Winning Toss Team&ndash;&gt;-->
+<!--<div class="form-group row">-->
+<!--<div class="button-wrapper" class="col-sm-4 " [ngSwitch]="true">-->
+<!--<ctcl-dynamic-label [labelStatus]="'info'" [labelText]="'Winning Toss Team'"-->
+<!--*ngSwitchCase="!toss_won_id.touched && !toss_won_id.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'success'" [labelText]="'Winning Toss Team'"-->
+<!--*ngSwitchCase="toss_won_id.valid"></ctcl-dynamic-label>-->
+<!--&lt;!&ndash; <ctcl-dynamic-label [labelStatus]="'warning'" [labelText]="'Winning Toss Team'" *ngSwitchCase="toss_won_id.touched"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--<ctcl-dynamic-label [labelStatus]="'error'" [labelText]="'Winning Toss Team'"-->
+<!--*ngSwitchCase="!toss_won_id.valid && toss_won_id.touched"></ctcl-dynamic-label>-->
+<!--</div>-->
+<!--<div class="col-sm-8 ">-->
+<!--<ng-select [formControl]="toss_won_id"-->
+<!--[options]="teams_playings" [allowClear]="true"-->
+<!--placeholder="Select Winning Toss team" highlightTextColor="black"-->
+<!--(selected)="onSelected('toss_won_id',$event.value)">-->
+<!--</ng-select>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Bating First Team&ndash;&gt;-->
+<!--<div class="form-group row">-->
+<!--<div class="button-wrapper" class="col-sm-4 " [ngSwitch]="true">-->
+
+<!--<ctcl-dynamic-label [labelStatus]="'info'" [labelText]="'Batting First Team'"-->
+<!--*ngSwitchCase="!batting_first_id.touched && !batting_first_id.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'success'" [labelText]="'Batting First Team'"-->
+<!--*ngSwitchCase="batting_first_id.valid"></ctcl-dynamic-label>-->
+<!--&lt;!&ndash; <ctcl-dynamic-label [labelStatus]="'warning'" [labelText]="'Batting First Team'" *ngSwitchCase="toss_won_id.touched"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--<ctcl-dynamic-label [labelStatus]="'error'" [labelText]="'Batting First Team'"-->
+<!--*ngSwitchCase="!batting_first_id.valid && batting_first_id.touched"></ctcl-dynamic-label>-->
+
+<!--</div>-->
+<!--<div class="col-sm-8">-->
+<!--<ng-select [formControl]="batting_first_id"-->
+<!--[(options)]="teams_playings" [allowClear]="true"-->
+<!--(selected)="battingOrderStatus($event.value)"-->
+<!--placeholder="Select Batting First Team" highlightTextColor="black"-->
+<!--(selected)="onSelected('batting_first_id',$event.value)">-->
+<!--</ng-select>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;Batting second&ndash;&gt;-->
+<!--<div class="form-group row">-->
+<!--<div class="button-wrapper" class="col-sm-4 " [ngSwitch]="true">-->
+<!--<ctcl-dynamic-label [labelStatus]="'info'" [labelText]="'Batting Second Team'"-->
+<!--*ngSwitchCase="!batting_second_id.touched && !batting_second_id.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'success'" [labelText]="'Batting Second Team'"-->
+<!--*ngSwitchCase="batting_second_id.valid"></ctcl-dynamic-label>-->
+<!--&lt;!&ndash; <ctcl-dynamic-label [labelStatus]="'warning'" [labelText]="'Batting Second Team'" *ngSwitchCase="batting_second_id.touched"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--<ctcl-dynamic-label [labelStatus]="'error'" [labelText]="'Batting Second Team'"-->
+<!--*ngSwitchCase="!batting_second_id.valid && batting_second_id.touched"></ctcl-dynamic-label>-->
+<!--</div>-->
+<!--<div class="col-sm-8 ">-->
+<!--<ng-select [formControl]="batting_second_id"-->
+<!--[(options)]="teams_playings" [allowClear]="true"-->
+<!--placeholder="Select Batting Second Team" highlightTextColor="black"-->
+<!--(selected)="onSelected('batting_second_id',$event.value)">-->
+<!--</ng-select>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Victorious team &ndash;&gt;-->
+<!--<div class="form-group row">-->
+<!--<div class="button-wrapper" class="col-sm-4 " [ngSwitch]="true">-->
+<!--<ctcl-dynamic-label [labelStatus]="'info'" [labelText]="'Victorious Team'"-->
+<!--*ngSwitchCase="!result_won_id.touched && !result_won_id.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'success'" [labelText]="'Victorious Team'"-->
+<!--*ngSwitchCase="result_won_id.valid"></ctcl-dynamic-label>-->
+<!--&lt;!&ndash; <ctcl-dynamic-label [labelStatus]="'warning'" [labelText]="'VictoriousTeam'" *ngSwitchCase="result_won_id.touched"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--<ctcl-dynamic-label [labelStatus]="'error'" [labelText]="'Victorious Team'"-->
+<!--*ngSwitchCase="!result_won_id.valid && result_won_id.touched"></ctcl-dynamic-label>-->
+<!--</div>-->
+<!--<div class="col-sm-8 ">-->
+<!--<ng-select [formControl]="result_won_id"-->
+<!--[options]="teams_playings" [allowClear]="true"-->
+<!--placeholder="Select Victorious Team" highlightTextColor="black"-->
+<!--(selected)="onSelected('result_won_id',$event.value)">-->
+<!--</ng-select>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group row">-->
+<!--<div class="button-wrapper" class="col-sm-4 " [ngSwitch]="true">-->
+<!--<ctcl-dynamic-label [labelStatus]="'info'" [labelText]="'First Umpire Team'"-->
+<!--*ngSwitchCase="!umpire1.touched && !umpire1.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'success'" [labelText]="'First Umpire Team'"-->
+<!--*ngSwitchCase="umpire1.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'warning'" [labelText]="'First Umpire Team'"-->
+<!--*ngSwitchCase="!umpire1.valid && umpire1.touched"></ctcl-dynamic-label>-->
+<!--&lt;!&ndash;<ctcl-dynamic-label [labelStatus]="'error'" [labelText]="'First Umpire Team'" *ngSwitchCase="!umpire1.valid && umpire1.touched"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--</div>-->
+
+<!--<div class="col-sm-8 ">-->
+<!--<ng-select [formControl]="umpire1"-->
+<!--[options]="playersList" [allowClear]="true"-->
+<!--placeholder="Select First Umpire " highlightTextColor="black"-->
+<!--(selected)="onSelected('umpire1',$event.value)">-->
+<!--</ng-select>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<!--<div class="form-group row">-->
+
+<!--<div class="button-wrapper" class="col-sm-4 " [ngSwitch]="true">-->
+<!--<ctcl-dynamic-label [labelStatus]="'info'" [labelText]="'Second Umpire Team'"-->
+<!--*ngSwitchCase="!umpire2.touched && !umpire2.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'success'" [labelText]="'Second Umpire Team'"-->
+<!--*ngSwitchCase="umpire2.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'warning'" [labelText]="'Second Umpire Team'"-->
+<!--*ngSwitchCase="!umpire2.valid && umpire2.touched"></ctcl-dynamic-label>-->
+<!--&lt;!&ndash;<ctcl-dynamic-label [labelStatus]="'error'" [labelText]="'Second Umpire Team'" *ngSwitchCase="!umpire2.valid && umpire2.touched"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--</div>-->
+<!--<div class="col-sm-8 ">-->
+<!--<ng-select [formControl]="umpire2"-->
+<!--[options]="playersList" [allowClear]="true"-->
+<!--placeholder="Select Second Umpire " highlightTextColor="black"-->
+<!--(selected)="onSelected('umpire2',$event.value)">-->
+<!--</ng-select>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group row">-->
+
+<!--<div class="button-wrapper" class="col-sm-4 " [ngSwitch]="true">-->
+<!--<ctcl-dynamic-label [labelStatus]="'info'" [labelText]="'Man of the Match'"-->
+<!--*ngSwitchCase="!mom.touched && !mom.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'success'" [labelText]="'Man of the Match'"-->
+<!--*ngSwitchCase="mom.valid"></ctcl-dynamic-label>-->
+<!--<ctcl-dynamic-label [labelStatus]="'warning'" [labelText]="'Man of the Match'"-->
+<!--*ngSwitchCase="!mom.valid && mom.touched"></ctcl-dynamic-label>-->
+<!--&lt;!&ndash;<ctcl-dynamic-label [labelStatus]="'error'" [labelText]="'Man of the Match'" *ngSwitchCase="!mom.valid && mom.touched"></ctcl-dynamic-label>&ndash;&gt;-->
+<!--</div>-->
+
+<!--<div class="col-sm-8 ">-->
+<!--<ng-select [formControl]="mom"-->
+<!--[options]="playersList" [allowClear]="true"-->
+<!--placeholder="Select Man of the Match " highlightTextColor="black"-->
+<!--(selected)="onSelected('mom',$event.value)">-->
+<!--</ng-select>-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;[disabled]="!form.valid"&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="auth-sep"><span><span>or Sign up with one click</span></span></div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<div class="al-share-auth">&ndash;&gt;-->
+<!--&lt;!&ndash;<ul claSss="al-share clearfix">&ndash;&gt;-->
+<!--&lt;!&ndash;<li><i class="socicon socicon-facebook" title="Share on Facebook"></i></li>&ndash;&gt;-->
+<!--&lt;!&ndash;<li><i class="socicon socicon-twitter" title="Share on Twitter"></i></li>&ndash;&gt;-->
+<!--&lt;!&ndash;<li><i class="socicon socicon-google" title="Share on Google Plus"></i></li>&ndash;&gt;-->
+<!--&lt;!&ndash;</ul>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</ctcl-style>-->
+<!--</form>-->
+<!--</div>-->
+
+<!--<div class="form-group row">-->
+<!--<div class="offset-sm-4 col-xlg-4 col-lg-4 col-md-4 col-sm-4">-->
+<!--<button type="submit" class="btn btn-default btn-auth"-->
+<!--(click)="onSubmitBasicDetails(form.value)">Submit Match Details !!-->
+<!--</button>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--</ctcl-style>-->
+<!--</div>-->

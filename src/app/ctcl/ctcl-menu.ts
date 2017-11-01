@@ -69,8 +69,13 @@ export const CTCL_MENU_ITEMS: NbMenuItem[] = [
         icon: 'nb-edit',
         children: [
             {
-                title: 'Aggregate',
-                link: '/ctcl/aggregate/basic-details',
+                title: 'Submit Score',
+                icon: 'nb-gear',
+                children: [{
+                    title: 'Basic Match Details',
+                    link: '/ctcl/aggregate/basic-details',
+                },
+                ],
             },
         ],
     },
