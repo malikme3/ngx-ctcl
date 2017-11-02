@@ -29,7 +29,7 @@ export class StatisticsService {
 
     const url = `${this.schduel_url}seasonId=${seasonId}`;
     console.info("Call for getSchedule() with url : ", url);
-    return this.http.get(url, this.header).toPromise().then(res => res.json())
+    return this.http.get(url, {headers: this.header}).toPromise().then(res => res.json())
       .catch(this.handleError);
   }
 
@@ -41,7 +41,7 @@ export class StatisticsService {
     let club = "10";*/
     const url = `${this.batting_url}team=${inputs.teamId}&player=${inputs.playerId}&season=${inputs.seasonId}&year=${inputs.seasonYear}&club=${inputs.clubId}`;
     console.info("Call for getBattingRecond() with url : ", url);
-   return this.http.get(url, this.header).map(responce => responce.json())
+   return this.http.get(url, {headers: this.header}).map(responce => responce.json())
    // return this.http.get(url, this.options).map(responce => responce.json())
       .catch(this.handleError)
   }

@@ -28,27 +28,27 @@ export class ClubsService {
   getClubLists(): Observable<any> {
 
     console.info("Call for getClubLists() with url : ", this.club_list_path_url);
-    return this.http.get(this.club_list_path_url, this.header).map(responce => responce.json())
+    return this.http.get(this.club_list_path_url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   }
 
   getClubsInfo(): Observable<any> {
     console.info("Call for getClubsInfor() with url : ", this.club_list_path_url);
-    return this.http.get(this.clubs_info_url, this.header).map(responce => responce.json())
+    return this.http.get(this.clubs_info_url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   };
 
   getPlayersRoles(): Observable<any> {
 
     console.info("Call for getPlayerRoles() with url : ", this.club_list_path_url);
-    return this.http.get(this.players_roles_url, this.header).map(responce => responce.json())
+    return this.http.get(this.players_roles_url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   }
 
   getCtclNews(): Observable<any> {
 
     console.info("Call for getCtclNews() with url : ", this.ctcl_news_url);
-    return this.http.get(this.ctcl_news_url, this.header).map(responce => responce.json())
+    return this.http.get(this.ctcl_news_url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   }
 

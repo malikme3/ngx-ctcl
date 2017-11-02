@@ -19,7 +19,7 @@ export class BasicTablesService {
         const ul = this.pagesConstant.pagesContants.url.baseUrl+ this.teamsPosition +'seasonName='+season+'&seasonYear='+group;
         const header = this.pagesConstant.pagesContants.url.header;
 
-        return this.http.get(ul, header).toPromise().then(res => res.json())
+        return this.http.get(ul, {headers: header}).toPromise().then(res => res.json())
             .catch(this.handleError);
     }
 

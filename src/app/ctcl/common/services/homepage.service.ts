@@ -38,12 +38,12 @@ export class HomePageService {
 
     getSeasonGroups(year: String): Observable<any[]> {
         console.info('Making request to server for teams standing');
-        return this.http.get(this.groupsUrls + year, this.header).map(res => res.json()).catch(this.handleError);
+        return this.http.get(this.groupsUrls + year, {headers: this.header}).map(res => res.json()).catch(this.handleError);
     }
 
     getTeamStanding(): Observable<any[]> {
         console.info('Making request to server for teams standing');
-        return this.http.get(this.teamUrl, this.header).map(res => res.json())
+        return this.http.get(this.teamUrl, {headers: this.header}).map(res => res.json())
             .catch(this.handleError);
 
     }
@@ -56,7 +56,7 @@ export class HomePageService {
         let club = "10";
         const url = `${this.batting_url}team=${team}&player=${player}&season=${season}&year=${year}&club=${club}`;
         console.info("Call for getBattingRecond() with url : ", url);
-        return this.http.get(url, this.header).map(responce => responce.json())
+        return this.http.get(url, {headers: this.header}).map(responce => responce.json())
         // return this.http.get(url, this.options).map(responce => responce.json())
             .catch(this.handleError)
     }
@@ -69,14 +69,14 @@ export class HomePageService {
         let club = "10";
         const url = `${this.bowling_url}team=${team}&player=${player}&season=${season}&year=${year}&club=${club}`;
         console.info("Call for getBowlingRecond() with url : ", url);
-        return this.http.get(url, this.header).map(responce => responce.json())
+        return this.http.get(url, {headers: this.header}).map(responce => responce.json())
         // return this.http.get(url, this.options).map(responce => responce.json())
             .catch(this.handleError)
     }
 
     getLatestMatchesResult(): Observable<any> {
         console.info("Call for getBattingRecond() with url : ", this.matches_latest_url);
-        return this.http.get(this.matches_latest_url, this.header).map(responce => responce.json())
+        return this.http.get(this.matches_latest_url, {headers: this.header}).map(responce => responce.json())
         // return this.http.get(url, this.options).map(responce => responce.json())
             .catch(this.handleError)
     }
@@ -84,7 +84,7 @@ export class HomePageService {
     getNextMatches(seasonId): Observable<any> {
         const url = `${this.schduel_url}seasonId=${seasonId}`;
         console.info("Call for getNextMatches() with url : ", this.schduel_url);
-        return this.http.get(url, this.header).map(responce => responce.json())
+        return this.http.get(url, {headers: this.header}).map(responce => responce.json())
         // return this.http.get(url, this.options).map(responce => responce.json())
             .catch(this.handleError)
     }

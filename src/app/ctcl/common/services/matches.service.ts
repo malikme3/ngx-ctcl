@@ -63,62 +63,62 @@ export class MatchesService {
 
     const url = `${this.schduel_url}seasonId=${seasonId}`;
     console.info("Call for getSchedule() with url : ", url);
-    return this.http.get(url, this.header).map(res => res.json())
+    return this.http.get(url, {headers: this.header}).map(res => res.json())
       .catch(this.handleError);
   }
 
   getBattingDetails(gameId: string): Observable<any> {
     const url = `${this.batting_url}gameId=${gameId}`;
     console.info("Call for getDetailedScore() with url : ", url);
-    return this.http.get(url, this.header).map(responce => responce.json())
+    return this.http.get(url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   }
 
   getBattingDetailsByInnings(gameId: number, inning): Observable<any> {
     const url = `${this.scorecard_batting_url}gameId=${gameId}&inning=${inning}`;
     console.info("Call for getBattingDetailsByInnings() with url : ", url);
-    return this.http.get(url, this.header).map(responce => responce.json())
+    return this.http.get(url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   }
 
   getBowlingDetail(gameId: number, inning): Observable<any> {
     const url = `${this.scorecard_bowling_url}gameId=${gameId}&inning=${inning}`;
     console.info("Call for getBattingDetailsByInnings() with url : ", url);
-    return this.http.get(url, this.header).map(responce => responce.json())
+    return this.http.get(url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   }
 
   getDNBPlayers(gameId: number, inning): Observable<any> {
     const url = `${this.scorecard_dnb_url}gameId=${gameId}&inning=${inning}`;
     console.info("Call for getBattingDetailsByInnings() with url : ", url);
-    return this.http.get(url, this.header).map(responce => responce.json())
+    return this.http.get(url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   }
 
   getScoreCardByInnings(gameId: number, inning): Observable<any> {
     const url = `${this.scorecard_info_url}gameId=${gameId}&inning=${inning}`;
     console.info("Call for getScoreCardByInnings() with url : ", url);
-    return this.http.get(url, this.header).map(responce => responce.json())
+    return this.http.get(url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   }
 
   getBowlingDetails(gameId: string): Observable<any> {
     const url = `${this.bowling_url}gameId=${gameId}`;
     console.info("Call for getDetailedScore() with url : ", url);
-    return this.http.get(url, this.header).map(responce => responce.json())
+    return this.http.get(url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   }
 
   getTeamslist(): Observable<any> {
     const url = this.baseUrl + this.teams_list;
     console.info("Call for getTeamList() with url : ", url);
-    return this.http.get(this.teams_url, this.header).map(responce => responce.json())
+    return this.http.get(this.teams_url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   }
 
   getPlayerslist(): Observable<any> {
     console.info("Call for getPlayerslist() with url : ", this.players_url);
-    return this.http.get(this.players_url, this.header).map(responce => responce.json())
+    return this.http.get(this.players_url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   }
 
@@ -164,33 +164,33 @@ export class MatchesService {
 
   getHowOutType() {
     console.info("Call for getHowOutType() with url : ", this.players_url);
-    return this.http.get(this.howOutType_url, this.header).map(responce => responce.json())
+    return this.http.get(this.howOutType_url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   };
 
   findMatchByPlayingTeamsAndDate(homeTeam: number, awayTeam: number, date: any): Observable<any> {
     const url = `${this.findMatch_url}homeTeam=${homeTeam}&awayTeam=${awayTeam}&matchDate=${date}`;
     console.info("Call for findMatchByPlayingTeamsAndDate() with url : ", url);
-    return this.http.get(url, this.header).map(responce => responce.json())
+    return this.http.get(url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   }
 
   loadBattingDetails(gameId: string): Observable<any> {
     const url = `${this.batting_url}gameId=${gameId}`;
     console.info("Observable Call for getDetailedScore() with url : ", url);
-    return this.http.get(url, this.header).map(res => res.json()).catch(this.handleError);
+    return this.http.get(url, {headers: this.header}).map(res => res.json()).catch(this.handleError);
   }
 
   loadBowlingDetails(gameId: string): Observable<any> {
     const url = `${this.bowling_url}gameId=${gameId}`;
     console.info("Observable Call for getDetailedScore() with url : ", url);
-    return this.http.get(url, this.header).map(res => res.json()).catch(this.handleError);
+    return this.http.get(url, {headers: this.header}).map(res => res.json()).catch(this.handleError);
   }
 
   loadExtrasDetails(gameId: string): Observable<any> {
     const url = `${this.extras_url}gameId=${gameId}`;
     console.info("Observable Call for getDetailedScore() with url : ", url);
-    return this.http.get(url, this.header).map(res => res.json()).catch(this.handleError);
+    return this.http.get(url, {headers: this.header}).map(res => res.json()).catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {

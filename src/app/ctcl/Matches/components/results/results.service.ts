@@ -20,7 +20,7 @@ export class ResultsService {
   getMatchesResult1(seasonId: number): Promise<ResultPojo[]> {
     const url = `${this.resultUrl}seasonId=${seasonId}`;
     console.info("The url for getMatchesResult() is", url);
-    return this.http.get(url, this.header).toPromise().then(res => res.json() as ResultPojo[])
+    return this.http.get(url, {headers: this.header}).toPromise().then(res => res.json() as ResultPojo[])
       .catch(this.handleError);
 
   }
@@ -28,7 +28,7 @@ export class ResultsService {
   getMatchesResult(seasonId: number): Observable<ResultPojo> {
     const url = `${this.resultUrl}seasonId=${seasonId}`;
     console.info("Call for getMatchesResult() with url : ", url);
-    return this.http.get(url, this.header).map(responce => responce.json() as ResultPojo[])
+    return this.http.get(url, {headers: this.header}).map(responce => responce.json() as ResultPojo[])
       .catch(this.handleError)
   }
 
