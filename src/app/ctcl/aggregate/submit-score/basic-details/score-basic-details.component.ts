@@ -60,7 +60,7 @@ export class ScoreBasicDetailsComponent {
     public umpire2: AbstractControl;
     public mom: AbstractControl;
     public maxovers: AbstractControl;
-    public matchResult: AbstractControl;
+    public final_result_summary: AbstractControl;
     //Results options
     public completed: AbstractControl;
     public forfeit: AbstractControl;
@@ -122,7 +122,7 @@ export class ScoreBasicDetailsComponent {
             'umpire2': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
             'mom': ['', Validators.compose([Validators.required, Validators.minLength(1000000)])],
             'maxovers': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'matchResult': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
+            'final_result_summary': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
             //Results options
             'completed': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
             'forfeit': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
@@ -154,7 +154,7 @@ export class ScoreBasicDetailsComponent {
         this.umpire2 = this.form.controls['umpire2'];
         this.mom = this.form.controls['mom'];
         this.maxovers = this.form.controls['maxovers'];
-        this.matchResult = this.form.controls['matchResult'];
+        this.final_result_summary = this.form.controls['final_result_summary'];
         //Results options
         this.completed = this.form.controls['completed'];
         this.forfeit = this.form.controls['forfeit'];

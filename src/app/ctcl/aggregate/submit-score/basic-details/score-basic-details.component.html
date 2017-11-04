@@ -13,7 +13,7 @@
                             <ng-container *ngFor="let venue of checkVenues">
                                 <label class="custom-control custom-radio">
                                     <input class="custom-control-input" type="radio"
-                                           value="ground_id"
+                                           name="ground_id"
                                            (click)="setFormValue('ground_id', venue.value)"
                                            (click)="setFormValue('ground_name', venue.name)"
                                            [disabled]="venue.disabled">
@@ -27,8 +27,8 @@
                         <nb-card-body>
                             <ng-container *ngFor="let league of checkLeagues">
                                 <label class="custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio"
-                                           name="league_id"
+                                    <input class="custom-control-input"
+                                           type="radio" name="league_id"
                                            (click)="setFormValue('league_id', league.leagueId)"
                                            (click)="setFormValue('season', league.seasonId)"
                                            [disabled]="league.disabled">
@@ -44,8 +44,8 @@
                         <nb-card-body>
                             <ng-container *ngFor="let result of checkResults">
                                 <label class="form-control  custom-control custom-radio">
-                                    <input class="custom-control-input" type="radio"
-                                           name="result"
+                                    <input class="custom-control-input"
+                                           type="radio" name="result"
                                            (click)="setFormValue(result.name, result.value)">
                                     <span class="custom-control-indicator"></span>
                                     <span class="custom-control-description">{{result.text}}</span>
@@ -73,7 +73,7 @@
                                     <nb-card-header>
                                         <label>Match Date</label>
                                     </nb-card-header>
-                                    <p-calendar class="form-control" id="matchDate"
+                                    <p-calendar [formControl]="game_date" class="form-control" id="matchDate"
                                                 placeholder="Enter Match Date"
                                                 [showIcon]="true"></p-calendar>
                                     <span style="margin-left:35px">{{date3|date}}</span>
@@ -105,8 +105,8 @@
                                 <nb-card-header>
                                     <label for="portable">Match Result</label>
                                 </nb-card-header>
-                                <input type="text" class="form-control" id="matchResult"
-                                       placeholder="Hint: x team won by x wickets/runs">
+                                <input [formControl]="final_result_summary" type="text" class="form-control"
+                                       id="final_result_summary" placeholder="Hint: x team won by x wickets/runs">
                             </div>
                         </div>
                     </nb-card-body>
@@ -127,13 +127,13 @@
                 <label>Home Team</label>
             </nb-card-header>
             <div class="form-group form-control form-control-danger">
-                <p-autoComplete [formControl]="hometeam" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                <p-autoComplete [inputStyle]="{'width':'90%','font-size': '16px'}"
                                 styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
                                 [dropdown]="true" autoHighlight="true"
                                 field="label" placeholder="Select home team"
                                 (completeMethod)="getFilteredTeams($event)"
                                 [suggestions]="filteredTeams"
-                                (onSelect)="setFormValue('hometeam',$event)">
+                                (onSelect)="setFormValue('hometeam',$event.value)">
 
                 </p-autoComplete>
             </div>
@@ -144,7 +144,7 @@
             </nb-card-header>
 
             <div class="form-group form-control form-control-warning">
-                <p-autoComplete [formControl]="awayteam" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                <p-autoComplete [inputStyle]="{'width':'90%','font-size': '16px'}"
                                 styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
                                 [dropdown]="true" autoHighlight="true"
                                 field="label" placeholder="Select away team"
@@ -156,7 +156,7 @@
                 <label>Winning Toss Team</label>
             </nb-card-header>
             <div class="form-group form-control form-control-warning">
-                <p-autoComplete [formControl]="awayteam" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                <p-autoComplete [inputStyle]="{'width':'90%','font-size': '16px'}"
                                 styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
                                 [dropdown]="true" autoHighlight="true"
                                 field="label" placeholder="Select winning toss team"
