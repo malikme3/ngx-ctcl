@@ -1,0 +1,294 @@
+<div id="step1">
+    <form [formGroup]="form" (ngSubmit)="onSubmitBasicDetails(form.value)" class="form-horizontal">
+
+        <ctcl-style title="Match Basic Details">
+            <!--<nb-card>-->
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+
+                    <div class="row demo-checkboxes-radio">
+                        <!--TODO: Populate grounds dynamically-->
+                        <nb-card-header>Select Ground</nb-card-header>
+                        <nb-card-body>
+                            <ng-container *ngFor="let venue of checkVenues">
+                                <label class="custom-control custom-radio">
+                                    <input class="custom-control-input" type="radio"
+                                           value="ground_id"
+                                           (click)="setFormValue('ground_id', venue.value)"
+                                           (click)="setFormValue('ground_name', venue.name)"
+                                           [disabled]="venue.disabled">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">{{venue.name}}</span>
+                                </label>
+                            </ng-container>
+
+                        </nb-card-body>
+                        <nb-card-header>Select League</nb-card-header>
+                        <nb-card-body>
+                            <ng-container *ngFor="let league of checkLeagues">
+                                <label class="custom-control custom-radio">
+                                    <input class="custom-control-input" type="radio"
+                                           name="league_id"
+                                           (click)="setFormValue('league_id', league.leagueId)"
+                                           (click)="setFormValue('season', league.seasonId)"
+                                           [disabled]="league.disabled">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">{{league.name}}</span>
+                                </label>
+                            </ng-container>
+
+                        </nb-card-body>
+                    </div>
+                    <div class="row demo-checkboxes-radio">
+                        <nb-card-header>Select Match Status</nb-card-header>
+                        <nb-card-body>
+                            <ng-container *ngFor="let result of checkResults">
+                                <label class="form-control  custom-control custom-radio">
+                                    <input class="custom-control-input" type="radio"
+                                           name="result"
+                                           (click)="setFormValue(result.name, result.value)">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">{{result.text}}</span>
+                                </label>
+                            </ng-container>
+                        </nb-card-body>
+                    </div>
+
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <nb-card-body>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <nb-card-header>
+                                        <label for="week">Match Week</label>
+                                    </nb-card-header>
+
+                                    <input [formControl]="week" type="text" class="form-control" id="week"
+                                           placeholder="Enter Week #">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <nb-card-header>
+                                        <label>Match Date</label>
+                                    </nb-card-header>
+                                    <p-calendar class="form-control" id="matchDate"
+                                                placeholder="Enter Match Date"
+                                                [showIcon]="true"></p-calendar>
+                                    <span style="margin-left:35px">{{date3|date}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <nb-card-header>
+                                        <label for="maxovers">Max Overs</label>
+                                    </nb-card-header>
+                                    <input [formControl]="maxovers" type="text" class="form-control" id="maxovers"
+                                           placeholder="Maximum Overs">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <nb-card-header>
+                                        <label for="portable">Portable Players</label>
+                                    </nb-card-header>
+                                    <input type="text" class="form-control" id="portable"
+                                           placeholder="Enter Portable Players">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <nb-card-header>
+                                    <label for="portable">Match Result</label>
+                                </nb-card-header>
+                                <input type="text" class="form-control" id="matchResult"
+                                       placeholder="Hint: x team won by x wickets/runs">
+                            </div>
+                        </div>
+                    </nb-card-body>
+
+                </div>
+            </div>
+            <!--</nb-card>-->
+        </ctcl-style>
+    </form>
+</div>
+
+<ctcl-style title="Select Match Teams">
+    <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+
+            <!--Home Team -->
+            <nb-card-header>
+                <label>Home Team</label>
+            </nb-card-header>
+            <div class="form-group form-control form-control-danger">
+                <p-autoComplete [formControl]="hometeam" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true"
+                                field="label" placeholder="Select home team"
+                                (completeMethod)="getFilteredTeams($event)"
+                                [suggestions]="filteredTeams"
+                                (onSelect)="setFormValue('hometeam',$event)">
+
+                </p-autoComplete>
+            </div>
+
+            <!--Guest Team -->
+            <nb-card-header>
+                <label>Away Team</label>
+            </nb-card-header>
+
+            <div class="form-group form-control form-control-warning">
+                <p-autoComplete [formControl]="awayteam" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true"
+                                field="label" placeholder="Select away team"
+                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                (onSelect)="setFormValue('awayteam',$event.value)">
+                </p-autoComplete>
+            </div>
+            <nb-card-header>
+                <label>Winning Toss Team</label>
+            </nb-card-header>
+            <div class="form-group form-control form-control-warning">
+                <p-autoComplete [formControl]="awayteam" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true"
+                                field="label" placeholder="Select winning toss team"
+                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                (onSelect)="setFormValue('toss_won_id',$event.value)">
+                </p-autoComplete>
+            </div>
+            <nb-card-header>
+                <label>Bat First Team</label>
+            </nb-card-header>
+            <div class="form-group form-control form-control-warning">
+                <p-autoComplete [formControl]="name" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true"
+                                field="label" placeholder="Select Bat first team"
+                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                (onSelect)="setFormValue('batting_first_id',$event.value)">
+                </p-autoComplete>
+            </div>
+            <nb-card-header>
+                <label>Bat Second Team</label>
+            </nb-card-header>
+            <div class="form-group form-control form-control-warning">
+                <p-autoComplete [formControl]="name" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true"
+                                field="label" placeholder="Select Bat second team"
+                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                (onSelect)="setFormValue('batting_second_id',$event.value)">
+                </p-autoComplete>
+            </div>
+            <nb-card-header>
+                <label>Victorious Team</label>
+            </nb-card-header>
+            <div class="form-group form-control form-control-success">
+                <p-autoComplete [formControl]="name" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true"
+                                field="label" placeholder="Select Victorious Team"
+                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                (onSelect)="setFormValue('result_won_id',$event.value)">
+
+                </p-autoComplete>
+            </div>
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <nb-card-header>
+                <label>Man of the Match</label>
+            </nb-card-header>
+            <div class="form-group form-control form-control-success">
+                <!--TODO: [multiple]="true" is not working: a bug in primng side-->
+                <p-autoComplete [formControl]="name" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true"
+                                field="label" placeholder="Select Man of the Match"
+                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                (onSelect)="setFormValue('umpireTeam',$event.value)">
+
+                </p-autoComplete>
+            </div>
+
+            <nb-card-header>
+                <label>Umpiring Teams</label>
+            </nb-card-header>
+            <div class="form-group form-control form-control-success">
+                <!--TODO: [multiple]="true" is not working: a bug in primng side-->
+                <p-autoComplete [formControl]="name" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true"
+                                field="label" placeholder="Select Umpiring Teams"
+                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                (onSelect)="setFormValue('umpireTeam',$event.value)">
+
+                </p-autoComplete>
+            </div>
+            <nb-card-header>
+                <label>Umpire # 1</label>
+            </nb-card-header>
+            <div class="form-group form-control form-control-danger">
+                <p-autoComplete [formControl]="name" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true"
+                                field="label" placeholder="Select Umpire # 1"
+                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                (onSelect)="setFormValue('umpire1',$event.value)">
+
+                </p-autoComplete>
+            </div>
+            <nb-card-header>
+                <label>Umpire #2</label>
+            </nb-card-header>
+            <div class="form-group form-control form-control-success">
+                <p-autoComplete [formControl]="name" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true"
+                                field="label" placeholder="Select Umpire # 2"
+                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                (onSelect)="setFormValue('umpire2',$event.value)">
+
+                </p-autoComplete>
+            </div>
+            <nb-card-header>
+                <label>Teams of portable players (Home Side)</label>
+            </nb-card-header>
+            <div class="form-group form-control form-control-success">
+                <!--TODO: [multiple]="true" is not working: a bug in primng side-->
+                <p-autoComplete [formControl]="name" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true"
+                                field="label" placeholder="Enter Teams of portable players"
+                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                (onSelect)="setFormValue('homeTeamsPortable',$event.value)">
+
+                </p-autoComplete>
+            </div>
+            <nb-card-header>
+                <label>Teams of portable players (Away Side)</label>
+            </nb-card-header>
+            <div class="form-group form-control form-control-warning">
+                <!--TODO: [multiple]="true" is not working: a bug in primng side-->
+                <p-autoComplete [formControl]="name" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true"
+                                field="label" placeholder="Enter Teams of portable players"
+                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                (onSelect)="setFormValue('homeTeamsPortable',$event.value)">
+
+                </p-autoComplete>
+            </div>
+        </div>
+        <!--</form>-->
+    </div>
+</ctcl-style>
+<!--</form>-->

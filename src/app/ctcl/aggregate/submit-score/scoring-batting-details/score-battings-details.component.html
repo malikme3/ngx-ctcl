@@ -1,0 +1,9 @@
+
+
+<p-autoComplete [suggestions]="selectedValue" (completeMethod)="getFilteredTeamsVal($event)" field="label" [size]="30"
+                placeholder="Countries" [minLength]="1"   [dropdown]="true"></p-autoComplete>
+<div style="margin-left:10px">Country: {{country ? country.label||country : 'none'}}</div>
+<p-autoComplete [suggestions]="selectedValue" (completeMethod)="getFilteredTeamsVal($event)" field="label" [size]="30"
+                placeholder="Countries" [minLength]="1"   [dropdown]="true"></p-autoComplete>
+<div style="margin-left:10px">Country: {{country ? country.label||country : 'none'}}</div>
+
