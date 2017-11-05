@@ -22,4 +22,16 @@ export class CommonUtilsService {
         }
         return filtered;
     }
+
+    filterPlayers(query, players: any[]): any[] {
+        console.log("In common service, input Val: ", query)
+        let filtered: any[] = [];
+        for (let i = 0; i < players.length; i++) {
+            let player = players[i];
+            if (player.label.toLowerCase().indexOf(query.toLowerCase()) > -1) {
+                filtered.push(player);
+            }
+        }
+        return filtered;
+    }
 };

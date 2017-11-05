@@ -16,14 +16,15 @@ import {CommonUtilsService} from "../../../common/services/common-utils.service"
     styleUrls: ['score-basic-details.component.scss'],
 })
 export class ScoreBasicDetailsComponent {
-    @Output() notify_homeTeam: EventEmitter<string> = new EventEmitter<string>();
-    @Output() notify_awayTeam: EventEmitter<string> = new EventEmitter<string>();
+    @Output() notify_home_team: EventEmitter<string> = new EventEmitter<string>();
+    @Output() notify_away_team: EventEmitter<string> = new EventEmitter<string>();
     @Output() notify_date: EventEmitter<string> = new EventEmitter<string>();
     @Output() notify_matchCall: EventEmitter<string> = new EventEmitter<string>();
     private ngUnsubscribe: Subject<void> = new Subject<void>();
     brands: string[];
     date3: Date;
     filteredTeams: any;
+    filteredPlayers: any;
 
     //@Input() innings: string;
     //options: DatePickerOptions;
@@ -49,15 +50,15 @@ export class ScoreBasicDetailsComponent {
     public game_date;
     public dateFlag: boolean = true;
     //Second Blcok: drop down
-    public awayteam: AbstractControl;
-    public hometeam: AbstractControl;
-    public umpireTeam: AbstractControl;
+    public away_team: AbstractControl;
+    public home_team: AbstractControl;
+    public umpire_team: AbstractControl;
     public toss_won_id: AbstractControl;
     public batting_first_id: AbstractControl;
     public batting_second_id: AbstractControl;
     public result_won_id: AbstractControl;
-    public umpire1: AbstractControl;
-    public umpire2: AbstractControl;
+    public umpire_1: AbstractControl;
+    public umpire_2: AbstractControl;
     public mom: AbstractControl;
     public maxovers: AbstractControl;
     public final_result_summary: AbstractControl;
@@ -70,23 +71,8 @@ export class ScoreBasicDetailsComponent {
 
     private teamsname;
     teamsList: Array<any>;
-    myOptions2: any;
     dateValue: any = null;
     playersList: Array<any>;
-    batFirstPlayers: Array<any>;
-    batSecondPlayers: Array<any>;
-    playersByTeamsIds: Array<any>;
-    playersForHomeTeam: Array<any>;
-    playersForAwayTeam: Array<any>;
-    playersForUmpiringTeam: Array<any>;
-    matchByDate;
-    homeTeamsIds: Array<number> = [];
-    awayTeamsIds: Array<number> = [];
-    umpiringTeamsIds: Array<number> = [];
-    teams_playings: Array<IOption> = [
-        {label: 'Select Home Team First', value: '0'},
-        {label: 'Select Guest Team First', value: '0'}
-    ];
 
     public submitted_step1: boolean = false;
     public submitted_step2: boolean = false;
@@ -111,15 +97,15 @@ export class ScoreBasicDetailsComponent {
             'result': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
 
             'game_date': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'awayteam': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'hometeam': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'umpireTeam': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
+            'away_team': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
+            'home_team': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
+            'umpire_team': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
             'toss_won_id': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
             'batting_first_id': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
             'batting_second_id': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
             'result_won_id': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'umpire1': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'umpire2': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
+            'umpire_1': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
+            'umpire_2': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
             'mom': ['', Validators.compose([Validators.required, Validators.minLength(1000000)])],
             'maxovers': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
             'final_result_summary': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
@@ -143,15 +129,15 @@ export class ScoreBasicDetailsComponent {
         this.result = this.form.controls['result'];
 
         this.game_date = this.form.controls['game_date'];
-        this.awayteam = this.form.controls['awayteam'];
-        this.hometeam = this.form.controls['hometeam'];
-        this.umpireTeam = this.form.controls['umpireTeam'];
+        this.away_team = this.form.controls['away_team'];
+        this.home_team = this.form.controls['home_team'];
+        this.umpire_team = this.form.controls['umpire_team'];
         this.toss_won_id = this.form.controls['toss_won_id'];
         this.batting_first_id = this.form.controls['batting_first_id'];
         this.batting_second_id = this.form.controls['batting_second_id'];
         this.result_won_id = this.form.controls['result_won_id'];
-        this.umpire1 = this.form.controls['umpire1'];
-        this.umpire2 = this.form.controls['umpire2'];
+        this.umpire_1 = this.form.controls['umpire_1'];
+        this.umpire_2 = this.form.controls['umpire_2'];
         this.mom = this.form.controls['mom'];
         this.maxovers = this.form.controls['maxovers'];
         this.final_result_summary = this.form.controls['final_result_summary'];
@@ -173,10 +159,14 @@ export class ScoreBasicDetailsComponent {
     ngOnInit(): void {
         this.getTeamslist();
         this.getPlayerslist();
+        this.form.controls['batting_first_id'].setValue({
+            label: "Falcons",
+            value: 6
+        });
         console.warn("dateValue : ", this.dateValue)
     }
 
-    //eague_id,season,week,awayteam,hometeam,game_date,result_won_id,forfeit,mom,umpire1,umpire2,maxovers,isactive
+    //eague_id,season,week,away_team,home_team,game_date,result_won_id,forfeit,mom,umpire_1,umpire_2,maxovers,isactive
     checkLeagues = this.matchesConstants.getLeagues()
     checkVenues = this.matchesConstants.getCheckVenues();
     checkResults = this.matchesConstants.getCheckResults();
@@ -211,20 +201,6 @@ export class ScoreBasicDetailsComponent {
     setFormValue(type: any, value: any) {
         (this.form.controls[type]).setValue(value);
         console.log('type: ', type, ' value: ', value, 'formValue: ', this.form.value);
-    }
-
-
-    battingOrderStatus(teamId) {
-        console.log('homeTeam Ids ', this.homeTeamsIds);
-        if (this.homeTeamsIds.indexOf(teamId) > -1) {
-            console.log("Home Team is Batting First id: ", teamId)
-            this.batFirstPlayers = this.playersForHomeTeam;
-            this.batSecondPlayers = this.playersForAwayTeam;
-        } else {
-            console.log("Away Team is Batting First id: ", teamId)
-            this.batFirstPlayers = this.playersForAwayTeam;
-            this.batSecondPlayers = this.playersForHomeTeam;
-        }
     }
 
     onSelectedResult(type: any, value: any) {
@@ -290,6 +266,11 @@ export class ScoreBasicDetailsComponent {
     getFilteredTeams(inputs) {
         let query = inputs.query;
         this.filteredTeams = this.commonUtilsService.filterTeams(query, this.teamsList);
+    }
+
+    getFilteredPlayers(inputs) {
+        let query = inputs.query;
+        this.filteredPlayers = this.commonUtilsService.filterPlayers(query, this.playersList);
     }
 
     public onSubmitBasicDetails(values: Object): void {

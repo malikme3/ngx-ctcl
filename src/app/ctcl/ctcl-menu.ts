@@ -70,7 +70,6 @@ export const CTCL_MENU_ITEMS: NbMenuItem[] = [
         children: [
             {
                 title: 'Submit Score',
-                icon: 'nb-gear',
                 children: [{
                     title: 'Basic Match Details',
                     link: '/ctcl/aggregate/basic-details',
