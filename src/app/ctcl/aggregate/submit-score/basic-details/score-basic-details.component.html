@@ -116,187 +116,190 @@
             </div>
             <!--</nb-card>-->
         </ctcl-style>
+
+
+        <ctcl-style title="Select Match Teams">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+
+                    <!--Home Team -->
+                    <nb-card-header>
+                        <label>Home Team</label>
+                    </nb-card-header>
+                    <div class="form-group form-control form-control-danger">
+                        <p-autoComplete [formControl]="home_team" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                        styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                        [dropdown]="true" autoHighlight="true" id="home_team"
+                                        field="label" placeholder="Select home team"
+                                        (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                        (onSelect)="setFormValue('home_team',$event)">
+                        </p-autoComplete>
+                    </div>
+
+                    <!--Guest Team -->
+                    <nb-card-header>
+                        <label>Away Team</label>
+                    </nb-card-header>
+
+                    <div class="form-group form-control form-control-warning">
+                        <p-autoComplete [formControl]="away_team" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                        styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                        [dropdown]="true" autoHighlight="true"
+                                        field="label" placeholder="Select away team"
+                                        (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                        (onSelect)="setFormValue('away_team',$event)">
+                        </p-autoComplete>
+                    </div>
+                    <nb-card-header>
+                        <label>Winning Toss Team</label>
+                    </nb-card-header>
+                    <div class="form-group form-control form-control-warning">
+                        <p-autoComplete [formControl]="toss_won_id" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                        styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                        [dropdown]="true" autoHighlight="true" id="toss_won_id"
+                                        field="label" placeholder="Select winning toss team"
+                                        (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                        (onSelect)="setFormValue('toss_won_id',$event)">
+                        </p-autoComplete>
+                    </div>
+                    <nb-card-header>
+                        <label>Bat First Team</label>
+                    </nb-card-header>
+                    <div class="form-group form-control form-control-warning">
+                        <p-autoComplete [formControl]="batting_first_id"
+                                        [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                        styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                        [dropdown]="true" autoHighlight="true" required="true" id="batting_first_id"
+                                        field="label" placeholder="Select Bat first team"
+                                        (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                        (onSelect)="setFormValue('batting_first_id',$event)">
+                        </p-autoComplete>
+                    </div>
+                    <nb-card-header>
+                        <label>Bat Second Team</label>
+                    </nb-card-header>
+                    <div class="form-group form-control form-control-warning">
+                        <p-autoComplete [formControl]="batting_second_id"
+                                        [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                        styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                        [dropdown]="true" autoHighlight="true" required="true" id="batting_second_id"
+                                        field="label" placeholder="Select Bat second team"
+                                        (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                        (onSelect)="setFormValue('batting_second_id',$event)">
+                        </p-autoComplete>
+                    </div>
+                    <nb-card-header>
+                        <label>Victorious Team</label>
+                    </nb-card-header>
+                    <div class="form-group form-control form-control-success">
+                        <p-autoComplete [formControl]="result_won_id" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                        styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                        [dropdown]="true" autoHighlight="true" id="result_won_id"
+                                        field="label" placeholder="Select Victorious Team"
+                                        (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                        (onSelect)="setFormValue('result_won_id',$event)">
+
+                        </p-autoComplete>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <nb-card-header>
+                        <label>Man of the Match</label>
+                    </nb-card-header>
+                    <div class="form-group form-control form-control-success">
+                        <!--TODO: [multiple]="true" is not working: a bug in primng side-->
+                        <p-autoComplete [formControl]="mom" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                        styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                        [dropdown]="true" autoHighlight="true" id="mom"
+                                        field="label" placeholder="Select Man of the Match"
+                                        (completeMethod)="getFilteredPlayers($event)" [suggestions]="filteredPlayers"
+                                        (onSelect)="setFormValue('mom',$event)">
+
+                        </p-autoComplete>
+                    </div>
+
+                    <nb-card-header>
+                        <label>Umpiring Teams</label>
+                    </nb-card-header>
+                    <div class="form-group form-control form-control-success">
+                        <!--TODO: [multiple]="true" is not working: a bug in primng side-->
+                        <p-autoComplete [formControl]="umpire_team" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                        styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                        [dropdown]="true" autoHighlight="true"
+                                        field="label" placeholder="Select Umpiring Teams"
+                                        (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                        (onSelect)="setFormValue('umpire_team',$event)">
+
+                        </p-autoComplete>
+                    </div>
+                    <nb-card-header>
+                        <label>Umpire # 1</label>
+                    </nb-card-header>
+                    <div class="form-group form-control form-control-danger">
+                        <p-autoComplete [formControl]="umpire_1" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                        styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                        [dropdown]="true" autoHighlight="true" id="umpire_1"
+                                        field="label" placeholder="Select Umpire # 1"
+                                        (completeMethod)="getFilteredPlayers($event)" [suggestions]="filteredPlayers"
+                                        (onSelect)="setFormValue('umpire_1',$event)">
+
+                        </p-autoComplete>
+                    </div>
+                    <nb-card-header>
+                        <label>Umpire #2</label>
+                    </nb-card-header>
+                    <div class="form-group form-control form-control-success">
+                        <p-autoComplete [formControl]="umpire_2" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                        styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                        [dropdown]="true" autoHighlight="true" id="umpire_2"
+                                        field="label" placeholder="Select Umpire # 2"
+                                        (completeMethod)="getFilteredPlayers($event)" [suggestions]="filteredPlayers"
+                                        (onSelect)="setFormValue('umpire_2',$event)">
+
+                        </p-autoComplete>
+                    </div>
+                    <nb-card-header>
+                        <label>Teams of portable players (Home Side)</label>
+                    </nb-card-header>
+                    <div class="form-group form-control form-control-success">
+                        <!--TODO: [multiple]="true" is not working: a bug in primng side-->
+                        <!--TODO: onSelect)="setFormValue('name',$event.value), need work-->
+                        <p-autoComplete [formControl]="name" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                        styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                        [dropdown]="true" autoHighlight="true"
+                                        field="label" placeholder="Enter Teams of portable players"
+                                        (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                        (onSelect)="setFormValue('name',$event)">
+
+                        </p-autoComplete>
+                    </div>
+                    <nb-card-header>
+                        <label>Teams of portable players (Away Side)</label>
+                    </nb-card-header>
+                    <div class="form-group form-control form-control-warning">
+                        <!--TODO: [multiple]="true" is not working: a bug in primng side-->
+                        <!--TODO: onSelect)="setFormValue('name',$event.value), need work-->
+                        <p-autoComplete [formControl]="name" [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                        styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                        [dropdown]="true" autoHighlight="true"
+                                        field="label" placeholder="Enter Teams of portable players"
+                                        (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
+                                        (onSelect)="setFormValue('name',$event)">
+
+                        </p-autoComplete>
+                    </div>
+                </div>
+                <!--</form>-->
+            </div>
+            <div class="form-group row">
+                <div class="offset-sm-4 col-xlg-4 col-lg-4 col-md-4 col-sm-4">
+                    <button type="submit" class="btn btn-default btn-auth"
+                            (click)="onSubmitBasicDetails(form.value)">Submit Match Details !!
+                    </button>
+                </div>
+            </div>
+        </ctcl-style>
+        <!--</form>-->
     </form>
 </div>
-
-<ctcl-style title="Select Match Teams">
-    <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-
-            <!--Home Team -->
-            <nb-card-header>
-                <label>Home Team</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-danger">
-                <p-autoComplete [formControl]="home_team" [inputStyle]="{'width':'90%','font-size': '16px'}"
-                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
-                                [dropdown]="true" autoHighlight="true" id="home_team"
-                                field="label" placeholder="Select home team"
-                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
-                                (onSelect)="setFormValue('home_team',$event)">
-                </p-autoComplete>
-            </div>
-
-            <!--Guest Team -->
-            <nb-card-header>
-                <label>Away Team</label>
-            </nb-card-header>
-
-            <div class="form-group form-control form-control-warning">
-                <p-autoComplete [formControl]="away_team" [inputStyle]="{'width':'90%','font-size': '16px'}"
-                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
-                                [dropdown]="true" autoHighlight="true"
-                                field="label" placeholder="Select away team"
-                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
-                                (onSelect)="setFormValue('away_team',$event)">
-                </p-autoComplete>
-            </div>
-            <nb-card-header>
-                <label>Winning Toss Team</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-warning">
-                <p-autoComplete [formControl]="toss_won_id" [inputStyle]="{'width':'90%','font-size': '16px'}"
-                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
-                                [dropdown]="true" autoHighlight="true" id="toss_won_id"
-                                field="label" placeholder="Select winning toss team"
-                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
-                                (onSelect)="setFormValue('toss_won_id',$event)">
-                </p-autoComplete>
-            </div>
-            <nb-card-header>
-                <label>Bat First Team</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-warning">
-                <p-autoComplete [formControl]="batting_first_id" [inputStyle]="{'width':'90%','font-size': '16px'}"
-                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
-                                [dropdown]="true" autoHighlight="true" required="true" id="batting_first_id"
-                                field="label" placeholder="Select Bat first team"
-                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
-                                (onSelect)="setFormValue('batting_first_id',$event)">
-                </p-autoComplete>
-            </div>
-            <nb-card-header>
-                <label>Bat Second Team</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-warning">
-                <p-autoComplete [formControl]="batting_second_id" [inputStyle]="{'width':'90%','font-size': '16px'}"
-                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
-                                [dropdown]="true" autoHighlight="true" required="true" id="batting_second_id"
-                                field="label" placeholder="Select Bat second team"
-                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
-                                (onSelect)="setFormValue('batting_second_id',$event)">
-                </p-autoComplete>
-            </div>
-            <nb-card-header>
-                <label>Victorious Team</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-success">
-                <p-autoComplete [formControl]="result_won_id" [inputStyle]="{'width':'90%','font-size': '16px'}"
-                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
-                                [dropdown]="true" autoHighlight="true" id="result_won_id"
-                                field="label" placeholder="Select Victorious Team"
-                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
-                                (onSelect)="setFormValue('result_won_id',$event)">
-
-                </p-autoComplete>
-            </div>
-        </div>
-
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-            <nb-card-header>
-                <label>Man of the Match</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-success">
-                <!--TODO: [multiple]="true" is not working: a bug in primng side-->
-                <p-autoComplete [formControl]="mom" [inputStyle]="{'width':'90%','font-size': '16px'}"
-                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
-                                [dropdown]="true" autoHighlight="true" id="mom"
-                                field="label" placeholder="Select Man of the Match"
-                                (completeMethod)="getFilteredPlayers($event)" [suggestions]="filteredPlayers"
-                                (onSelect)="setFormValue('mom',$event)">
-
-                </p-autoComplete>
-            </div>
-
-            <nb-card-header>
-                <label>Umpiring Teams</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-success">
-                <!--TODO: [multiple]="true" is not working: a bug in primng side-->
-                <p-autoComplete [formControl]="umpire_team" [inputStyle]="{'width':'90%','font-size': '16px'}"
-                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
-                                [dropdown]="true" autoHighlight="true"
-                                field="label" placeholder="Select Umpiring Teams"
-                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
-                                (onSelect)="setFormValue('umpire_team',$event)">
-
-                </p-autoComplete>
-            </div>
-            <nb-card-header>
-                <label>Umpire # 1</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-danger">
-                <p-autoComplete [formControl]="umpire_1" [inputStyle]="{'width':'90%','font-size': '16px'}"
-                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
-                                [dropdown]="true" autoHighlight="true" id="umpire_1"
-                                field="label" placeholder="Select Umpire # 1"
-                                (completeMethod)="getFilteredPlayers($event)" [suggestions]="filteredPlayers"
-                                (onSelect)="setFormValue('umpire_1',$event)">
-
-                </p-autoComplete>
-            </div>
-            <nb-card-header>
-                <label>Umpire #2</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-success">
-                <p-autoComplete [formControl]="umpire_2" [inputStyle]="{'width':'90%','font-size': '16px'}"
-                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
-                                [dropdown]="true" autoHighlight="true" id="umpire_2"
-                                field="label" placeholder="Select Umpire # 2"
-                                (completeMethod)="getFilteredPlayers($event)" [suggestions]="filteredPlayers"
-                                (onSelect)="setFormValue('umpire_2',$event)">
-
-                </p-autoComplete>
-            </div>
-            <nb-card-header>
-                <label>Teams of portable players (Home Side)</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-success">
-                <!--TODO: [multiple]="true" is not working: a bug in primng side-->
-                <!--TODO: onSelect)="setFormValue('name',$event.value), need work-->
-                <p-autoComplete [formControl]="name" [inputStyle]="{'width':'90%','font-size': '16px'}"
-                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
-                                [dropdown]="true" autoHighlight="true"
-                                field="label" placeholder="Enter Teams of portable players"
-                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
-                                (onSelect)="setFormValue('name',$event)">
-
-                </p-autoComplete>
-            </div>
-            <nb-card-header>
-                <label>Teams of portable players (Away Side)</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-warning">
-                <!--TODO: [multiple]="true" is not working: a bug in primng side-->
-                <!--TODO: onSelect)="setFormValue('name',$event.value), need work-->
-                <p-autoComplete [formControl]="name" [inputStyle]="{'width':'90%','font-size': '16px'}"
-                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
-                                [dropdown]="true" autoHighlight="true"
-                                field="label" placeholder="Enter Teams of portable players"
-                                (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"
-                                (onSelect)="setFormValue('name',$event)">
-
-                </p-autoComplete>
-            </div>
-        </div>
-        <!--</form>-->
-    </div>
-    <div class="form-group row">
-        <div class="offset-sm-4 col-xlg-4 col-lg-4 col-md-4 col-sm-4">
-            <button type="submit" class="btn btn-default btn-auth"
-                    (click)="onSubmitBasicDetails(form.value)">Submit Match Details !!
-            </button>
-        </div>
-    </div>
-</ctcl-style>
-<!--</form>-->

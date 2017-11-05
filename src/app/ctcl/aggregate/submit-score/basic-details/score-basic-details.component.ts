@@ -46,7 +46,7 @@ export class ScoreBasicDetailsComponent {
     selectedLeague: string = 'Hello League';
     public ground_id: AbstractControl;
     public ground_name: AbstractControl;
-    public result: AbstractControl;
+    // public result: AbstractControl;
     public game_date;
     public dateFlag: boolean = true;
     //Second Blcok: drop down
@@ -88,33 +88,33 @@ export class ScoreBasicDetailsComponent {
         // this.options = new DatePickerOptions();
 
         this.form = fb.group({
-            'name': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-            'league_id': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'season': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'ground_id': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'ground_name': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'week': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'result': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
+            'name': ['', Validators.compose([])],
+            'league_id': ['', Validators.compose([Validators.required])],
+            'season': ['', Validators.compose([Validators.required])],
+            'ground_id': ['', Validators.compose([Validators.required])],
+            'ground_name': ['', Validators.compose([Validators.required])],
+            'week': ['', Validators.compose([Validators.required])],
+            // 'result': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
 
-            'game_date': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'away_team': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'home_team': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'umpire_team': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'toss_won_id': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'batting_first_id': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'batting_second_id': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'result_won_id': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'umpire_1': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'umpire_2': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'mom': ['', Validators.compose([Validators.required, Validators.minLength(1000000)])],
-            'maxovers': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'final_result_summary': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
+            'game_date': ['', Validators.compose([Validators.required])],
+            'away_team': ['', Validators.compose([Validators.required])],
+            'home_team': ['', Validators.compose([Validators.required])],
+            'umpire_team': ['', Validators.compose([])],
+            'toss_won_id': ['', Validators.compose([Validators.required])],
+            'batting_first_id': ['', Validators.compose([Validators.required])],
+            'batting_second_id': ['', Validators.compose([Validators.required])],
+            'result_won_id': ['', Validators.compose([])],
+            'umpire_1': ['', Validators.compose([])],
+            'umpire_2': ['', Validators.compose([])],
+            'mom': ['', Validators.compose([])],
+            'maxovers': ['', Validators.compose([Validators.required])],
+            'final_result_summary': ['', Validators.compose([])],
             //Results options
-            'completed': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'forfeit': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'cancelled': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'tied': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
-            'cancelledplay': ['', Validators.compose([Validators.required, Validators.minLength(1)])],
+            'completed': ['', Validators.compose([])],
+            'forfeit': ['', Validators.compose([])],
+            'cancelled': ['', Validators.compose([])],
+            'tied': ['', Validators.compose([])],
+            'cancelledplay': ['', Validators.compose([Validators.required, Validators.max(1)])],
 
 
         });
@@ -126,7 +126,7 @@ export class ScoreBasicDetailsComponent {
         this.ground_id = this.form.controls['ground_id'];
         this.ground_name = this.form.controls['ground_name'];
         this.week = this.form.controls['week'];
-        this.result = this.form.controls['result'];
+        // this.result = this.form.controls['result'];
 
         this.game_date = this.form.controls['game_date'];
         this.away_team = this.form.controls['away_team'];
@@ -274,7 +274,7 @@ export class ScoreBasicDetailsComponent {
     }
 
     public onSubmitBasicDetails(values: Object): void {
-        console.log("Form Obj: ", values);
+        console.log("Form Obj: ", values,"Fornm is valid =>",this.form.valid);
 
         this.submitted_step1 = true;
         this.inningsId = 1;
@@ -283,7 +283,7 @@ export class ScoreBasicDetailsComponent {
         //this.dateValue ? this.dateValue.formatted : this.dateValue;
         this.dateValue ? matchDetailsObject['game_date'] = this.dateValue.formatted : this.dateValue;
 
-        console.log(" ***onSubmitBasicDetails**** HTTP Request => ", matchDetailsObject);
+       // console.log(" ***onSubmitBasicDetails**** HTTP Request => ", matchDetailsObject);
         // this.matchesService.updateScorecardGameDetails(matchDetailsObject).takeUntil(this.ngUnsubscribe).subscribe(
         //     res => this.submiScoreStatus = res,
         //     (err) => console.error('onSubmitBasicDetails: Res Error =>', err),
