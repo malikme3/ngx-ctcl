@@ -71,8 +71,11 @@ export const CTCL_MENU_ITEMS: NbMenuItem[] = [
             {
                 title: 'Submit Score',
                 children: [{
-                    title: 'Basic Match Details',
+                    title: 'Basic Details',
                     link: '/ctcl/aggregate/basic-details',
+                }, {
+                    title: 'Basic Details',
+                    link: '/ctcl/aggregate/battings-details',
                 },
                 ],
             },

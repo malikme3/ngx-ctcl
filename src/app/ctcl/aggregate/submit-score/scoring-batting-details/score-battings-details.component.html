@@ -1,9 +1,95 @@
+<ctcl-style baCardClass="with-scroll" title="Batting Details">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
+        <div id="step2">
+            <div class="row" *ngFor="let position of batting_poistion; let i = index ">
+                <div class="col-sm-2">
+                    <div class="form-group row">
+                        <p-autoComplete
+                                [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true" required="true" id="player_id"
+                                field="label" placeholder="{{i+1}}-Select Batsman "
+                                (completeMethod)="getFilteredPlayers($event)" [suggestions]="filteredPlayers"
+                                (onSelect)="onSelectedBatting(i, $event.value)">
+                        </p-autoComplete>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group row">
+                        <p-autoComplete
+                                [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true" required="true" id="how_out"
+                                field="label" placeholder="{{i+1}}-Select out type"
+                                (completeMethod)="getFilteredOutTypes($event)" [suggestions]="filteredOutTypes"
+                                (onSelect)="onSelectedHowOutTypes(i, $event.value)">
+                        </p-autoComplete>
+                    </div>
+                </div>
 
+                <div class="col-sm-2">
+                    <div class="form-group row">
 
-<p-autoComplete [suggestions]="selectedValue" (completeMethod)="getFilteredTeamsVal($event)" field="label" [size]="30"
-                placeholder="Countries" [minLength]="1"   [dropdown]="true"></p-autoComplete>
-<div style="margin-left:10px">Country: {{country ? country.label||country : 'none'}}</div>
-<p-autoComplete [suggestions]="selectedValue" (completeMethod)="getFilteredTeamsVal($event)" field="label" [size]="30"
-                placeholder="Countries" [minLength]="1"   [dropdown]="true"></p-autoComplete>
-<div style="margin-left:10px">Country: {{country ? country.label||country : 'none'}}</div>
+                        <p-autoComplete
+                                [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true" required="true" id="assist"
+                                field="label" placeholder="{{i+1}}-Select Assist Fielder"
+                                (completeMethod)="getFilteredPlayers($event)" [suggestions]="filteredPlayers"
+                                (onSelect)="onSelectedFielder(i, $event.value)">
+                        </p-autoComplete>
 
+                    </div>
+                </div>
+                <div class="col-sm-2">
+
+                    <div class="form-group row">
+
+                        <p-autoComplete
+                                [inputStyle]="{'width':'90%','font-size': '16px'}"
+                                styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
+                                [dropdown]="true" autoHighlight="true" required="true" id="bowler"
+                                field="label" placeholder="{{i+1}}-Select Bowler"
+                                (completeMethod)="getFilteredPlayers($event)" [suggestions]="filteredPlayers"
+                                (onSelect)="onSelectedBowler(i, $event.value)">
+                        </p-autoComplete>
+
+                    </div>
+
+                </div>
+                <div class="col-sm-1">
+                    <input [formControl]="name" type="text" class="form-control" id="runs"
+                           placeholder="Runs" #runs
+                           (change)="onSelectedRuns(i, runs.value)">
+                </div>
+                <div class="col-sm-1">
+                    <input [formControl]="name" type="text" class="form-control" id="balls"
+                           placeholder="Balls" #balls
+                           (change)="onSelectedBalls(i, balls.value)">
+                </div>
+                <div class="col-sm-1">
+                    <input type="text" class="form-control" id="fours"
+                           placeholder="4s" #fours
+                           (change)="onSelectedFours(i, fours.value)">
+                </div>
+                <div class="col-sm-1">
+                    <input [formControl]="name" type="text" class="form-control" id="sixes"
+                           placeholder="6s" #sixes
+                           (change)="onSelectedSixes(i, sixes.value)">
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-sm-4 col-xlg-4 col-lg-4 col-md-4 col-sm-4">
+                <button type="submit" class="btn btn-default btn-auth btn-success" data-toggle="collapse"
+                        data-target="#step2"
+                        (click)="onSubmit(form.value)">Submit Batting Details
+                </button>
+            </div>
+        </div>
+
+    </form>
+</ctcl-style>

@@ -34,4 +34,16 @@ export class CommonUtilsService {
         }
         return filtered;
     }
+
+    filteredOutTypes(query, types: any[]): any[] {
+        console.log("In common service, input Val: ", query)
+        let filtered: any[] = [];
+        for (let i = 0; i < types.length; i++) {
+            let type = types[i];
+            if (type.label.toLowerCase().indexOf(query.toLowerCase()) > -1) {
+                filtered.push(type);
+            }
+        }
+        return filtered;
+    }
 };
