@@ -1,0 +1,15 @@
+<ctcl-style baCardClass="with-scroll" title="Fall of Wickets: {{innings}}" [submitVal]="'Submit Wickets'">
+    <form [formGroup]="wicketForm" (ngSubmit)="submitWickets(wicketForm.value)" class="form-horizontal">
+        <div class="row ">
+            <div class="col-sm-2 form-control-success" *ngFor="let position of batting_poistion; let i = index">
+                <div *ngIf="position.wicket">
+                    <input type="text" class="form-control" id="position.id"
+                           placeholder=" index: {{i+1}}" #input
+                           (change)="onSelectedWickets(position.wicket, input.value)">
+                </div>
+            </div>
+        </div>
+        <ctcl-submit-button [title]="'Submit Please!'" [isSubmitted]="isSubmitted"
+                            [isValid]="fow1.valid"></ctcl-submit-button>
+    </form>
+</ctcl-style>

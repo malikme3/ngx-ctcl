@@ -1,0 +1,48 @@
+<ctcl-style title="Enter Total">
+    <form [formGroup]="totalsForm" (ngSubmit)="submitTotals(totalsForm.value)" class="form-horizontal">
+        <div class="row" col-lg-12 col-md-12 col-sm-12>
+            <div class="col-sm-4">
+                <label class="col-12" for="totalwickets"
+                       [ngClass]="{'btn-outline-primary': (!wickets.valid && !wickets.touched),
+               'btn-outline-warning': (wickets.pristine && wickets.touched),
+                'btn-outline-success': (wickets.valid && wickets.touched),
+                'btn-outline-danger': (!wickets.valid && !wickets.pristine)}">Wickets</label>
+                <input [formControl]="wickets" type="text" class="form-control" id="totalwickets"
+                       placeholder="Wickets"
+                       [(ngModel)]="wicketsVal" (click)='onClick()' (change)="onSelectedTotals('wickets', wicketsVal)"
+                       [ngClass]="{'btn-outline-primary': (!wickets.valid && !wickets.touched),
+               'btn-outline-warning': (wickets.pristine && wickets.touched),
+                'btn-outline-success': (wickets.valid && wickets.touched),
+                'btn-outline-danger': (!wickets.valid && !wickets.pristine)}">
+            </div>
+            <div class="col-sm-4">
+                <label class="col-12" for="overs"
+                       [ngClass]="{'btn-outline-primary': (!overs.valid && !overs.touched),
+               'btn-outline-warning': (overs.pristine && overs.touched),
+                'btn-outline-success': (overs.valid && overs.touched),
+                'btn-outline-danger': (!overs.valid && !overs.pristine)}">Overs</label>
+                <input [formControl]="overs" type="text" class="form-control" id="overs" placeholder="Overs"
+                       [(ngModel)]="oversVal" (change)="onSelectedTotals('overs', oversVal)" (change)="onClick()"
+                       [ngClass]="{'btn-outline-primary': (!overs.valid && !overs.touched),
+               'btn-outline-warning': (overs.pristine && overs.touched),
+                'btn-outline-success': (overs.valid && overs.touched),
+                'btn-outline-danger': (!overs.valid && !overs.pristine)}">
+            </div>
+            <div class="col-sm-4">
+                <label class="col-12" for="total"
+                       [ngClass]="{'btn-outline-primary': (!total.valid && !total.touched),
+               'btn-outline-warning': (total.pristine && total.touched),
+                'btn-outline-success': (total.valid && total.touched),
+                'btn-outline-danger': (!total.valid && !total.pristine)}">Total</label>
+                <input [formControl]="total" type="text" class="form-control" id="total" placeholder="Total"
+                       [(ngModel)]="totalVal" (change)="onSelectedTotals('total', totalVal)" (change)="onClick()"
+                       [ngClass]="{'btn-outline-primary': (!total.valid && !total.touched),
+               'btn-outline-warning': (total.pristine && total.touched),
+                'btn-outline-success': (total.valid && total.touched),
+                'btn-outline-danger': (!total.valid && !total.pristine)}">
+            </div>
+        </div>
+        <ctcl-submit-button [title]="'Submit Please!'" [isSubmitted]="isSubmitted"
+                            [isValid]="total.valid && !total.pristine "></ctcl-submit-button>
+    </form>
+</ctcl-style>

@@ -21,9 +21,13 @@ import {CommonUtilsService} from "../common/services/common-utils.service";
 import {ScoreBasicDetailsComponent} from "./submit-score/submit-basic-details/score-basic-details.component";
 import {FieldsetModule} from "primeng/components/fieldset/fieldset";
 import {ScoreBowlingDetailsComponent} from "./submit-score/submit-bowling-details/submit-bowlings-details.component";
+import {ScoreExtrasDetailsComponent} from "./submit-score/submit-extras-details/submit-extras-details.component";
+import {ScoreTotalsDetailsComponent} from "./submit-score/submit-totals-details/submit-totals-details.component";
+import {ScoreWicketsDetailsComponent} from "./submit-score/submit-wickets-details/submit-wickets-details.component";
 
 
-const components = [AggregateComponent, ScoreBasicDetailsComponent, ScoreBattingsDetailsComponent, ScoreBowlingDetailsComponent];
+const components = [AggregateComponent, ScoreBasicDetailsComponent, ScoreBattingsDetailsComponent, ScoreBowlingDetailsComponent,
+    ScoreExtrasDetailsComponent, ScoreTotalsDetailsComponent, ScoreWicketsDetailsComponent];
 
 @NgModule({
     imports: [ThemeModule, RouterModule, CtclSharedModule, FormsModule, ReactiveFormsModule, CommonModule, AutoCompleteModule,

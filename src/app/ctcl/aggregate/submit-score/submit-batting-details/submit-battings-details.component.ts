@@ -14,7 +14,7 @@ import {CommonUtilsService} from "../../../common/services/common-utils.service"
  *!/*/
 
 @Component({
-    selector: 'ctcl-score-batting-details',
+    selector: 'ctcl-submit-batting-details',
     templateUrl: 'submit-battings-details.component.html',
     styleUrls: ['submit-battings-details.component.scss'],
 })

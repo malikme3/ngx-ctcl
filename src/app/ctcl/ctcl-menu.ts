@@ -70,17 +70,26 @@ export const CTCL_MENU_ITEMS: NbMenuItem[] = [
         children: [
             {
                 title: 'Submit Score',
+                icon: 'nb-gear',
                 children: [{
                     title: 'Basic Details',
                     link: '/ctcl/aggregate/basic-details',
                 }, {
                     title: 'Battings Details',
                     link: '/ctcl/aggregate/battings-details',
+                }, {
+                    title: 'Bowlings Details',
+                    link: '/ctcl/aggregate/bowlings-details',
+                }, {
+                    title: 'Exras Details',
+                    link: '/ctcl/aggregate/extras-details',
+                }, {
+                    title: 'Totals Details',
+                    link: '/ctcl/aggregate/totals-details',
+                }, {
+                    title: 'Wickets Details',
+                    link: '/ctcl/aggregate/wickets-details',
                 },
-                    {
-                        title: 'Bowlings Details',
-                        link: '/ctcl/aggregate/bowlings-details',
-                    },
                 ],
             },
         ],

@@ -15,8 +15,10 @@ import {StylesComopnent} from "./components/styles/styles.comopnent";
 import {ThemeModule} from "../../@theme/theme.module";
 import {D3BarChartComponent} from "./components/charts/d3charts/d3-barchart.component";
 import {LabelComponent} from "./components/label/label.component";
+import {submitButtonComponent} from "./components/buttons/submit-buttons/submit-button.component";
 
-
+const components = [PolarChartComponent, TeamsPointsComponent, TabMenuComponent, BorderedTableComponent, StylesComopnent,
+    D3BarChartComponent, LabelComponent, submitButtonComponent];
 @NgModule({
     imports: [
         CommonModule,
@@ -27,8 +29,8 @@ import {LabelComponent} from "./components/label/label.component";
         NgxChartsModule
     ],
 
-    declarations: [PolarChartComponent, TeamsPointsComponent, TabMenuComponent, BorderedTableComponent, StylesComopnent, D3BarChartComponent, LabelComponent],
-    exports: [PolarChartComponent, TeamsPointsComponent, TabMenuComponent, BorderedTableComponent, StylesComopnent, D3BarChartComponent,LabelComponent],
+    declarations: [...components],
+    exports: [...components],
     providers: [TeamsPointsService]
 })
 export class CtclSharedModule {

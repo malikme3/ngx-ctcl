@@ -1,0 +1,12 @@
+<div class="col-md-12 card-header clearfix card-title" [ngSwitch]="true">
+    <div class="button-wrapper" *ngIf="!isSubmitted">
+        <button class="btn-outline-primary  btn-raised col-md-4 offset-4" *ngSwitchCase="isValid"
+                (click)='onClick()'>
+            <h3>{{title}}</h3>
+        </button>
+    </div>
+    <div class="button-wrapper" *ngIf="isSubmitted">
+        <button type="button" class="btn btn-success btn-raised col-md-4 offset-4 " disabled="disabled">Submitted! -:)
+        </button>
+    </div>
+</div>

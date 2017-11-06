@@ -13,7 +13,7 @@ import {MatchesDataStoreService} from "../../../common/services/matches-data-sto
  *!/*/
 
 @Component({
-    selector: 'ctcl-score-bowlings-details',
+    selector: 'ctcl-submit-bowlings-details',
     templateUrl: 'submit-bowlings-details.component.html',
     styleUrls: ['submit-bowlings-details.component.scss'],
 })

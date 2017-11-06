@@ -1,0 +1,79 @@
+<ctcl-style title="Enter Extras Detail: {{innings}}">
+    <form [formGroup]="extrasForm" class="form-horizontal">
+        <div class="row" col-lg-6 col-md-6 col-sm-12>
+            <div class="col-4">
+                <label class="col-12" for="legbyes"
+                       [ngClass]="{'btn-outline-primary': (!legbyes.valid && !legbyes.touched),
+               'btn-outline-warning': (legbyes.pristine && legbyes.touched),
+                'btn-outline-success': (legbyes.valid && legbyes.touched),
+                'btn-outline-danger': (!legbyes.valid && !legbyes.pristine)}">Leg Byes</label>
+                <input [formControl]="legbyes" type="text" class="form-control" id="legbyes"
+                       placeholder="Leg Byes"
+                       [(ngModel)]="legbyeVal" (change)="onSelectedExtras('legbyes', legbyeVal)"
+                       [ngClass]="{
+               'btn-primary': (!legbyes.valid && !legbyes.touched),
+               'btn-warning': (legbyes.pristine && legbyes.touched),
+                'btn-success': (legbyes.valid && legbyes.touched),
+                'btn-danger': (!legbyes.valid && !legbyes.pristine)}">
+            </div>
+            <div class="col-4">
+                <label class="col-12" for="byes" [ngClass]="{'btn-outline-primary': (!byes.valid && !byes.touched),
+               'btn-outline-warning': (byes.pristine && byes.touched),
+                'btn-outline-success': (byes.valid && byes.touched),
+                'btn-outline-danger': (!byes.valid && !byes.pristine)}">Byes</label>
+                <input [formControl]="byes" type="text" class="form-control" id="byes" placeholder="Byes"
+                       [(ngModel)]="byesVal" (change)="onSelectedExtras('byes', byesVal)" [ngClass]="{
+               'btn-primary': (!byes.valid && !byes.touched),
+               'btn-warning': (byes.pristine && byes.touched),
+                'btn-success': (byes.valid && byes.touched),
+                'btn-danger': (!byes.valid && !byes.pristine)}">
+            </div>
+            <div class="col-4">
+                <label for="wides" class="col-12" [ngClass]="{'btn-outline-primary': (!wides.valid && !wides.touched),
+               'btn-outline-warning': (wides.pristine && wides.touched),
+                'btn-outline-success': (wides.valid && wides.touched),
+                'btn-outline-danger': (!wides.valid && !wides.pristine)}">Wides</label>
+                <input [formControl]="wides" type="text" class="form-control" id="wides" placeholder="Wides"
+                       [(ngModel)]="widesVal" (change)="onSelectedExtras('wides', widesVal)" [ngClass]="{
+               'btn-primary': (!wides.valid && !wides.touched),
+               'btn-warning': (wides.pristine && wides.touched),
+                'btn-success': (wides.valid && wides.touched),
+                'btn-danger': (!wides.valid && !wides.pristine)}">
+            </div>
+            <div class="col-4">
+                <label for="noball" class="col-12" [ngClass]="{'btn-outline-primary': (!noballs.valid && !noballs.touched),
+               'btn-outline-warning': (noballs.pristine && noballs.touched),
+                'btn-outline-success': (noballs.valid && noballs.touched),
+                'btn-outline-danger': (!noballs.valid && !noballs.pristine)}">No Balls</label>
+                <input [formControl]="noballs" type="text" class="form-control" id="noball" placeholder="No Balls"
+                       [(ngModel)]="noballsVal" (change)="onSelectedExtras('noballs', noballsVal)" [ngClass]="{
+               'btn-primary': (!noballs.valid && !noballs.touched),
+               'btn-warning': (noballs.pristine && noballs.touched),
+                'btn-success': (noballs.valid && noballs.touched),
+                'btn-danger': (!noballs.valid && !noballs.pristine)}">
+            </div>
+            <div class="col-4">
+                <label for="extrastotal" class="col-12" [ngClass]="{'btn-outline-primary': (!total.valid && !total.touched),
+               'btn-outline-warning': (total.pristine && total.touched),
+                'btn-outline-success': (total.valid && total.touched),
+                'btn-outline-danger': (!total.valid && !total.pristine)}">Total</label>
+                <input [formControl]="total" type="text" class="form-control  btn-success" id="extrastotal"
+                       placeholder="Extras Total"
+                       [(ngModel)]="extrastotalVal" (change)="onSelectedExtras('total', extrastotalVal)" [ngClass]="{
+               'btn-primary': (!total.valid && !total.touched),
+               'btn-warning': (total.pristine && total.touched),
+                'btn-success': (total.valid && total.touched),
+                'btn-danger': (!total.valid && !total.pristine)}">
+            </div>
+        </div>
+        <!--<submit-button [title]="'Submit Please!'" [isSubmitted]="isSubmitted" [isValid]="total.valid && !total.pristine "
+                       (notify)='onNotify($event)'></submit-button>-->
+        <div class="form-group row">
+            <div class="offset-sm-4 col-xlg-4 col-lg-4 col-md-4 col-sm-4">
+                <button type="submit" class="btn btn-default btn-auth btn-warning"
+                        (click)="onSubmitExtrasDetails()">Submit Match Details !!
+                </button>
+            </div>
+        </div>
+    </form>
+</ctcl-style>
