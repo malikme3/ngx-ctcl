@@ -16,17 +16,18 @@ import {MatRadioModule} from '@angular/material';
 import {SelectModule} from 'ng-select';
 import {MatInputModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material';
-import {ScoreBattingsDetailsComponent} from "./submit-score/scoring-batting-details/score-battings-details.component";
+import {ScoreBattingsDetailsComponent} from "./submit-score/submit-batting-details/submit-battings-details.component";
 import {CommonUtilsService} from "../common/services/common-utils.service";
-import {ScoreBasicDetailsComponent} from "./submit-score/basic-details/score-basic-details.component";
+import {ScoreBasicDetailsComponent} from "./submit-score/submit-basic-details/score-basic-details.component";
 import {FieldsetModule} from "primeng/components/fieldset/fieldset";
+import {ScoreBowlingDetailsComponent} from "./submit-score/submit-bowling-details/submit-bowlings-details.component";
 
 
-const components = [AggregateComponent, ScoreBasicDetailsComponent,ScoreBattingsDetailsComponent];
+const components = [AggregateComponent, ScoreBasicDetailsComponent, ScoreBattingsDetailsComponent, ScoreBowlingDetailsComponent];
 
 @NgModule({
-    imports: [ThemeModule,RouterModule,CtclSharedModule,FormsModule,ReactiveFormsModule,CommonModule,AutoCompleteModule,
-        CalendarModule,MatRadioModule,SelectModule,MatInputModule,MatSelectModule,FieldsetModule, routing],
+    imports: [ThemeModule, RouterModule, CtclSharedModule, FormsModule, ReactiveFormsModule, CommonModule, AutoCompleteModule,
+        CalendarModule, MatRadioModule, SelectModule, MatInputModule, MatSelectModule, FieldsetModule, routing],
     declarations: [...components],
     providers: [MatchesService, MatchesConstants, MatchesDataStoreService, CommonUtilsService],
 })

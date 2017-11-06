@@ -15,8 +15,8 @@ import {CommonUtilsService} from "../../../common/services/common-utils.service"
 
 @Component({
     selector: 'ctcl-score-batting-details',
-    templateUrl: 'score-battings-details.component.html',
-    styleUrls: ['score-battings-details.component.scss'],
+    templateUrl: 'submit-battings-details.component.html',
+    styleUrls: ['submit-battings-details.component.scss'],
 })
 export class ScoreBattingsDetailsComponent {
     @Output() notify_Batting: EventEmitter<any> = new EventEmitter<any>();

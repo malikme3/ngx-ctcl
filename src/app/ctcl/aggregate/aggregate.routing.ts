@@ -1,8 +1,9 @@
 /* tslint:disable */
 import {RouterModule, Routes} from "@angular/router";
+import {ScoreBattingsDetailsComponent} from "./submit-score/submit-batting-details/submit-battings-details.component";
+import {ScoreBasicDetailsComponent} from "./submit-score/submit-basic-details/score-basic-details.component";
 import {AggregateComponent} from "./aggregate.component";
-import {ScoreBattingsDetailsComponent} from "./submit-score/scoring-batting-details/score-battings-details.component";
-import {ScoreBasicDetailsComponent} from "./submit-score/basic-details/score-basic-details.component";
+import {ScoreBowlingDetailsComponent} from "./submit-score/submit-bowling-details/submit-bowlings-details.component";
 
 const routes: Routes = [
     {
@@ -11,6 +12,7 @@ const routes: Routes = [
         children: [
             {path: 'basic-details', component: ScoreBasicDetailsComponent},
             {path: 'battings-details', component: ScoreBattingsDetailsComponent},
+            {path: 'bowlings-details', component: ScoreBowlingDetailsComponent},
         ]
     }
 ];

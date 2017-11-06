@@ -74,9 +74,13 @@ export const CTCL_MENU_ITEMS: NbMenuItem[] = [
                     title: 'Basic Details',
                     link: '/ctcl/aggregate/basic-details',
                 }, {
-                    title: 'Basic Details',
+                    title: 'Battings Details',
                     link: '/ctcl/aggregate/battings-details',
                 },
+                    {
+                        title: 'Bowlings Details',
+                        link: '/ctcl/aggregate/bowlings-details',
+                    },
                 ],
             },
         ],

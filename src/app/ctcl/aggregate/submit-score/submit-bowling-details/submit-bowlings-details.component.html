@@ -1,0 +1,61 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="form-horizontal">
+    <ctcl-style baCardClass="with-scroll" title="Bowling Details">
+        <div class="row" *ngFor="let position of batting_poistion; let fst = first; let i = index; ">
+            <div class="col-sm-2">
+                <div class="form-group row">
+                    <ng-select [formControl]="name"
+                               [options]="playersList" [allowClear]="true" placeholder="{{i+1}}-Bowler Name"
+                               highlightTextColor="black"
+                               (selected)="onSelectedBowler(i, $event.value)">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <input [formControl]="name" type="text" class="form-control" id="overs"
+                       placeholder="Overs" #overs
+                       (change)="onSelectedOvers(i, overs.value)">
+            </div>
+
+
+            <div class="col-sm-2">
+                <input [formControl]="name" type="text" class="form-control" id="runs"
+                       placeholder="Runs" #runs
+                       (change)="onSelectedRuns(i, runs.value)">
+            </div>
+
+            <div class="col-sm-2">
+                <input [formControl]="name" type="text" class="form-control" id="wickets"
+                       placeholder="Wickets" #wickets
+                       (change)="onSelectedWickets(i, wickets.value)">
+            </div>
+
+            <div class="col-sm-2">
+                <input [formControl]="name" type="text" class="form-control" id="wides"
+                       placeholder="Wides" #wides
+                       (change)="onSelectedWides(i, wides.value)">
+            </div>
+
+            <div class="col-sm-1">
+                <input [formControl]="name" type="text" class="form-control" id="noballs"
+                       placeholder="NB" #noballs
+                       (change)="onSelectedNoBalls(i, noballs.value)">
+            </div>
+
+
+            <div class="col-sm-1">
+                <input [formControl]="name" type="text" class="form-control" id="maidens"
+                       placeholder="Maidens" #maidens
+                       (change)="onSelectedMaidens(i, maidens.value)">
+            </div>
+        </div>
+    </ctcl-style>
+
+    <div class="form-group row">
+        <div class="offset-sm-4 col-xlg-4 col-lg-4 col-md-4 col-sm-4">
+            <button type="submit" class="btn btn-default btn-auth btn-warning" data-toggle="collapse"
+                    data-target="#step2"
+                    (click)="onSubmitBowling(form.value)">Submit Bowlings Details
+            </button>
+        </div>
+    </div>
+</form>
