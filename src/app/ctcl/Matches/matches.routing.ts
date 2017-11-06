@@ -1,3 +1,4 @@
+/* tslint:disable */
 import {Routes, RouterModule} from '@angular/router';
 
 import {MatchesComponent} from './matches.component';
@@ -14,11 +15,7 @@ const routes: Routes = [
             {path: 'results', component: ResultsComponent},
             {path: 'scoreView', component: DetailedScoreComponent},
             {path: 'pointsTables', component: PointsTableComponent},
-            { path: 'scheduleView', component: ScheduleComponent },
-            /*{path: 'pointsTableView', component: PointsTableComponent},
-            {path: 'scoreView', component: DetailedScoreComponent},
-            {path: 'submitScore', component: SubmitScoreComponent}*/
-            /*{path: 'submitScoreStep2', component: SubmitScoreBatting}*/
+            {path: 'scheduleView', component: ScheduleComponent},
         ]
     }
 ];

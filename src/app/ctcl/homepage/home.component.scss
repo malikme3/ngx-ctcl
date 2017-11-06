@@ -20,3 +20,11 @@
     }
   }
 }
+
+:host /deep/ {
+  .ui-widget-content {
+    border: 1px solid #f9fffd;
+    background: #e8f2f3;
+    color: #020202;
+  }
+}
