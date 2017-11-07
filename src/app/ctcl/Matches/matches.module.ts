@@ -15,9 +15,8 @@ import {MatchesService} from "../common/services/matches.service";
 import {LabelComponent} from "./components/label/labelComponent";
 import {MatchesDataStoreService} from "./components/matches-data-store";
 import {
-    DataTableModule, DropdownModule, ProgressBarModule, SharedModule, Slider,
-    SplitButtonModule,
-    MultiSelect, FieldsetModule,
+    DataTableModule, DropdownModule, ProgressBarModule, SharedModule,
+    SplitButtonModule,FieldsetModule,
 } from "primeng/primeng";
 import {HomePageService} from "../common/services/homepage.service";
 import {CtclSharedModule} from "../shared/shared.module";
@@ -57,11 +56,6 @@ import {ScheduleComponent} from "./components/schedule/schedule.component";
         DetailedScoreComponent,
         PointsTableComponent,
         ScheduleComponent,
-        //Score cared workd
-        //CricTabMenu,
-        Slider,
-        MultiSelect,
-
     ],
     providers: [
         ResultsService, MatchesConstants, HomePageService, MatchesService, MatchesDataStoreService, CarouselService

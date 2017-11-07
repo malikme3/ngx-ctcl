@@ -706,14 +706,17 @@ export class ScoreBowlingDetailsComponent {
         //     () => this.notify_Bowling.emit(this.innings));
         ;
     }
+    onSubmit(val){
+        console.log("TO LOOK AT LATER");
+    }
 
-    /* public onSubmitBowling_1(values: Object): void {
+    public onSubmitBowling_1(values: Object): void {
        this.getMatchDetails();
        let details = JSON.stringify(this.form.value);
        console.log("Submitted Form values ==> ", details)
-       const match$ = this.matchesService.submit_score_bowling_details(details);
-       match$.takeUntil(this.ngUnsubscribe).subscribe(responce => this.matchScore = responce);
-     }*/
+       // const match$ = this.matchesService.submit_score_bowling_details(details);
+       // match$.takeUntil(this.ngUnsubscribe).subscribe(responce => this.matchScore = responce);
+     }
 
     ngOnDestroy() {
         this.ngUnsubscribe.next();

@@ -1,5 +1,5 @@
 <ctcl-style baCardClass="with-scroll" title="Fall of Wickets: {{innings}}" [submitVal]="'Submit Wickets'">
-    <form [formGroup]="wicketForm" (ngSubmit)="submitWickets(wicketForm.value)" class="form-horizontal">
+    <form [formGroup]="wicketForm" (ngSubmit)="submitWickets()" class="form-horizontal">
         <div class="row ">
             <div class="col-sm-2 form-control-success" *ngFor="let position of batting_poistion; let i = index">
                 <div *ngIf="position.wicket">

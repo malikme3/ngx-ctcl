@@ -18,6 +18,7 @@ export class LatestMatchesComponent {
   diplayScore: any = [];
   nextMatchesData: any = [];
   displayScoreData: any = [];
+  slow:string = "slow";
 
   constructor(private router: Router, private dashboardService: HomePageService) {
   }

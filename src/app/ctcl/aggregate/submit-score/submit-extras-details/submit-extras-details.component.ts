@@ -24,6 +24,13 @@ export class ScoreExtrasDetailsComponent {
     @Input() isFirstInnings: boolean = true;
     private extrasResStatus: string;
 
+    legbyeVal: any;
+    byesVal: any;
+    widesVal: any;
+    noballsVal: any;
+    extrastotalVal: any;
+
+
     public extrasForm: FormGroup;
     public innings_id: AbstractControl;
     public game_id: AbstractControl;

@@ -14,7 +14,6 @@ import {
   TabViewModule, DataTableModule, AccordionModule, PanelModule, SplitButtonModule,
 } from "primeng/primeng";
 import {MessageService} from "./components/shared.message/messageservice";
-import {Messages} from "./components/shared.message/messages";
 import {TablesModule} from "../../pages/tables/tables.module";
 import {StatisticsConstantsService} from "../common/services/statistics.constants.service";
 import {StatisticsService} from "../common/services/statistics.service";
@@ -46,7 +45,6 @@ import {StatisticsService} from "../common/services/statistics.service";
   declarations: [
     Statistics,
     BattingRecordComponent,
-    Messages,
   ],
   providers: [StatisticsService, StatisticsConstantsService,MessageService,],
 })

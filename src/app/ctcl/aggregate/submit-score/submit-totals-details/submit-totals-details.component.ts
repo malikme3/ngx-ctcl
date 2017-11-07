@@ -25,6 +25,10 @@ export class ScoreTotalsDetailsComponent {
     isSubmitted: boolean = false;
     public totalsResStatus: string;
 
+    wicketsVal:any;
+    oversVal:any;
+    totalVal:any;
+
     public totalsForm: FormGroup;
     public name: AbstractControl;
     public game_id: AbstractControl;
