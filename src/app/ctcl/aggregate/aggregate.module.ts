@@ -24,6 +24,8 @@ import {ScoreBowlingDetailsComponent} from "./submit-score/submit-bowling-detail
 import {ScoreExtrasDetailsComponent} from "./submit-score/submit-extras-details/submit-extras-details.component";
 import {ScoreTotalsDetailsComponent} from "./submit-score/submit-totals-details/submit-totals-details.component";
 import {ScoreWicketsDetailsComponent} from "./submit-score/submit-wickets-details/submit-wickets-details.component";
+import {AuthenticationService} from "../auth-guard/authentication.service";
+import {AuthGuardService} from "../auth-guard/auth-guard.service";
 
 
 const components = [AggregateComponent, ScoreBasicDetailsComponent, ScoreBattingsDetailsComponent, ScoreBowlingDetailsComponent,
@@ -33,7 +35,7 @@ const components = [AggregateComponent, ScoreBasicDetailsComponent, ScoreBatting
     imports: [ThemeModule, RouterModule, CtclSharedModule, FormsModule, ReactiveFormsModule, CommonModule, AutoCompleteModule,
         CalendarModule, MatRadioModule, SelectModule, MatInputModule, MatSelectModule, FieldsetModule, routing],
     declarations: [...components],
-    providers: [MatchesService, MatchesConstants, MatchesDataStoreService, CommonUtilsService],
+    providers: [MatchesService, MatchesConstants, MatchesDataStoreService, CommonUtilsService, AuthenticationService, AuthGuardService],
 })
 export class AggregateModule {
 }
