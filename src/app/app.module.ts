@@ -17,6 +17,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AuthRequestOptions} from './ctcl/auth-guard/auth-request';
 import {AuthGuardService} from './ctcl/auth-guard/auth-guard.service';
 import {AuthenticationService} from './ctcl/auth-guard/authentication.service';
+import {ServicesConstants} from './ctcl/common/services/constants.services';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +31,7 @@ import {AuthenticationService} from './ctcl/auth-guard/authentication.service';
     CoreModule.forRoot(),
   ],
   bootstrap: [AppComponent],
-  providers: [AuthGuardService, AuthenticationService,
+  providers: [AuthGuardService, AuthenticationService, ServicesConstants,
     {provide: APP_BASE_HREF, useValue: '/'},
     {
       provide: RequestOptions,

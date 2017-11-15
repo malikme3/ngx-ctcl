@@ -28,9 +28,17 @@ const routes: Routes = [{
       loadChildren: './players/players.module#PlayersModule',
     },
     {
+      path: 'online-scoring',
+      loadChildren: './online-scoring/online-scoring.module#OnlineScoringModule',
+    },
+    {
+      path: 'register',
+      loadChildren: './register/register.module#RegisterModule',
+    },
+    {
       path: 'aggregate',
       loadChildren: './aggregate/aggregate.module#AggregateModule',
-      canActivate: [AuthGuardService]
+      // canActivate: [AuthGuardService]
     },
     {
       path: '',

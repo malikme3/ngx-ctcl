@@ -9,18 +9,19 @@ import {ScoreTotalsDetailsComponent} from "./submit-score/submit-totals-details/
 import {ScoreWicketsDetailsComponent} from "./submit-score/submit-wickets-details/submit-wickets-details.component";
 
 const routes: Routes = [
-    {
-        path: '',
-        component: AggregateComponent,
-        children: [
-            {path: 'basic-details', component: ScoreBasicDetailsComponent},
-            {path: 'battings-details', component: ScoreBattingsDetailsComponent},
-            {path: 'bowlings-details', component: ScoreBowlingDetailsComponent},
-            {path: 'extras-details', component: ScoreExtrasDetailsComponent},
-            {path: 'totals-details', component: ScoreTotalsDetailsComponent},
-            {path: 'wickets-details', component: ScoreWicketsDetailsComponent},
-        ]
-    }
+  {
+    path: '',
+    component: AggregateComponent,
+    children: [
+      {path: 'basic-details', component: ScoreBasicDetailsComponent},
+      {path: 'battings-details', component: ScoreBattingsDetailsComponent},
+      {path: 'bowlings-details', component: ScoreBowlingDetailsComponent},
+      {path: 'extras-details', component: ScoreExtrasDetailsComponent},
+      {path: 'totals-details', component: ScoreTotalsDetailsComponent},
+      {path: 'wickets-details', component: ScoreWicketsDetailsComponent},
+      // {path: 'login', component: LoginComponent},
+    ]
+  }
 ];
 
 export const routing = RouterModule.forChild(routes);

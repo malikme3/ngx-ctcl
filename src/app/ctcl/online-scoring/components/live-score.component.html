@@ -1,0 +1,185 @@
+<p>Form value: {{ scoreForm.value | json }}</p>
+<form [formGroup]="scoreForm" class="form-horizontal">
+  <nb-card>
+    <nb-card-header>Let's do online Socring</nb-card-header>
+    <nb-card-body>
+
+      <div class="row container-title">
+        <div class="col-xlg-4 col-sm-6 btn-toggle-radio-group btn-toggle-group" data-toggle="buttons" ngbRadioGroup>
+          <nb-actions size="large" fullWidth>
+            <nb-action>{{ scoreForm.value?.match_running_score}}
+              <i class="nb-pause-outline"></i><span>Score</span>
+            </nb-action>
+            <nb-action> {{ scoreForm.value?.match_running_over}}
+              <i class="nb-pause-outline"></i><span>Ovr</span>
+            </nb-action>
+
+          </nb-actions>
+        </div>
+        <div class="col-xlg-4 col-sm-6 btn-toggle-radio-group btn-toggle-group" data-toggle="buttons" ngbRadioGroup>
+          <nb-actions size="large" fullWidth>
+            <nb-action>{{ scoreForm.value?.match_running_wickets}}
+              <i class="nb-pause-outline"></i><span>Wickets</span>
+            </nb-action>
+            <nb-action>
+              <i class="nb-gear"></i><span>Update</span>
+            </nb-action>
+          </nb-actions>
+        </div>
+      </div>
+
+      <div class="row container-title">
+        <nb-card>
+          <nb-card-header>Slect Ball</nb-card-header>
+          <nb-card-body>
+            <div class="row demo-checkboxes-radio col-sm-12">
+              <div class="demo-radio col-sm-6">
+                <ng-container class="col-4">
+                  <label class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" name="customRadio">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">B-1</span>
+                  </label>
+                </ng-container>
+                <ng-container class="col-4">
+                  <label class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" name="customRadio" checked>
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">B-2</span>
+                  </label>
+                </ng-container>
+                <ng-container class="col-4">
+                  <label class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" name="customRadio">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">B-3</span>
+                  </label>
+                </ng-container>
+              </div>
+              <div class="demo-radio col-sm-6">
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="customRadio">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">B-4</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="customRadio" checked>
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">B-5</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="customRadio">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">B-6</span>
+                </label>
+              </div>
+
+            </div>
+          </nb-card-body>
+        </nb-card>
+        <nb-card>
+          <nb-card-header>Slect Score</nb-card-header>
+          <nb-card-body>
+            <div class="row demo-checkboxes-radio col-sm-12">
+              <div class="demo-radio col-sm-6">
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="customRadio">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">0</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="customRadio">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">1</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="customRadio" checked>
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">2</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="customRadio">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">3</span>
+                </label>
+              </div>
+              <div class="demo-radio col-sm-6">
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="customRadio">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Four</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="customRadio" checked>
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Six's</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="customRadio" checked>
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">5</span>
+                </label>
+              </div>
+
+            </div>
+          </nb-card-body>
+        </nb-card>
+
+        <!--<input [formControl]="bat_score" type="text"-->
+        <!--class="form-control btn-block" id="inputsBatsmans2" placeholder="Runs">-->
+        <div formGroupName="bowler" class="dropdown  col-sm-6" placement="bottom" ngbDropdown>
+          <select class="form-control btn btn-outline-primary  btn-outline-danger" formControlName="bowler_name"
+                  [(ngModel)]="current_bowler"
+                  (click)="checkForomVal();">
+            <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
+          </select>
+        </div>
+
+        <!--Bats man #1-->
+
+        <div formGroupName="batsman_1" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
+          <select class="form-control btn btn-outline-primary  btn-outline-success" formControlName="bats_name"
+                  [(ngModel)]="current_batsman_1"
+                  (click)="checkForomVal();">
+            <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
+          </select>
+        </div>
+        <div formGroupName="batsman_2" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
+          <select class="form-control btn btn-outline-primary  btn-outline-warning" formControlName="bats_name"
+                  [(ngModel)]="current_batsman_2"
+                  (click)="checkForomVal();">
+            <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
+          </select>
+        </div>
+
+        <div class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
+          <select class="form-control btn btn-outline-primary  btn-outline-danger" formControlName="runs_per_ball"
+                  [(ngModel)]="current_ball"
+                  (click)="checkForomVal();">
+            <option *ngFor=" let option of runs_typs" value={{option}}>{{option}}</option>
+          </select>
+        </div>
+        <div class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
+          <select class="form-control btn btn-outline-primary  btn-outline-success" formControlName="extras_types"
+                  [(ngModel)]="current_extras_type"
+                  (click)="checkForomVal();">
+            <option *ngFor=" let option of extras_types" value={{option}}>{{option}}</option>
+          </select>
+        </div>
+        <div class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
+          <select class="form-control btn btn-outline-primary  btn-outline-success" formControlName="out_types"
+                  [(ngModel)]="current_out_type"
+                  (click)="checkForomVal();">
+            <option *ngFor=" let option of out_types" value={{option}}>{{option}}</option>
+          </select>
+        </div>
+        <div class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
+          <select class="form-control btn btn-outline-primary  btn-outline-success" formControlName="out_assist_fielder"
+                  [(ngModel)]="current_out_type" (click)="checkForomVal();">
+            <option *ngFor=" let option of out_types" value={{option}}>{{option}}</option>
+          </select>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</form>

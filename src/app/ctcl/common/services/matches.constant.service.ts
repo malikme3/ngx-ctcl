@@ -1,7 +1,7 @@
 /**
  * Created by HudaZulifqar on 6/24/2017.
  */
-import {Injectable} from "@angular/core";
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class MatchesConstants {
@@ -52,7 +52,7 @@ export class MatchesConstants {
         type: 'string'
       }
     }
-  }
+  };
 
 
   scoreTableSettings = {
@@ -184,7 +184,7 @@ export class MatchesConstants {
         label: 'No',
         value: '1',
       }
-    }]
+    }];
     return this.yesNoStatus;
   }
 
@@ -213,7 +213,7 @@ export class MatchesConstants {
       checked: false,
       disabled: true,
       class: 'col-md-4'
-    }]
+    }];
     return this.checkLeagues;
 
   }
