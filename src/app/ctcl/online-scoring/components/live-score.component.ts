@@ -15,17 +15,18 @@ export class LiveScoreComponent {
   batsman_1: FormGroup;
 
   batsman_list: any[];
+  fielder_list: any[];
   runs_typs: any[];
   out_types: any[];
   extras_types: any[];
   /**** Start:******   Current/Default Fields values **/
   current_batsman_1 = "Zulifqar Ahmad";
   current_batsman_2 = "Muhmmad Zubair";
+  current_fielder = "Awais Nunu";
   current_bowler = "Wasim Akram";
-  over_current_ball: any;
-  current_ball = '0';
   current_extras_type = 'Select Extras Type';
   current_out_type = 'Select Out Type';
+
 
   /**** End :******   Current/Default Fields values **/
 
@@ -38,6 +39,7 @@ export class LiveScoreComponent {
     this.createForm();
     this.initiateData();
     this.batsman_list = ['Basit', 'Wasim Akram', 'Majid', 'Zulifqar Ahmad', 'Sohail', 'Muhmmad Zubair'];
+    this.fielder_list = ['Zubair', 'Adnan', 'Awais Nunu'];
 
   }
 
@@ -46,23 +48,12 @@ export class LiveScoreComponent {
     this.runs_typs = this.liveScoreConstants.runs_types;
     this.out_types = this.liveScoreConstants.out_types;
     this.extras_types = this.liveScoreConstants.extras_types;
-
-    //Batsmans
-    this.scoreForm.patchValue({batsman_1: {bats_balls: 0}});
-    this.scoreForm.patchValue({batsman_1: {bats_runs: 0}});
-    //Bowler
-    this.scoreForm.patchValue({bowler: {bowler_runs: 0}});
-    this.scoreForm.patchValue({bowler: {bowler_overs: 0.00}});
-
-    //Match adding score every @ per ball
-    this.scoreForm.patchValue({match_running_total_balls: 0.00});
-    this.scoreForm.patchValue({match_running_score: 0});
   };
 
   createForm () {
     this.scoreForm = this.fb.group({ // <-- the parent FormGroup
-      current_ball_runs:'',
-      extras_types:'',
+      current_ball_runs: '',
+      extras_types: '',
       match_info: this.fb.group(this.liveScoreConstants.match_object),
       batsman_1: this.fb.group(this.liveScoreConstants.batsman_oject),
       batsman_2: this.fb.group(this.liveScoreConstants.batsman_oject),
@@ -81,13 +72,13 @@ export class LiveScoreComponent {
   updateScoreObject () {
 
     this.scoreForm.patchValue({batsman_2: {guest_team: 'Hawks'}});
-
-
     let extrasType = (this.scoreForm.get('extras_types').value);
     if (extrasType === 'Select Extras Type') {
       this._normalBallScoring();
-    } else if (extrasType === 'wide' || extrasType === 'No Ball') {
+    } else if (extrasType === 'Wide' || extrasType === 'No Ball') {
       this._bowlersExtras(extrasType);
+    } else {
+      this._matchExtras(extrasType);
     }
   }
 
@@ -106,51 +97,78 @@ export class LiveScoreComponent {
   }
 
   _normalBallScoring () {
-    let currentBallScore = this.scoreForm.get('current_ball_runs').value;
 
-    /********* Match adding score every @ per ball ***/
-    let currentMatchOver = this.scoreForm.get('match_running_overs').value;
-    this.scoreForm.patchValue({match_running_overs: this.liveScoreConstants.ballsToOvers(currentMatchOver)});
-    let currentMatchScore = this.scoreForm.get('match_running_score').value;
-    this.scoreForm.patchValue({match_running_score: +currentMatchScore + +currentBallScore});
-    let currentMatchBalls = this.scoreForm.get('match_running_total_balls').value;
-    this.scoreForm.patchValue({match_running_total_balls: +currentMatchBalls + +1});
+    let curent_ball_runs = this.scoreForm.get('current_ball_runs').value;
 
-    /***** Batsmans ****/
-    let currentBatsmanScore = this.scoreForm.get(['batsman_1', 'bats_runs']).value;
-    let currentBatsmanBalls = this.scoreForm.get(['batsman_1', 'bats_balls']).value;
-    this.scoreForm.patchValue({batsman_1: {bats_balls: +currentBatsmanBalls + +1}});
-    this.scoreForm.patchValue({batsman_1: {bats_runs: +currentBatsmanScore + +currentBallScore}});
+    //Match: Overs
+    let _matchOvers = this.scoreForm.get(['match_info', 'overs']).value;
+    console.log("_matchOvers: ", _matchOvers);
+    this.scoreForm.patchValue({match_info: {overs: this.liveScoreConstants.addBallsToOvers(_matchOvers)}});
 
-    /***** Bowler ****/
-    let currentBowlerScore = this.scoreForm.get(['bowler', 'bowler_runs']).value;
-    this.scoreForm.patchValue({bowler: {bowler_runs: +currentBowlerScore + +currentBallScore}});
-    let currentBowlerOver = this.scoreForm.get(['bowler', 'bowler_overs']).value;
-    this.scoreForm.patchValue({bowler: {bowler_overs: this.liveScoreConstants.ballsToOvers(currentBowlerOver)}});
+
+    //Match: Score
+    let currentMatchScore = this.scoreForm.get(['match_info', 'score']).value;
+    this.scoreForm.patchValue({match_info: {score: +currentMatchScore + +curent_ball_runs}});
+
+    //Batsman: balls
+    let _batsmanBalls = this.scoreForm.get(['batsman_1', 'balls']).value;
+    this.scoreForm.patchValue({batsman_1: {balls: +_batsmanBalls + +1}});
+    //Batsman: Score
+    let _batsmanScore = this.scoreForm.get(['batsman_1', 'score']).value;
+    this.scoreForm.patchValue({batsman_1: {score: +_batsmanScore + +curent_ball_runs}});
+
+    //Bowler: Score
+    let _bowlerScore = this.scoreForm.get(['bowler', 'score']).value;
+    this.scoreForm.patchValue({bowler: {score: +_bowlerScore + +curent_ball_runs}});
+
+    //Bowler: Overs
+    let _bowlerOvers = this.scoreForm.get(['bowler', 'overs']).value;
+    console.log("_bowlerOvers: ", _bowlerOvers);
+    this.scoreForm.patchValue({bowler: {overs: this.liveScoreConstants.convertBallsToOvers(_batsmanBalls)}});
+
+    //Boundary
+    if (curent_ball_runs === '4') {
+      this.scoreForm.patchValue({match_info: {fours: +this.scoreForm.get(['match_info', 'fours']).value + +1}});
+      this.scoreForm.patchValue({batsman_1: {fours: +this.scoreForm.get(['batsman_1', 'fours']).value + +1}});
+      this.scoreForm.patchValue({bowler: {fours: +this.scoreForm.get(['bowler', 'fours']).value + +1}});
+    } else if (curent_ball_runs === '6') {
+      this.scoreForm.patchValue({match_info: {sixes: +this.scoreForm.get(['match_info', 'sixes']).value + +1}});
+      this.scoreForm.patchValue({batsman_1: {sixes: +this.scoreForm.get(['batsman_1', 'sixes']).value + +1}});
+      this.scoreForm.patchValue({bowler: {sixes: +this.scoreForm.get(['bowler', 'sixes']).value + +1}});
+    }
   }
 
   _bowlersExtras (extrasType) {
-    let currentBallScore = this.scoreForm.get('current_ball_runs').value;
+    let curent_ball_runs = this.scoreForm.get('current_ball_runs').value;
     //Match
-    let currentMatchScore = this.scoreForm.get('match_running_score').value;
-    this.scoreForm.patchValue({match_running_score: +currentMatchScore + +currentBallScore});
-    //Bowler
-    let currentBowlerScore = this.scoreForm.get(['bowler', 'bowler_runs']).value;
+    let currentMatchScore = this.scoreForm.get(['match_info', 'score']).value;
+    this.scoreForm.patchValue({match_info: {score: +currentMatchScore + +curent_ball_runs}});
 
-    if (extrasType === 'wide') {
-      this.scoreForm.patchValue({bowler: {bowler_runs: +currentBowlerScore + +currentBallScore}});
-      let currentBowlerWides = this.scoreForm.get(['bowler', 'bowler_wides']).value;
-      this.scoreForm.patchValue({bowler: {bowler_wides: +currentBowlerWides + +currentBallScore}});
+    //Bowler
+    let _bowlerScore = this.scoreForm.get(['bowler', 'score']).value;
+    this.scoreForm.patchValue({bowler: {score: +_bowlerScore + +curent_ball_runs}});
+
+    if (extrasType === 'Wide') {
+      this.scoreForm.patchValue({match_info: {wides: +this.scoreForm.get(['match_info', 'wides']).value + +1}});
+      this.scoreForm.patchValue({bowler: {wides: +this.scoreForm.get(['bowler', 'wides']).value + +1}});
     }
     if (extrasType === 'No Ball') {
-      let currentBowlerNoballs = this.scoreForm.get(['bowler', 'bowler_no_ball']).value;
-      this.scoreForm.patchValue({bowler: {bowler_runs: +currentBowlerScore + +1}});
-      this.scoreForm.patchValue({bowler: {bowler_no_ball: +currentBowlerNoballs + +1}});
+      this.scoreForm.patchValue({match_info: {noballs: +this.scoreForm.get(['match_info', 'noballs']).value + +1}});
+      this.scoreForm.patchValue({bowler: {noballs: +this.scoreForm.get(['bowler', 'noballs']).value + +1}});
     }
-
-    //extras
-    let currentMatchExtras = this.scoreForm.get('match_extras_score').value;
-    this.scoreForm.patchValue({match_extras_score: +currentMatchExtras + +currentBallScore});
   }
 
+  _matchExtras (extrasType) {
+
+    let curent_ball_runs = this.scoreForm.get('current_ball_runs').value;
+    let currentMatchScore = this.scoreForm.get(['match_info', 'score']).value;
+    this.scoreForm.patchValue({match_info: {score: +currentMatchScore + +curent_ball_runs}});
+
+    if (extrasType === 'Byes') {
+      this.scoreForm.patchValue({match_info: {byes: +this.scoreForm.get(['match_info', 'byes']).value + +curent_ball_runs}});
+    } else if (extrasType === 'leg Byes') {
+      this.scoreForm.patchValue({match_info: {legByes: +this.scoreForm.get(['match_info', 'legByes']).value + +curent_ball_runs}});
+    }
+
+  }
 }

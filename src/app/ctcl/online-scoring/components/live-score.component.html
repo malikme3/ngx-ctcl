@@ -23,7 +23,7 @@
             <nb-actions size="large" fullWidth>
               <nb-action>
                 <!--<i class="nb-gear"></i><span>Update</span>-->
-                <span class=" btn btn-outline-divided-group btn-outline-success center ">
+                <span class=" btn btn-outline-divided-group btn-outline-success center " (click)="updateScoreObject ()">
                   <input type="radio" class=" col-sm-6 custom-control-input "
                          formControlName="current_ball_runs" [value]="'0'"
                          checked>
@@ -93,7 +93,7 @@
         <div formGroupName="bowler" class="dropdown  col-sm-6" placement="bottom" ngbDropdown>
           <select class="form-control btn btn-outline-primary  btn-outline-danger" formControlName="name"
                   [(ngModel)]="current_bowler"
-                  (click)="checkForomVal();">
+                  (click)="checkForomVal()">
             <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
           </select>
         </div>
@@ -103,20 +103,20 @@
         <div formGroupName="batsman_1" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
           <select class="form-control btn btn-outline-primary  btn-outline-success" formControlName="name"
                   [(ngModel)]="current_batsman_1"
-                  (click)="checkForomVal();">
+                  (click)="checkForomVal()">
             <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
           </select>
         </div>
         <div formGroupName="batsman_2" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
           <select class="form-control btn btn-outline-primary  btn-outline-warning" formControlName="name"
                   [(ngModel)]="current_batsman_2"
-                  (click)="checkForomVal();">
+                  (click)="checkForomVal()">
             <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
           </select>
         </div>
 
         <div class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
-          <select class="form-control btn btn-outline-primary  btn-outline-success" formControlName="extras_types"
+          <select class="form-control btn btn-outline-primary btn-outline-success" formControlName="extras_types"
                   [(ngModel)]="current_extras_type"
                   (click)="checkForomVal();">
             <option *ngFor=" let option of extras_types" value={{option}}>{{option}}</option>
@@ -125,14 +125,14 @@
         <div formGroupName="wicket_info" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
           <select class="form-control btn btn-outline-primary  btn-outline-danger" formControlName="how_out"
                   [(ngModel)]="current_out_type"
-                  (click)="checkForomVal();">
+                  (click)="checkForomVal()">
             <option *ngFor=" let option of out_types" value={{option}}>{{option}}</option>
           </select>
         </div>
         <div formGroupName="wicket_info" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
           <select class="form-control btn btn-outline-primary  btn-outline-success" formControlName="fielder_name"
-                  [(ngModel)]="current_out_type" (click)="checkForomVal();">
-            <option *ngFor=" let option of out_types" value={{option}}>{{option}}</option>
+                  [(ngModel)]="current_fielder" (click)="checkForomVal()">
+            <option *ngFor=" let option of fielder_list" value={{option}}>{{option}}</option>
           </select>
         </div>
       </div>

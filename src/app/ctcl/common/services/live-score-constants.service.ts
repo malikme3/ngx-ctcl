@@ -5,11 +5,10 @@ import {Injectable} from '@angular/core';
  */
 @Injectable()
 export class LiveScoreConstants {
-
+  ball: number;
   runs_types = ['0', '1', '2', '3', '4', '6'];
-  extras_types = ['Select Extras Type', 'wide', 'No Ball', 'Byes', 'leg Byes', 'Other'];
+  extras_types = ['Select Extras Type', 'Wide', 'No Ball', 'Byes', 'leg Byes', 'Other'];
   out_types = ['Select Out Type', 'Caught', 'Bowled', 'Run Out', 'Stumped', 'C & B', 'Other'];
-  ball = 0;
 
   math_info_object = {
     id: '',
@@ -40,7 +39,7 @@ export class LiveScoreConstants {
     fours: '',
     sixes: '',
     wides: '',
-    noball: '',
+    noballs: '',
     byes: '',
     legByes: '',
   };
@@ -53,7 +52,7 @@ export class LiveScoreConstants {
     fours: '',
     sixes: '',
     wides: '',
-    noball: '',
+    noballs: '',
   };
 
   wicket_info_object = {
@@ -71,13 +70,22 @@ export class LiveScoreConstants {
     return balls;
   }
 
-  ballsToOvers (over): number {
-    this.ball += 1;
+  addBallsToOvers (over): number {
+    this.ball = 1;
     let current_over = (over * 10 + 0.1 * 10) / 10;
     if (this.ball === 6) {
       current_over = Math.round(current_over);
       this.ball = 0;
     }
     return current_over;
+  }
+
+
+  convertBallsToOvers (balls: number): number {
+    if (balls > 0) {
+      return Math.floor(balls / 6) + (balls % 6) / 10;
+    } else {
+      return 0.1;
+    }
   }
 }
