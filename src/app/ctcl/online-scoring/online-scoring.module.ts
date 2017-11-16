@@ -19,6 +19,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatRadioModule} from "@angular/material/radio";
 import {ButtonsModule} from "../../pages/ui-features/buttons/buttons.module";
 import {LiveScoreConstants} from "../common/services/live-score-constants.service";
+import {CtclSharedModule} from "../shared/shared.module";
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {LiveScoreConstants} from "../common/services/live-score-constants.servic
     GrowlModule,
     FieldsetModule,
     SharedModule,
+    CtclSharedModule,
     AccordionModule,
     PanelModule,
     SplitButtonModule,
