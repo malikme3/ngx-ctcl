@@ -27,6 +27,7 @@ export class LiveScoreConstants {
     id: '',
     name: '',
     position: '',
+    is_striker: '',
     balls: '',
     overs: '',
     score: '',

@@ -1,5 +1,5 @@
 /* tslint:disable */
-import {Component} from "@angular/core";
+import {ChangeDetectorRef, Component} from "@angular/core";
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LiveScoreConstants} from "../../common/services/live-score-constants.service";
 import {hexToRgb} from "@swimlane/ngx-charts/release/utils";
@@ -19,6 +19,7 @@ export class LiveScoreComponent {
   runs_typs: any[];
   out_types: any[];
   extras_types: any[];
+
   /**** Start:******   Current/Default Fields values **/
   current_batsman_1 = "Zulifqar Ahmad";
   current_batsman_2 = "Muhmmad Zubair";
@@ -26,6 +27,9 @@ export class LiveScoreComponent {
   current_bowler = "Wasim Akram";
   current_extras_type = 'Select Extras Type';
   current_out_type = 'Select Out Type';
+  is_batsman_out: boolean = false;
+  is_striker_1: boolean = true;
+  is_striker_2: boolean = false;
 
 
   /**** End :******   Current/Default Fields values **/
@@ -35,7 +39,7 @@ export class LiveScoreComponent {
   batsman: any;
 
 
-  constructor (private fb: FormBuilder, private  liveScoreConstants: LiveScoreConstants) {
+  constructor (private fb: FormBuilder, private  liveScoreConstants: LiveScoreConstants, private cdRef: ChangeDetectorRef) {
     this.createForm();
     this.initiateData();
     this.batsman_list = ['Basit', 'Wasim Akram', 'Majid', 'Zulifqar Ahmad', 'Sohail', 'Muhmmad Zubair'];
@@ -56,6 +60,7 @@ export class LiveScoreComponent {
   createForm () {
     this.scoreForm = this.fb.group({ // <-- the parent FormGroup
       current_ball_runs: '',
+      is_batsman_out: '',
       extras_types: '',
       match_info: this.fb.group(this.liveScoreConstants.match_object),
       batsman_1: this.fb.group(this.liveScoreConstants.batsman_object),
@@ -67,9 +72,15 @@ export class LiveScoreComponent {
 
   }
 
-  checkForomVal () {
-    console.log(" Form Value ", this.scoreForm);
+  updateFieldFlags (checkVal) {
+    if (checkVal === 'out') {
+      this.is_batsman_out = !this.scoreForm.get('is_batsman_out').value;
+    }
+  }
 
+  UpdateStriker (checkVal) {
+    this.is_striker_1 = !this.is_striker_1;
+    this.is_striker_2 = !this.is_striker_2;
   }
 
   updateScoreObject () {
@@ -193,5 +204,10 @@ export class LiveScoreComponent {
       this.scoreForm.patchValue({match_info: {legByes: +this.scoreForm.get(['match_info', 'legByes']).value + +curent_ball_runs}});
     }
 
+  }
+
+  //after change issue fix
+  ngAfterViewInit () {
+    this.cdRef.detectChanges();
   }
 }
