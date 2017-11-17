@@ -23,17 +23,19 @@ export class LiveScoreConstants {
     match_type: '',
     target: '',
   };
-  batsman_oject = {
+  batsman_object = {
     id: '',
     name: '',
     position: '',
-    score: '',
     balls: '',
+    overs: '',
+    score: '',
     fours: '',
     sixes: '',
   };
   match_object = {
     score: '',
+    balls: '',
     overs: '',
     wickets: '',
     fours: '',
@@ -48,6 +50,7 @@ export class LiveScoreConstants {
     name: '',
     position: '',
     score: '',
+    balls: '',
     overs: '',
     fours: '',
     sixes: '',
@@ -70,22 +73,20 @@ export class LiveScoreConstants {
     return balls;
   }
 
-  addBallsToOvers (over): number {
-    this.ball = 1;
-    let current_over = (over * 10 + 0.1 * 10) / 10;
-    if (this.ball === 6) {
+  addBallsToOvers (ballsPlayed): any {
+    let balls = +ballsPlayed + +1;
+    let current_over = (balls * 10 + 0.1 * 10) / 10;
+    if (balls === 6) {
       current_over = Math.round(current_over);
-      this.ball = 0;
+      balls = 0;
     }
-    return current_over;
+    return {current_over, balls};
   }
 
 
-  convertBallsToOvers (balls: number): number {
-    if (balls > 0) {
-      return Math.floor(balls / 6) + (balls % 6) / 10;
-    } else {
-      return 0.1;
-    }
+  convertBallsToOvers (ballsPlayed: number): any {
+    const balls = +ballsPlayed + +1;
+    const overs = Math.floor(balls / 6) + (balls % 6) / 10;
+    return {overs, balls};
   }
 }

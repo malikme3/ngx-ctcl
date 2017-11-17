@@ -21,7 +21,13 @@
   vertical-align: middle;
   horiz-align: text-warning();
 }
-
+.custom-padding {
+  padding: 1.25rem;
+  padding-top: 1.25rem;
+  padding-right: 0.5rem;
+  padding-bottom: 1.25rem;
+  padding-left: 0.5rem;
+}
 :host /deep/ {
   .nb-theme-cosmic .btn {
     color: #ff7c66;

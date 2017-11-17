@@ -48,6 +48,9 @@ export class LiveScoreComponent {
     this.runs_typs = this.liveScoreConstants.runs_types;
     this.out_types = this.liveScoreConstants.out_types;
     this.extras_types = this.liveScoreConstants.extras_types;
+    this.scoreForm.patchValue({match_info: {overs: 0.00}});
+    this.scoreForm.patchValue({match_info: {score: 0.00}});
+    this.scoreForm.patchValue({match_info: {wickets: 0.00}});
   };
 
   createForm () {
@@ -55,8 +58,8 @@ export class LiveScoreComponent {
       current_ball_runs: '',
       extras_types: '',
       match_info: this.fb.group(this.liveScoreConstants.match_object),
-      batsman_1: this.fb.group(this.liveScoreConstants.batsman_oject),
-      batsman_2: this.fb.group(this.liveScoreConstants.batsman_oject),
+      batsman_1: this.fb.group(this.liveScoreConstants.batsman_object),
+      batsman_2: this.fb.group(this.liveScoreConstants.batsman_object),
       bowler: this.fb.group(this.liveScoreConstants.bowler_object),
       wicket_info: this.fb.group(this.liveScoreConstants.wicket_info_object),
 
@@ -100,31 +103,34 @@ export class LiveScoreComponent {
 
     let curent_ball_runs = this.scoreForm.get('current_ball_runs').value;
 
-    //Match: Overs
-    let _matchOvers = this.scoreForm.get(['match_info', 'overs']).value;
-    console.log("_matchOvers: ", _matchOvers);
-    this.scoreForm.patchValue({match_info: {overs: this.liveScoreConstants.addBallsToOvers(_matchOvers)}});
+    //Match: Balls && Overs
+    let _matchBalls = this.scoreForm.get(['match_info', 'balls']).value;
+    this.scoreForm.patchValue({match_info: {balls: this.liveScoreConstants.convertBallsToOvers(_matchBalls).balls}});
+    this.scoreForm.patchValue({match_info: {overs: this.liveScoreConstants.convertBallsToOvers(_matchBalls).overs}});
 
 
     //Match: Score
     let currentMatchScore = this.scoreForm.get(['match_info', 'score']).value;
     this.scoreForm.patchValue({match_info: {score: +currentMatchScore + +curent_ball_runs}});
 
-    //Batsman: balls
+    //Batsman: Balls && Overs
     let _batsmanBalls = this.scoreForm.get(['batsman_1', 'balls']).value;
-    this.scoreForm.patchValue({batsman_1: {balls: +_batsmanBalls + +1}});
+    this.scoreForm.patchValue({batsman_1: {balls: this.liveScoreConstants.convertBallsToOvers(_batsmanBalls).balls}});
+    this.scoreForm.patchValue({batsman_1: {overs: this.liveScoreConstants.convertBallsToOvers(_batsmanBalls).overs}});
+
     //Batsman: Score
     let _batsmanScore = this.scoreForm.get(['batsman_1', 'score']).value;
     this.scoreForm.patchValue({batsman_1: {score: +_batsmanScore + +curent_ball_runs}});
+
+    //Bowler: Balls && Overs
+    let _bowlerBalls = this.scoreForm.get(['bowler', 'balls']).value;
+    this.scoreForm.patchValue({bowler: {balls: this.liveScoreConstants.convertBallsToOvers(_bowlerBalls).balls}});
+    this.scoreForm.patchValue({bowler: {overs: this.liveScoreConstants.convertBallsToOvers(_bowlerBalls).overs}});
 
     //Bowler: Score
     let _bowlerScore = this.scoreForm.get(['bowler', 'score']).value;
     this.scoreForm.patchValue({bowler: {score: +_bowlerScore + +curent_ball_runs}});
 
-    //Bowler: Overs
-    let _bowlerOvers = this.scoreForm.get(['bowler', 'overs']).value;
-    console.log("_bowlerOvers: ", _bowlerOvers);
-    this.scoreForm.patchValue({bowler: {overs: this.liveScoreConstants.convertBallsToOvers(_batsmanBalls)}});
 
     //Boundary
     if (curent_ball_runs === '4') {
@@ -160,9 +166,26 @@ export class LiveScoreComponent {
 
   _matchExtras (extrasType) {
 
+    //Match: score
     let curent_ball_runs = this.scoreForm.get('current_ball_runs').value;
     let currentMatchScore = this.scoreForm.get(['match_info', 'score']).value;
     this.scoreForm.patchValue({match_info: {score: +currentMatchScore + +curent_ball_runs}});
+
+    //Match: Balls && Overs
+    let _matchBalls = this.scoreForm.get(['match_info', 'balls']).value;
+    this.scoreForm.patchValue({match_info: {balls: this.liveScoreConstants.convertBallsToOvers(_matchBalls).balls}});
+    this.scoreForm.patchValue({match_info: {overs: this.liveScoreConstants.convertBallsToOvers(_matchBalls).overs}});
+
+    //Batsman: Balls && Overs
+    let _batsmanBalls = this.scoreForm.get(['batsman_1', 'balls']).value;
+    this.scoreForm.patchValue({batsman_1: {balls: this.liveScoreConstants.convertBallsToOvers(_batsmanBalls).balls}});
+    this.scoreForm.patchValue({batsman_1: {overs: this.liveScoreConstants.convertBallsToOvers(_batsmanBalls).overs}});
+
+    //Bowler: Balls && Overs
+    let _bowlerBalls = this.scoreForm.get(['bowler', 'balls']).value;
+    this.scoreForm.patchValue({bowler: {balls: this.liveScoreConstants.convertBallsToOvers(_bowlerBalls).balls}});
+    this.scoreForm.patchValue({bowler: {overs: this.liveScoreConstants.convertBallsToOvers(_bowlerBalls).overs}});
+
 
     if (extrasType === 'Byes') {
       this.scoreForm.patchValue({match_info: {byes: +this.scoreForm.get(['match_info', 'byes']).value + +curent_ball_runs}});
