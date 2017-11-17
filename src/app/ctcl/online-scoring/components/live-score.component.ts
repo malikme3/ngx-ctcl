@@ -78,14 +78,17 @@ export class LiveScoreComponent {
     }
   }
 
-  UpdateStriker (checkVal) {
+  UpdateStriker () {
     this.is_striker_1 = !this.is_striker_1;
     this.is_striker_2 = !this.is_striker_2;
   }
 
   updateScoreObject () {
+    let isOut = this.scoreForm.get('is_batsman_out').value;
+    if (isOut) {
+      this._wicketInfo();
+    }
 
-    this.scoreForm.patchValue({batsman_2: {guest_team: 'Hawks'}});
     let extrasType = (this.scoreForm.get('extras_types').value);
     if (extrasType === 'Select Extras Type') {
       this._normalBallScoring();
@@ -204,6 +207,14 @@ export class LiveScoreComponent {
       this.scoreForm.patchValue({match_info: {legByes: +this.scoreForm.get(['match_info', 'legByes']).value + +curent_ball_runs}});
     }
 
+  }
+
+  _wicketInfo () {
+    this.scoreForm.patchValue({wicket_info: {wicket_number: +this.scoreForm.get(['wicket_info', 'wicket_number']).value + +1}});
+    this.scoreForm.patchValue({wicket_info: {bowler_name: this.scoreForm.get(['bowler', 'name']).value }});
+    this.scoreForm.patchValue({wicket_info: {batsman_name: this.scoreForm.get(['batsman_1', 'name']).value }});
+    let currentMatchScore = this.scoreForm.get(['match_info', 'score']).value;
+    this.scoreForm.patchValue({wicket_info: {fow_score: currentMatchScore}});
   }
 
   //after change issue fix

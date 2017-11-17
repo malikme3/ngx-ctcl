@@ -1,23 +1,56 @@
-<p>Match: 1: {{ is_striker_1| json }}</p>
-<p>Match: 2: {{ is_striker_2| json }}</p>
-<p>Match: {{ scoreForm.value?.match_info | json }}</p>
-<p>Batsman: {{ scoreForm.value?.batsman_1 | json }}</p>
-<p>Bowler: {{ scoreForm.value?.bowler | json }}</p>
+<!--<p>Wicket: {{ scoreForm.value?.wicket_info | json }}</p>-->
+<!--<p>Match: {{ scoreForm.value?.match_info | json }}</p>-->
+<!--<p>Batsman: {{ scoreForm.value?.batsman_1 | json }}</p>-->
+<!--<p>Bowler: {{ scoreForm.value?.bowler | json }}</p>-->
 <form [formGroup]="scoreForm" class="form-horizontal">
   <div class="row container-title custom-padding">
-    <div class="col-xlg-3 col-sm-4  btn btn-secondary btn-outline-primary">
+    <div class="col-xlg-3 col-sm-4  btn btn-secondary btn-outline-primary" *ngIf="scoreForm.dirty; else loading;">
       <nb-actions size="large" fullWidth>
-        <!--<nb-action>-->
-        <!--<span class="btn-outline-danger">Wicket</span>-->
-        <!--</nb-action>-->
         <nb-action>
-          <span class="btn-outline-warning" (click)="updateScoreObject()">Submit</span>
+          <span class="btn-outline-warning btn-icon" (click)="updateScoreObject()">Submit</span>
         </nb-action>
         <nb-action>
-          <span class="btn-outline-success">Update</span>
+          <span class="btn-outline-success btn-icon"><i class="nb-skip-backward-outline"></i>Update</span>
         </nb-action>
       </nb-actions>
     </div>
+    <ng-template #loading class="row container-title custom-padding">
+      <div class="col-xlg-3 col-sm-4  btn btn-outline-divided-group btn-raised btn-outline-success">
+        <div class="header">
+          <div class="name bold block-level-buttons" formGroupName="batsman_1">
+            <table style="width:100%">
+
+              <tr>
+                <th>
+                  <button type="button" class="btn btn-outline-info">
+                    <i class="nb-shuffle"></i>Start
+                  </button>
+                </th>
+                <th>
+                  <button type="button" class="btn btn-outline-danger">
+                    Date
+                  </button>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <button type="button" class="btn btn-outline-primary">
+                    Home Team
+                  </button>
+                </th>
+                <th>
+                  <button type="button" class="btn btn-outline-warning">
+                    Guest Team
+                  </button>
+                </th>
+              </tr>
+
+            </table>
+          </div>
+          <!--<h2>Let's start good luck !!</h2>-->
+        </div>
+      </div>
+    </ng-template>
     <div class="col-xlg-3 col-sm-4  btn btn-outline-divided-group btn-raised btn-outline-success">
       <nb-actions size="large" fullWidth>
         <nb-action>{{ scoreForm?.value.match_info?.score}}
@@ -26,7 +59,7 @@
         <nb-action> {{ scoreForm?.value.match_info?.overs}}
           <i class="nb-pause-outline"></i><span>Ovr</span>
         </nb-action>
-        <nb-action>{{ scoreForm.value?.match_info?.wickets}}
+        <nb-action>{{ scoreForm.value?.wicket_info?.wicket_number}}
           <i class="nb-pause-outline"></i><span>Wickets</span>
         </nb-action>
       </nb-actions>
@@ -34,7 +67,8 @@
     <div class=" col-xlg-6 col-sm-4 form-control btn btn-outline-info" data-toggle="buttons">
       <div class="demo-radio ">
         <label class="custom-control custom-radio">
-          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="'0'" selected="true">
+          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="'0'"
+                 selected="true">
           <span class="custom-control-indicator"></span>
           <span class="custom-control-description">0</span>
         </label>
@@ -85,10 +119,13 @@
         <div class="col-md-12">
           <div class="btn-group btn-group-full-width" role="group">
             <button type="button" class="btn btn  btn-outline-success btn-group-icon btn-group-divider btn-fixed">
-              <label class="custom-control custom-radio" (change)="UpdateStriker('striker_1')">
-                <input type="checkbox" class="custom-control-input" formControlName="is_striker"  [checked]="is_striker_1">
+              <label class="custom-control custom-radio" (change)="UpdateStriker()">
+                <input type="checkbox" class="custom-control-input" formControlName="is_striker"
+                       [checked]="is_striker_1">
                 <span class="custom-control-indicator"></span>
-                <span class="custom-control-description custom-font">SR</span>
+                <ng-container *ngIf="scoreForm.value?.batsman_1.balls > 0 || scoreForm.value?.batsman_1.runs > 0">
+                  <span class="custom-control-description custom-font">{{ scoreForm.value?.batsman_1.score | json }} ({{ scoreForm.value?.batsman_1.balls | json }})</span>
+                </ng-container>
               </label>
             </button>
             <select class="form-control btn btn-outline-warning" formControlName="name" [(ngModel)]="current_batsman_1"
@@ -104,14 +141,16 @@
       <ng-container class="row form-control ">
         <div class="col-md-12">
           <div class="btn-group btn-group-full-width" role="group">
-            <button type="button" class="btn btn  btn-outline-success btn-group-icon btn-group-divider btn-fixed">
-              <label class="custom-control custom-radio"  >
-                <input type="checkbox" class="custom-control-input" (change)="UpdateStriker('striker_1')" formControlName="is_striker" [checked]="is_striker_2">
+            <button type="button" class="btn  btn-outline-success btn-group-icon btn-group-divider btn-fixed">
+              <label class="custom-control custom-radio">
+                <input type="checkbox" class="custom-control-input" (change)="UpdateStriker()"
+                       formControlName="is_striker" [checked]="is_striker_2">
                 <span class="custom-control-indicator"></span>
-                <span class="custom-control-description custom-font">SR</span>
+                <span class="custom-control-description custom-font">{{ scoreForm.value?.batsman_1.score | json }}({{ scoreForm.value?.batsman_1.balls | json }})</span>
               </label>
             </button>
-            <select class="form-control btn btn-outline-warning" formControlName="name" [(ngModel)]="current_batsman_2"
+            <select class="form-control btn btn-outline-warning btn-group-icon btn-group-divider btn-fixed"
+                    formControlName="name" [(ngModel)]="current_batsman_2"
                     [ngClass]=" this.scoreForm.get(['batsman_1', 'name']).value != 'Zulifqar Ahmad' ? 'btn-outline-success' : 'btn-outline-danger'">
               <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
             </select>
@@ -121,25 +160,68 @@
     </div>
 
     <div formGroupName="bowler" class="dropdown col-sm-6" placement="bottom" ngbDropdown>
-      <select class="form-control btn" formControlName="name" [(ngModel)]="current_bowler" [ngClass]="scoreForm.get('bowler').valid ? 'btn-outline-success' : 'btn-outline-danger'">
+      <select class="form-control btn" formControlName="name" [(ngModel)]="current_bowler"
+              [ngClass]="scoreForm.get('bowler').valid ? 'btn-outline-success' : 'btn-outline-danger'">
         <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
       </select>
     </div>
 
     <div class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
-      <select class="form-control btn btn-outline-primary btn-outline-success" formControlName="extras_types" [(ngModel)]="current_extras_type">
+      <select class="form-control btn btn-outline-primary btn-outline-success" formControlName="extras_types"
+              [(ngModel)]="current_extras_type">
         <option *ngFor=" let option of extras_types" value={{option}}>{{option}}</option>
       </select>
     </div>
-    <div *ngIf="is_batsman_out" formGroupName="wicket_info" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
-      <select class="form-control btn btn-outline-primary  btn-outline-danger" formControlName="how_out" [(ngModel)]="current_out_type">
+    <div *ngIf="is_batsman_out" formGroupName="wicket_info" class="dropdown col-xlg-4 col-sm-6" placement="bottom"
+         ngbDropdown>
+      <select class="form-control btn btn-outline-primary  btn-outline-danger" formControlName="how_out"
+              [(ngModel)]="current_out_type">
         <option *ngFor=" let option of out_types" value={{option}}>{{option}}</option>
       </select>
     </div>
-    <div *ngIf="is_batsman_out" formGroupName="wicket_info" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
-      <select class="form-control btn btn-outline-primary  btn-outline-success" formControlName="fielder_name" [(ngModel)]="current_fielder">
+    <div *ngIf="is_batsman_out" formGroupName="wicket_info" class="dropdown col-xlg-4 col-sm-6" placement="bottom"
+         ngbDropdown>
+      <select class="form-control btn btn-outline-primary  btn-outline-success" formControlName="fielder_name"
+              [(ngModel)]="current_fielder">
         <option *ngFor=" let option of fielder_list" value={{option}}>{{option}}</option>
       </select>
     </div>
   </div>
 </form>
+<ng-template #letplay class="row container-title custom-padding">
+  <div class="col-xlg-12 col-sm-12  btn btn-outline-divided-group btn-raised btn-outline-success">
+    <div class="header">
+      <div class="name bold block-level-buttons" formGroupName="batsman_1">
+        <table style="width:100%">
+
+          <tr>
+            <th>
+              <button type="button" class="btn btn-outline-info">
+                <i class="nb-shuffle"></i>Start
+              </button>
+            </th>
+            <th>
+              <button type="button" class="btn btn-outline-danger">
+                Date
+              </button>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <button type="button" class="btn btn-outline-primary">
+                Home Team
+              </button>
+            </th>
+            <th>
+              <button type="button" class="btn btn-outline-warning">
+                Guest Team
+              </button>
+            </th>
+          </tr>
+
+        </table>
+      </div>
+      <!--<h2>Let's start good luck !!</h2>-->
+    </div>
+  </div>
+</ng-template>

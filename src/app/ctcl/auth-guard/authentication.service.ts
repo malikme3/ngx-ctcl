@@ -11,7 +11,7 @@ export const TOKEN_NAME: string = 'jwt_token';
 export class AuthenticationService {
 
   private url: string = 'api/auth';
-  static AUTH_TOKEN = 'http://localhost:8080';
+  static AUTH_TOKEN = 'http://localhost:8081';
   private headers = new Headers({ 'Content-Type': 'application/json' });
 
   private header = this.pagesConstants.pagesContants.url.header;
