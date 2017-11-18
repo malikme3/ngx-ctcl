@@ -57,9 +57,9 @@ export class LiveScoreComponent {
     this.runs_typs = this.liveScoreConstants.runs_types;
     this.out_types = this.liveScoreConstants.out_types;
     this.extras_types = this.liveScoreConstants.extras_types;
-    this.scoreForm.patchValue({match: {overs: 0.00}});
-    this.scoreForm.patchValue({match: {score: 0.00}});
-    this.scoreForm.patchValue({match: {wickets: 0.00}});
+    this.scoreForm.patchValue({match: {overs: 'Overs: 00.00'}});
+    this.scoreForm.patchValue({match: {score: 'Score: 000'}});
+    this.scoreForm.patchValue({match: {wickets: 'Wickets: 00'}});
 
   };
 

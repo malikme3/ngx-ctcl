@@ -1,4 +1,5 @@
-<p>Wicket: {{ scoreForm.value?.wicket | json }}</p>
+<p>Wicket: {{ scoreForm?.value?.wicket?.how_out | json }}</p>
+<p>Out: {{ scoreForm?.value?.is_batsman_out| json }}</p>
 <p>Match: {{ scoreForm.value?.match | json }}</p>
 <p>Batsman: {{ scoreForm.value?.batsman_1 | json }}</p>
 <p>Bowler: {{ scoreForm.value?.bowler | json }}</p>
@@ -54,15 +55,19 @@
       <!--<p-column field="wickets" header="Wicket" [editable]="true"-->
       <!--[style]="{'background':'lightpink','margin-top':'1px'}"></p-column>-->
       <!--</p-dataTable>-->
-      <input type="text" class="col-4 btn-semi-round btn  btn-outline-success" id="score" formControlName="score" placeholder="Score">
-      <input type="text" class="col-4 btn-semi-round btn  btn-outline-success" id="overs" formControlName="overs" placeholder="Overs">
-      <input type="text" class="col-4 btn-semi-round btn  btn-outline-success" id="wickets" formControlName="wickets" placeholder="Wickets">
+      <input type="text" class="col-4 btn-semi-round btn  btn-outline-success" id="score" formControlName="score"
+             placeholder="Score">
+      <input type="text" class="col-4 btn-semi-round btn  btn-outline-success" id="overs" formControlName="overs"
+             placeholder="Overs">
+      <input type="text" class="col-4 btn-semi-round btn  btn-outline-success" id="wickets" formControlName="wickets"
+             placeholder="Wickets">
     </div>
 
     <div class="col-xlg-3 col-sm-4  btn  btn-outline-info">
       <nb-actions size="large" fullWidth>
         <nb-action>
-          <button class="btn-icon btn-block" [disabled]="!scoreForm.dirty" (click)="updateScoreObject()" [ngClass]="[scoreForm.dirty ? 'btn-danger' : 'btn-success']"><i class="alert-info"></i>Submit
+          <button class="btn-icon btn-block" [disabled]="!scoreForm.dirty" (click)="updateScoreObject()"
+                  [ngClass]="[scoreForm.dirty ? 'btn-danger' : 'btn-success']"><i class="alert-info"></i>Submit
           </button>
         </nb-action>
         <!--<nb-action>-->
@@ -75,39 +80,40 @@
     <div class=" col-xlg-6 col-sm-4 form-control btn btn-outline-info" data-toggle="buttons">
       <div class="demo-radio ">
         <label class="custom-control custom-radio">
-          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="'0'" selected="true">
+          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="0"
+                 selected="true">
           <span class="custom-control-indicator"></span>
           <span class="custom-control-description">0</span>
         </label>
         <label class="custom-control custom-radio">
-          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="'1'">
+          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="1">
           <span class="custom-control-indicator"></span>
           <span class="custom-control-description">1</span>
         </label>
         <label class="custom-control custom-radio">
-          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="'2'">
+          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="2">
           <span class="custom-control-indicator"></span>
           <span class="custom-control-description">2</span>
         </label>
         <label class="custom-control custom-radio">
-          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="'3'">
+          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="3">
           <span class="custom-control-indicator"></span>
           <span class="custom-control-description">3</span>
         </label>
       </div>
       <div class="demo-radio">
         <label class="custom-control custom-radio">
-          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="'4'">
+          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="4">
           <span class="custom-control-indicator"></span>
           <span class="custom-control-description">Four</span>
         </label>
         <label class="custom-control custom-radio">
-          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="'6'">
+          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="6">
           <span class="custom-control-indicator"></span>
           <span class="custom-control-description">Six</span>
         </label>
         <label class="custom-control custom-radio">
-          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="'5'">
+          <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="5">
           <span class="custom-control-indicator"></span>
           <span class="custom-control-description">5</span>
         </label>
@@ -127,14 +133,16 @@
           <div class="btn-group btn-group-full-width" role="group">
             <button type="button" class="btn btn  btn-outline-success btn-group-icon btn-group-divider btn-fixed">
               <label class="custom-control custom-radio" (change)="UpdateStriker()">
-                <input type="checkbox" class="custom-control-input" formControlName="is_striker" [checked]="is_striker_1">
+                <input type="checkbox" class="custom-control-input" formControlName="is_striker"
+                       [checked]="is_striker_1">
                 <span class="custom-control-indicator"></span>
                 <ng-container *ngIf="scoreForm.value?.batsman_1.balls > 0 || scoreForm.value?.batsman_1.runs > 0">
                   <span class="custom-control-description custom-font">{{ scoreForm.value?.batsman_1.score | json }} ({{ scoreForm.value?.batsman_1.balls | json }})</span>
                 </ng-container>
               </label>
             </button>
-            <select class="form-control btn btn-outline-warning" formControlName="name" [(ngModel)]="current_batsman_1" [ngClass]=" this.scoreForm.get(['batsman_1', 'name']).value != 'Zulifqar Ahmad' ? 'btn-outline-success' : 'btn-outline-danger'">
+            <select class="form-control btn btn-outline-warning" formControlName="name" [(ngModel)]="current_batsman_1"
+                    [ngClass]=" this.scoreForm.get(['batsman_1', 'name']).value != 'Zulifqar Ahmad' ? 'btn-outline-success' : 'btn-outline-danger'">
               <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
             </select>
           </div>
@@ -148,12 +156,15 @@
           <div class="btn-group btn-group-full-width" role="group">
             <button type="button" class="btn  btn-outline-success btn-group-icon btn-group-divider btn-fixed">
               <label class="custom-control custom-radio">
-                <input type="checkbox" class="custom-control-input" (change)="UpdateStriker()" formControlName="is_striker" [checked]="is_striker_2">
+                <input type="checkbox" class="custom-control-input" (change)="UpdateStriker()"
+                       formControlName="is_striker" [checked]="is_striker_2">
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description custom-font">{{ scoreForm.value?.batsman_1.score | json }}({{ scoreForm.value?.batsman_1.balls | json }})</span>
               </label>
             </button>
-            <select class="form-control btn btn-outline-warning btn-group-icon btn-group-divider btn-fixed" formControlName="name" [(ngModel)]="current_batsman_2" [ngClass]=" this.scoreForm.get(['batsman_1', 'name']).value != 'Zulifqar Ahmad' ? 'btn-outline-success' : 'btn-outline-danger'">
+            <select class="form-control btn btn-outline-warning btn-group-icon btn-group-divider btn-fixed"
+                    formControlName="name" [(ngModel)]="current_batsman_2"
+                    [ngClass]=" this.scoreForm.get(['batsman_1', 'name']).value != 'Zulifqar Ahmad' ? 'btn-outline-success' : 'btn-outline-danger'">
               <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
             </select>
           </div>
@@ -162,23 +173,32 @@
     </div>
 
     <div formGroupName="bowler" class="dropdown col-sm-6" placement="bottom" ngbDropdown>
-      <select class="form-control btn" formControlName="name" [(ngModel)]="current_bowler" [ngClass]="scoreForm.get('bowler').valid ? 'btn-outline-success' : 'btn-outline-danger'">
+      <select class="form-control btn" formControlName="name" [(ngModel)]="current_bowler"
+              [ngClass]="scoreForm.get('bowler').valid ? 'btn-outline-success' : 'btn-outline-danger'">
         <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
       </select>
     </div>
 
     <div class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
-      <select class="form-control btn btn-outline-primary btn-outline-success" formControlName="extras_types" [(ngModel)]="current_extras_type">
+      <select class="form-control btn btn-outline-primary btn-outline-success" formControlName="extras_types"
+              [(ngModel)]="current_extras_type">
         <option *ngFor=" let option of extras_types" value={{option}}>{{option}}</option>
       </select>
     </div>
-    <div *ngIf="is_batsman_out" formGroupName="wicket" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
-      <select class="form-control btn btn-outline-primary  btn-outline-danger" formControlName="how_out" [(ngModel)]="current_out_type">
+    <div *ngIf="scoreForm?.value?.is_batsman_out" formGroupName="wicket" class="dropdown col-xlg-4 col-sm-6"
+         placement="bottom" ngbDropdown
+         [ngClass]="{'btn-outline-primary':scoreForm?.value?.is_batsman_out , 'btn-outline-danger':scoreForm?.value?.wicket.dirty}">
+      <select class="form-control btn" formControlName="how_out" [(ngModel)]="current_out_type"
+              [ngClass]="scoreForm.controls?.wicket.dirty ? 'btn-outline-success' : 'btn-outline-danger'">
         <option *ngFor=" let option of out_types" value={{option}}>{{option}}</option>
       </select>
     </div>
-    <div *ngIf="is_batsman_out" formGroupName="wicket" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
-      <select class="form-control btn btn-outline-primary  btn-outline-success" formControlName="fielder_name" [(ngModel)]="current_fielder">
+    <div
+      *ngIf="scoreForm?.value?.is_batsman_out && scoreForm?.value?.wicket?.how_out !='Bowled' && scoreForm?.value?.wicket?.how_out !='C & B'"
+      formGroupName="wicket" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
+      <select class="form-control btn" formControlName="fielder_name"
+              [(ngModel)]="current_fielder"
+              [ngClass]="scoreForm.controls?.wicket?.dirty ? 'btn-outline-success' : 'btn-outline-warning'">
         <option *ngFor=" let option of fielder_list" value={{option}}>{{option}}</option>
       </select>
     </div>
@@ -187,7 +207,7 @@
 <ng-template #letplay class="row container-title custom-padding">
   <div class="col-xlg-12 col-sm-12  btn btn-outline-divided-group btn-raised btn-outline-success">
     <div class="header">
-      <div class="name bold block-level-buttons" formGroupName="batsman_1">
+      <div class="name bold block-level-buttons">
         <table style="width:100%">
 
           <tr>
