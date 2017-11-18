@@ -49,7 +49,7 @@ import {CtclSharedModule} from "../shared/shared.module";
     RadioButtonModule,
     CheckboxModule,
     AutoCompleteModule,
-    MatInputModule, MatRadioModule,ButtonsModule
+    MatInputModule, MatRadioModule,ButtonsModule,
   ],
   declarations: [OnlineScoringComponent, LiveScoreComponent
   ],

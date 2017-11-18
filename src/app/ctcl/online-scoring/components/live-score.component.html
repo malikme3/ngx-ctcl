@@ -37,12 +37,33 @@
 
             </table>
           </div>
-          <!--<h2>Let's start good luck !!</h2>-->
+
         </div>
       </div>
     </div>
   </ctcl-style>
   <div class="row container-title custom-padding">
+
+
+    <div class="col-xlg-3 col-sm-4  btn btn-outline-divided-group">
+
+      <!--<p-dataTable [value]="data"  (onRowClick)="onRowClick($event)" >-->
+      <!--<p-column field="score" header="Score" [editable]="true"-->
+      <!--[style]="{'background':'#afaa83','margin-top':'1px'}"></p-column>-->
+      <!--<p-column field="runs" header="Overs" [editable]="true"-->
+      <!--[style]="{'background':'skyblue','margin-top':'1px'}"></p-column>-->
+      <!--<p-column field="wickets" header="Wicket" [editable]="true"-->
+      <!--[style]="{'background':'lightpink','margin-top':'1px'}"></p-column>-->
+      <!--</p-dataTable>-->
+
+      <input type="text" class="col-4 btn-semi-round btn  btn-outline-success" id="score"
+             placeholder="Score" value="{{ scoreForm.value?.match_info?.score | json }}">
+      <input type="text" class="col-4 btn-semi-round btn  btn-outline-success" id="overs"
+             value="{{ scoreForm.value?.match_info?.overs | json }}" placeholder="Overs">
+      <input type="text" class="col-4 btn-semi-round btn  btn-outline-success" id="wickets"
+             placeholder="Wickets" value="{{ scoreForm.value?.wicket_info?.wicket_number | json }}">
+    </div>
+
     <div class="col-xlg-3 col-sm-4  btn  btn-outline-info">
       <nb-actions size="large" fullWidth>
         <nb-action>
@@ -50,25 +71,11 @@
                   [ngClass]="[scoreForm.dirty ? 'btn-danger' : 'btn-success']"><i class="alert-info"></i>Submit
           </button>
         </nb-action>
-        <nb-action>
-          <button class=" btn-icon btn-block" [disabled]="!scoreForm.dirty" (click)="updateScoreObject()"
-                  [ngClass]="[scoreForm.dirty ? 'btn-warning' : 'btn-success']"><i class="nb-skip-backward-outline"></i>Update
-          </button>
-        </nb-action>
-      </nb-actions>
-    </div>
-
-    <div class="col-xlg-3 col-sm-4  btn btn-outline-divided-group btn-raised btn-outline-success">
-      <nb-actions size="large" fullWidth>
-        <nb-action>{{ scoreForm?.value.match_info?.score}}
-          <i class="nb-pause-outline"></i><span>Score</span>
-        </nb-action>
-        <nb-action> {{ scoreForm?.value.match_info?.overs}}
-          <i class="nb-pause-outline"></i><span>Ovr</span>
-        </nb-action>
-        <nb-action>{{ scoreForm.value?.wicket_info?.wicket_number}}
-          <i class="nb-pause-outline"></i><span>Wickets</span>
-        </nb-action>
+        <!--<nb-action>-->
+        <!--<button class=" btn-icon btn-block" [disabled]="!scoreForm.dirty" (click)="updateScore()"-->
+        <!--[ngClass]="[scoreForm.dirty ? 'btn-warning' : 'btn-success']"><i class="nb-skip-backward-outline"></i>{{is_update_score?'Submit' : 'Update'}}-->
+        <!--</button>-->
+        <!--</nb-action>-->
       </nb-actions>
     </div>
     <div class=" col-xlg-6 col-sm-4 form-control btn btn-outline-info" data-toggle="buttons">

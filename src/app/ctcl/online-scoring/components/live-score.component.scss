@@ -31,6 +31,21 @@
   padding-left: 0.5rem;
 }
 
+.cus-lable {
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+  box-sizing : border-box;
+}
+
+
+​
+label, input {
+  display: inline-block;
+  vertical-align: baseline;
+  width: 125px;
+}
+
 .custom-font {
   color: #ffffff;
   letter-spacing: 0.1px;

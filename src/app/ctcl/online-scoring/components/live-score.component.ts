@@ -19,6 +19,9 @@ export class LiveScoreComponent {
   runs_typs: any[];
   out_types: any[];
   extras_types: any[];
+  data: any;
+  test: any;
+  selection:any;
 
   /**** Start:******   Current/Default Fields values **/
   current_batsman_1 = "Zulifqar Ahmad";
@@ -27,9 +30,11 @@ export class LiveScoreComponent {
   current_bowler = "Wasim Akram";
   current_extras_type = 'Select Extras Type';
   current_out_type = 'Select Out Type';
+  is_submitted: boolean = true;
   is_batsman_out: boolean = false;
   is_striker_1: boolean = true;
   is_striker_2: boolean = false;
+  is_update_score: boolean = false;
 
 
   /**** End :******   Current/Default Fields values **/
@@ -55,7 +60,9 @@ export class LiveScoreComponent {
     this.scoreForm.patchValue({match_info: {overs: 0.00}});
     this.scoreForm.patchValue({match_info: {score: 0.00}});
     this.scoreForm.patchValue({match_info: {wickets: 0.00}});
+
   };
+
 
   createForm () {
     this.scoreForm = this.fb.group({ // <-- the parent FormGroup
@@ -83,6 +90,27 @@ export class LiveScoreComponent {
     this.is_striker_2 = !this.is_striker_2;
   }
 
+  updateScore () {
+    this.is_update_score = true;
+  }
+
+  syncNetScoreDetails(){
+    this.data = [
+      {
+        "score": this.scoreForm.get(['match_info', 'score']).value,
+        "runs": this.scoreForm.get(['match_info', 'score']).value,
+        "wickets": this.scoreForm.get(['wicket_info', 'wicket_number']).value
+      }
+    ];
+  }
+
+  updateNetScore(val){
+    this.is_submitted = false;
+    console.log("val: ", val);
+  }
+  onRowClick(e:any) {
+    this.selection = e.data;
+  }
   updateScoreObject () {
     let isOut = this.scoreForm.get('is_batsman_out').value;
     if (isOut) {
@@ -97,6 +125,7 @@ export class LiveScoreComponent {
     } else {
       this._matchExtras(extrasType);
     }
+    this.syncNetScoreDetails();
   }
 
   updateBatsmanObject () {
@@ -211,8 +240,8 @@ export class LiveScoreComponent {
 
   _wicketInfo () {
     this.scoreForm.patchValue({wicket_info: {wicket_number: +this.scoreForm.get(['wicket_info', 'wicket_number']).value + +1}});
-    this.scoreForm.patchValue({wicket_info: {bowler_name: this.scoreForm.get(['bowler', 'name']).value }});
-    this.scoreForm.patchValue({wicket_info: {batsman_name: this.scoreForm.get(['batsman_1', 'name']).value }});
+    this.scoreForm.patchValue({wicket_info: {bowler_name: this.scoreForm.get(['bowler', 'name']).value}});
+    this.scoreForm.patchValue({wicket_info: {batsman_name: this.scoreForm.get(['batsman_1', 'name']).value}});
     let currentMatchScore = this.scoreForm.get(['match_info', 'score']).value;
     this.scoreForm.patchValue({wicket_info: {fow_score: currentMatchScore}});
   }
