@@ -10,7 +10,7 @@ export class LiveScoreConstants {
   extras_types = ['Select Extras Type', 'Wide', 'No Ball', 'Byes', 'leg Byes', 'Other'];
   out_types = ['Select Out Type', 'Caught', 'Bowled', 'Run Out', 'Stumped', 'C & B', 'Other'];
 
-  math_info_object = {
+  math_start_info = {
     id: '',
     home_team: '',
     guest_team: '',
