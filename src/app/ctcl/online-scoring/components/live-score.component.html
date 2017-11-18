@@ -131,14 +131,15 @@
       <ng-container class="row form-control ">
         <div class="col-md-12">
           <div class="btn-group btn-group-full-width" role="group">
-            <button type="button" class="btn btn  btn-outline-success btn-group-icon btn-group-divider btn-fixed">
-              <label class="custom-control custom-radio" (change)="UpdateStriker()">
-                <input type="checkbox" class="custom-control-input" formControlName="is_striker"
-                       [checked]="is_striker_1">
+            <button type="button" class="btn btn-group-icon btn-group-divider btn-fixed"
+                    [ngClass]="is_striker_1 ? 'btn-success' :'btn-outline-warning' ">
+              <label class="custom-control custom-radio">
+                <input type="checkbox" class="custom-control-input" (change)="UpdateStriker()"
+                       formControlName="is_striker" [checked]="is_striker_1">
                 <span class="custom-control-indicator"></span>
-                <ng-container *ngIf="scoreForm.value?.batsman_1.balls > 0 || scoreForm.value?.batsman_1.runs > 0">
-                  <span class="custom-control-description custom-font">{{ scoreForm.value?.batsman_1.score | json }} ({{ scoreForm.value?.batsman_1.balls | json }})</span>
-                </ng-container>
+                <span class="custom-control-description custom-font">
+                  {{ scoreForm.value?.batsman_1.score >0 ? scoreForm.value?.batsman_1.score : 0 | json }}
+                  ({{ scoreForm.value?.batsman_1.balls >0 ? scoreForm.value?.batsman_1.balls : 0 | json }})</span>
               </label>
             </button>
             <select class="form-control btn btn-outline-warning" formControlName="name" [(ngModel)]="current_batsman_1"
@@ -153,13 +154,16 @@
     <div formGroupName="batsman_2" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
       <ng-container class="row form-control ">
         <div class="col-md-12">
-          <div class="btn-group btn-group-full-width" role="group">
-            <button type="button" class="btn  btn-outline-success btn-group-icon btn-group-divider btn-fixed">
+          <div class="btn-group btn-group-full-width">
+            <button type="button" class="btn btn-group-icon btn-group-divider btn-fixed"
+                    [ngClass]="is_striker_2 ? 'btn-success' :'btn-outline-warning' ">
               <label class="custom-control custom-radio">
                 <input type="checkbox" class="custom-control-input" (change)="UpdateStriker()"
                        formControlName="is_striker" [checked]="is_striker_2">
                 <span class="custom-control-indicator"></span>
-                <span class="custom-control-description custom-font">{{ scoreForm.value?.batsman_1.score | json }}({{ scoreForm.value?.batsman_1.balls | json }})</span>
+                <span class="custom-control-description custom-font">
+                  {{ scoreForm.value?.batsman_2.score >0 ? scoreForm.value?.batsman_2.score : 0 | json }}
+                  ({{ scoreForm.value?.batsman_2.balls >0 ? scoreForm.value?.batsman_2.balls : 0 | json }})</span>
               </label>
             </button>
             <select class="form-control btn btn-outline-warning btn-group-icon btn-group-divider btn-fixed"
