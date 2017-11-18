@@ -3,19 +3,9 @@
 <!--<p>Batsman: {{ scoreForm.value?.batsman_1 | json }}</p>-->
 <!--<p>Bowler: {{ scoreForm.value?.bowler | json }}</p>-->
 <form [formGroup]="scoreForm" class="form-horizontal">
-  <div class="row container-title custom-padding">
-    <div class="col-xlg-3 col-sm-4  btn btn-secondary btn-outline-primary" *ngIf="scoreForm.dirty; else loading;">
-      <nb-actions size="large" fullWidth>
-        <nb-action>
-          <span class="btn-outline-warning btn-icon" (click)="updateScoreObject()">Submit</span>
-        </nb-action>
-        <nb-action>
-          <span class="btn-outline-success btn-icon"><i class="nb-skip-backward-outline"></i>Update</span>
-        </nb-action>
-      </nb-actions>
-    </div>
-    <ng-template #loading class="row container-title custom-padding">
-      <div class="col-xlg-3 col-sm-4  btn btn-outline-divided-group btn-raised btn-outline-success">
+  <ctcl-style title="Let's get live">
+    <div class="row container-title custom-padding">
+      <div class="col-xlg-12 col-sm-12  btn btn-outline-divided-group btn-raised btn-outline-success">
         <div class="header">
           <div class="name bold block-level-buttons" formGroupName="batsman_1">
             <table style="width:100%">
@@ -35,12 +25,12 @@
               <tr>
                 <th>
                   <button type="button" class="btn btn-outline-primary">
-                    Home Team
+                    Ground
                   </button>
                 </th>
                 <th>
                   <button type="button" class="btn btn-outline-warning">
-                    Guest Team
+                    Batting Team
                   </button>
                 </th>
               </tr>
@@ -50,7 +40,24 @@
           <!--<h2>Let's start good luck !!</h2>-->
         </div>
       </div>
-    </ng-template>
+    </div>
+  </ctcl-style>
+  <div class="row container-title custom-padding">
+    <div class="col-xlg-3 col-sm-4  btn  btn-outline-info">
+      <nb-actions size="large" fullWidth>
+        <nb-action>
+          <button class="btn-icon btn-block" [disabled]="!scoreForm.dirty" (click)="updateScoreObject()"
+                  [ngClass]="[scoreForm.dirty ? 'btn-danger' : 'btn-success']"><i class="alert-info"></i>Submit
+          </button>
+        </nb-action>
+        <nb-action>
+          <button class=" btn-icon btn-block" [disabled]="!scoreForm.dirty" (click)="updateScoreObject()"
+                  [ngClass]="[scoreForm.dirty ? 'btn-warning' : 'btn-success']"><i class="nb-skip-backward-outline"></i>Update
+          </button>
+        </nb-action>
+      </nb-actions>
+    </div>
+
     <div class="col-xlg-3 col-sm-4  btn btn-outline-divided-group btn-raised btn-outline-success">
       <nb-actions size="large" fullWidth>
         <nb-action>{{ scoreForm?.value.match_info?.score}}
