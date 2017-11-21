@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {Injectable} from '@angular/core';
 /**
  * Created by HudaZulifqar on 9/10/2017.
  */
@@ -51,7 +51,7 @@ export class StatisticsConstantsService {
       cAndB: {
         title: 'C&B',
         type: 'number',
-      }
+      },
 
     },
   };

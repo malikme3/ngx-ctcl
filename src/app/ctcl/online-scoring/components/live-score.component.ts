@@ -21,7 +21,7 @@ export class LiveScoreComponent {
   extras_types: any[];
   data: any;
   test: any;
-  selection:any;
+  selection: any;
 
   /**** Start:******   Current/Default Fields values **/
   current_batsman_1 = "Zulifqar Ahmad";
@@ -44,7 +44,7 @@ export class LiveScoreComponent {
   batsman: any;
 
 
-  constructor (private fb: FormBuilder, private  liveScoreConstants: LiveScoreConstants, private cdRef: ChangeDetectorRef) {
+  constructor(private fb: FormBuilder, private liveScoreConstants: LiveScoreConstants, private cdRef: ChangeDetectorRef) {
     this.createForm();
     this.initiateData();
     this.batsman_list = ['Basit', 'Wasim Akram', 'Majid', 'Zulifqar Ahmad', 'Sohail', 'Muhmmad Zubair'];
@@ -52,7 +52,7 @@ export class LiveScoreComponent {
 
   }
 
-  initiateData () {
+  initiateData() {
 
     this.runs_typs = this.liveScoreConstants.runs_types;
     this.out_types = this.liveScoreConstants.out_types;
@@ -64,7 +64,7 @@ export class LiveScoreComponent {
   };
 
 
-  createForm () {
+  createForm() {
     this.scoreForm = this.fb.group({ // <-- the parent FormGroup
       current_ball_runs: '',
       is_batsman_out: '',
@@ -79,22 +79,22 @@ export class LiveScoreComponent {
 
   }
 
-  updateFieldFlags (checkVal) {
+  updateFieldFlags(checkVal) {
     if (checkVal === 'out') {
       this.is_batsman_out = !this.scoreForm.get('is_batsman_out').value;
     }
   }
 
-  UpdateStriker () {
+  UpdateStriker() {
     this.is_striker_1 = !this.is_striker_1;
     this.is_striker_2 = !this.is_striker_2;
   }
 
-  updateScore () {
+  updateScore() {
     this.is_update_score = true;
   }
 
-  syncNetScoreDetails(){
+  syncNetScoreDetails() {
     this.data = [
       {
         "score": this.scoreForm.get(['match', 'score']).value,
@@ -104,14 +104,14 @@ export class LiveScoreComponent {
     ];
   }
 
-  updateNetScore(val){
+  updateNetScore(val) {
     this.is_submitted = false;
     console.log("val: ", val);
   }
-  onRowClick(e:any) {
+  onRowClick(e: any) {
     this.selection = e.data;
   }
-  updateScoreObject () {
+  updateScoreObject() {
     let isOut = this.scoreForm.get('is_batsman_out').value;
     if (isOut) {
       this._wicketInfo();
@@ -128,21 +128,21 @@ export class LiveScoreComponent {
     this.syncNetScoreDetails();
   }
 
-  updateBatsmanObject () {
+  updateBatsmanObject() {
 
   }
 
-  updateBowlerObject (extrasVal) {
+  updateBowlerObject(extrasVal) {
 
     if (extrasVal === 'wide') {
-      this.scoreForm.patchValue({batsman_1: {bats_balls: this.scoreForm.get('current_ball_runs').value,}});
+      this.scoreForm.patchValue({batsman_1: {bats_balls: this.scoreForm.get('current_ball_runs').value, }});
       this.scoreForm.patchValue({bowler: {bowler_runs_current_ball: this.scoreForm.get('current_ball_runs').value}});
 
     }
 
   }
 
-  _normalBallScoring () {
+  _normalBallScoring() {
 
     let curent_ball_runs = this.scoreForm.get('current_ball_runs').value;
 
@@ -187,7 +187,7 @@ export class LiveScoreComponent {
     }
   }
 
-  _bowlersExtras (extrasType) {
+  _bowlersExtras(extrasType) {
     let curent_ball_runs = this.scoreForm.get('current_ball_runs').value;
     //Match
     let currentMatchScore = this.scoreForm.get(['match', 'score']).value;
@@ -207,7 +207,7 @@ export class LiveScoreComponent {
     }
   }
 
-  _matchExtras (extrasType) {
+  _matchExtras(extrasType) {
 
     //Match: score
     let curent_ball_runs = this.scoreForm.get('current_ball_runs').value;
@@ -238,7 +238,7 @@ export class LiveScoreComponent {
 
   }
 
-  _wicketInfo () {
+  _wicketInfo() {
     this.scoreForm.patchValue({wicket: {wicket_number: +this.scoreForm.get(['wicket', 'wicket_number']).value + +1}});
     this.scoreForm.patchValue({wicket: {bowler_name: this.scoreForm.get(['bowler', 'name']).value}});
     this.scoreForm.patchValue({wicket: {batsman_name: this.scoreForm.get(['batsman_1', 'name']).value}});
@@ -246,8 +246,12 @@ export class LiveScoreComponent {
     this.scoreForm.patchValue({wicket: {fow_score: currentMatchScore}});
   }
 
+
+  reconsileScoreForm() {
+
+  }
   //after change issue fix
-  ngAfterViewInit () {
+  ngAfterViewInit() {
     this.cdRef.detectChanges();
   }
 }

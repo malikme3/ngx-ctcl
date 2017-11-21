@@ -3,7 +3,7 @@
  */
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
-import {CarouselPojo} from "../domain/carousel.pojo";
+import {CarouselPojo} from '../domain/carousel.pojo';
 
 @Injectable()
 export class CarouselService {
