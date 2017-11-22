@@ -1,6 +1,6 @@
 /* tslint:disable */
 import {NgModule} from "@angular/core";
-import {CommonModule} from "@angular/common";
+import {CommonModule, DatePipe} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TreeModule} from "ng2-tree";
 import {HttpModule} from "@angular/http";
@@ -18,8 +18,9 @@ import {ThemeModule} from "../../@theme/theme.module";
 import {MatInputModule} from "@angular/material/input";
 import {MatRadioModule} from "@angular/material/radio";
 import {ButtonsModule} from "../../pages/ui-features/buttons/buttons.module";
+import {ClubsService} from '../common/services/clubs.service';
 import {LiveScoreConstants} from "../common/services/live-score-constants.service";
-import { LiveScoreService } from '../common/services/live-score.service';
+import {LiveScoreService} from '../common/services/live-score.service';
 import {CtclSharedModule} from "../shared/shared.module";
 
 
@@ -50,11 +51,11 @@ import {CtclSharedModule} from "../shared/shared.module";
     RadioButtonModule,
     CheckboxModule,
     AutoCompleteModule,
-    MatInputModule, MatRadioModule,ButtonsModule,
+    MatInputModule, MatRadioModule, ButtonsModule,
   ],
   declarations: [OnlineScoringComponent, LiveScoreComponent
   ],
-  providers: [LiveScoreConstants,LiveScoreService],
+  providers: [LiveScoreConstants, LiveScoreService, DatePipe, ClubsService],
 })
 export class OnlineScoringModule {
 }

@@ -1,9 +1,10 @@
 /* tslint:disable */
+import {ClubsService} from '../../common/services/clubs.service';
 import {ChangeDetectorRef, Component} from "@angular/core";
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LiveScoreConstants} from "../../common/services/live-score-constants.service";
 import {LiveScoreService} from '../../common/services/live-score.service';
-import { RefreshScoreInputs } from './RefreshScoreInputs';
+import {DatePipe} from '@angular/common';
 import {hexToRgb} from "@swimlane/ngx-charts/release/utils";
 import {Subject} from 'rxjs';
 
@@ -19,6 +20,7 @@ export class LiveScoreComponent {
   batsman_1: FormGroup;
 
   batsman_list: any[];
+  active_grounds: any;
   fielder_list: any[];
   runs_typs: any[];
   out_types: any[];
@@ -26,7 +28,7 @@ export class LiveScoreComponent {
   data: any;
   test: any;
   selection: any;
-  refreshScoreInputs: any[]= [];
+  refreshScoreInputs: any[] = [];
 
   /**** Start:******   Current/Default Fields values **/
   current_batsman_1 = "Zulifqar Ahmad";
@@ -55,6 +57,8 @@ export class LiveScoreComponent {
   constructor(private fb: FormBuilder,
     private liveScoreConstants: LiveScoreConstants,
     private liveScoreService: LiveScoreService,
+    private clubsService: ClubsService,
+    private datePipe: DatePipe,
     private cdRef: ChangeDetectorRef) {
     this.createForm();
     this.initiateData();
@@ -64,7 +68,7 @@ export class LiveScoreComponent {
   }
 
   initiateData() {
-
+    this.getActiveGrounds()
     this.runs_typs = this.liveScoreConstants.runs_types;
     this.out_types = this.liveScoreConstants.out_types;
     this.extras_types = this.liveScoreConstants.extras_types;
@@ -78,6 +82,9 @@ export class LiveScoreComponent {
   createForm() {
     this.scoreForm = this.fb.group({ // <-- the parent FormGroup
       id: '',
+      innings: '',
+      ground: '',
+      batting_team: '',
       current_ball_runs: '',
       is_batsman_out: '',
       extras_types: '',
@@ -265,12 +272,6 @@ export class LiveScoreComponent {
   reconsileScoreForm(scoreFrom_input) {
 
     console.info("ReconsileForm Rquest this.scoreForm_output: ", this.scoreForm_output);
-    this.scoreForm_output = new RefreshScoreInputs();
-    this.scoreForm_output.liveGameId = "1221";
-    this.scoreForm_output.batsmanOne = 1;
-    this.scoreForm_output.batsmanTwo = 2;
-    
- 
     this.refreshScoreInputs = [{
       live_game_id: 'gameId',
       batsman_1: 1,
@@ -278,15 +279,29 @@ export class LiveScoreComponent {
 
     }];
     console.info("ReconsileForm Rquest this.refreshScoreInputs: ", this.refreshScoreInputs);
-    const form$ = this.liveScoreService.reconsileScoreForm("RRCC-11142017",1,2);
+    const form$ = this.liveScoreService.reconsileScoreForm("RRCC-11142017", 1, 2);
 
     form$.takeUntil(this.ngUnsubscribe).subscribe(responce => this.scoreForm_output = responce,
       (err) => console.error('battingRecords: Response Error =>', err),
       () => this.reconsildeResponce(this.scoreForm_output));
   }
 
+  getActiveGrounds() {
+    const form$ = this.clubsService.getCtclGrounds();
+    form$.takeUntil(this.ngUnsubscribe).subscribe(responce => this.active_grounds = responce,
+      (err) => console.error('battingRecords: Response Error =>', err),
+      () => console.info("active grounds: ", this.active_grounds));
+  }
+
   reconsildeResponce(val) {
     console.log("Reconsile request Responce: ", val)
+  }
+
+  loadLiveScore() {
+    console.log("YES I AM");
+    var date = this.datePipe.transform(new Date(), 'MMddyy');
+    let tem = this.scoreForm.get('ground').value + '-' + date;
+    console.log("The Date time -->" + tem);
   }
   //after change issue fix
   ngAfterViewInit() {

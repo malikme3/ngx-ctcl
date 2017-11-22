@@ -1,5 +1,5 @@
 /* tslint:disable */
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Http} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import {ServicesConstants} from "./constants.services";
@@ -19,11 +19,13 @@ export class ClubsService {
   private players_roles_path = 'players/roles/';
   private ctcl_news_path = 'ctcl/news/';
   private clubs_info_path = 'clubs/info/';
+  private ctcl_grounds_path = 'ctcl/grounds';
 
   private club_list_path_url = this.baseUrl + this.club_list_path;
   private players_roles_url = this.baseUrl + this.players_roles_path;
   private ctcl_news_url = this.baseUrl + this.ctcl_news_path;
   private clubs_info_url = this.baseUrl + this.clubs_info_path;
+  private ctcl_grounds_url = this.baseUrl + this.ctcl_grounds_path;
 
   getClubLists(): Observable<any> {
 
@@ -49,6 +51,13 @@ export class ClubsService {
 
     console.info("Call for getCtclNews() with url : ", this.ctcl_news_url);
     return this.http.get(this.ctcl_news_url, {headers: this.header}).map(responce => responce.json())
+      .catch(this.handleError)
+  }
+
+  getCtclGrounds(): Observable<any> {
+
+    console.info("Call for getCtclGrounds() with url : ", this.ctcl_grounds_url);
+    return this.http.get(this.ctcl_grounds_url, {headers: this.header}).map(responce => responce.json())
       .catch(this.handleError)
   }
 
