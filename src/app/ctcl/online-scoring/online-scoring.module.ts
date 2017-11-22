@@ -25,6 +25,8 @@ import {LiveScoreService} from '../common/services/live-score.service';
 import {MatchesService} from '../common/services/matches.service';
 import {CtclSharedModule} from "../shared/shared.module";
 import {PostLiveScoreComponent} from './components/post-live/post-live-score.component';
+import {PreMatchCaptainsComponent} from './components/pre-live-captains/pre-match-captains.component';
+import {PreMatchUmpireComponent} from './components/pre-live-umpire/pre-match-umpire.component';
 import {PreLiveScoreComponent} from './components/pre-live/pre-live.component';
 
 
@@ -57,7 +59,7 @@ import {PreLiveScoreComponent} from './components/pre-live/pre-live.component';
     AutoCompleteModule,
     MatInputModule, MatRadioModule, ButtonsModule,
   ],
-  declarations: [OnlineScoringComponent, LiveScoreComponent, PreLiveScoreComponent, PostLiveScoreComponent,
+  declarations: [OnlineScoringComponent, LiveScoreComponent, PreLiveScoreComponent, PostLiveScoreComponent, PreMatchCaptainsComponent, PreMatchUmpireComponent,
   ],
   providers: [LiveScoreConstants, LiveScoreService, DatePipe, ClubsService, CommonUtilsService, MatchesService],
 })
