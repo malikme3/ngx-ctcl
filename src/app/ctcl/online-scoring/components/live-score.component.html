@@ -14,16 +14,19 @@
 
         <div class="demo-radio" *ngFor="let option of active_grounds">
             <label class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" formControlName="ground" [value]="option?.ground_id"> <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">{{option?.ground_abbrev}}</span>
+                <input type="radio" class="custom-control-input" formControlName="ground" [value]="option?.ground_id"> <span class="custom-control-indicator"></span> <span class="custom-control-description">{{option?.ground_abbrev}}</span>
             </label>
         </div>
 
         <div class="col-12">
-            <span>Select Teams</span>
-            <select formControlName="batting_team" class="form-control btn btn-outline-warning">
+
+            <!--   <select formControlName="batting_team" class="form-control btn btn-outline-warning">
                 <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
-            </select>
+            </select> -->
+            <div class="form-group row">
+                <i class="alert-info"></i>Select Batting Team!
+                <p-autoComplete [inputStyle]="{'width':'90%','font-size': '16px', 'align':'center'}" styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30" [dropdown]="true" autoHighlight="true" required="true" id="batting_team" field="label" placeholder="Select Batting Team " value="batting_team" (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams" (onSelect)="onSelectedTeam($event.value)"> </p-autoComplete>
+            </div>
         </div>
     </div>
     <div class="row container-title custom-padding">

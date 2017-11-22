@@ -1,9 +1,11 @@
 /* tslint:disable */
 import {ClubsService} from '../../common/services/clubs.service';
+import {CommonUtilsService} from '../../common/services/common-utils.service';
 import {ChangeDetectorRef, Component} from "@angular/core";
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LiveScoreConstants} from "../../common/services/live-score-constants.service";
 import {LiveScoreService} from '../../common/services/live-score.service';
+import {MatchesService} from '../../common/services/matches.service';
 import {DatePipe} from '@angular/common';
 import {hexToRgb} from "@swimlane/ngx-charts/release/utils";
 import {Subject} from 'rxjs';
@@ -21,6 +23,8 @@ export class LiveScoreComponent {
 
   batsman_list: any[];
   active_grounds: any;
+  teamsList: Array<any>;
+  filteredTeams: any;
   fielder_list: any[];
   runs_typs: any[];
   out_types: any[];
@@ -59,6 +63,8 @@ export class LiveScoreComponent {
     private liveScoreService: LiveScoreService,
     private clubsService: ClubsService,
     private datePipe: DatePipe,
+    private commonUtilsService: CommonUtilsService,
+    private matchesService: MatchesService,
     private cdRef: ChangeDetectorRef) {
     this.createForm();
     this.initiateData();
@@ -68,7 +74,8 @@ export class LiveScoreComponent {
   }
 
   initiateData() {
-    this.getActiveGrounds()
+    this.getActiveGrounds();
+    this.getTeamslist();
     this.runs_typs = this.liveScoreConstants.runs_types;
     this.out_types = this.liveScoreConstants.out_types;
     this.extras_types = this.liveScoreConstants.extras_types;
@@ -293,6 +300,24 @@ export class LiveScoreComponent {
       () => console.info("active grounds: ", this.active_grounds));
   }
 
+  getTeamslist() {
+    console.info("Fetching results for teams list :")
+    const teams$ = this.matchesService.getTeamslist();
+    console.log('this.teamsname', this.teamsList)
+    teams$.takeUntil(this.ngUnsubscribe).subscribe(responce => this.teamsList = responce,
+      (err) => console.error(err),
+      () => console.info("responce  for teamList", this.teamsList));
+
+  }
+
+  getFilteredTeams(inputs) {
+    let query = inputs.query;
+    this.filteredTeams = this.commonUtilsService.filterTeams(query, this.teamsList);
+  }
+  onSelectedTeam(value) {
+    console.log("Selected Team is", value)
+    this.scoreForm.patchValue({batting_team: value});
+  }
   reconsildeResponce(val) {
     console.log("Reconsile request Responce: ", val)
   }
@@ -300,8 +325,8 @@ export class LiveScoreComponent {
   loadLiveScore() {
     console.log("YES I AM");
     var date = this.datePipe.transform(new Date(), 'MMddyy');
-    let tem = this.scoreForm.get('ground').value + '-' + date;
-    console.log("The Date time -->" + tem);
+    let liveGameId = this.scoreForm.get('innings').value + '-' + this.scoreForm.get('batting_team').value + '-' + this.scoreForm.get('ground').value + '-' + date;
+    console.log("The Date time -->" + liveGameId);
   }
   //after change issue fix
   ngAfterViewInit() {

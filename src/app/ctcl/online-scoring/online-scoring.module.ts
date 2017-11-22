@@ -19,8 +19,10 @@ import {MatInputModule} from "@angular/material/input";
 import {MatRadioModule} from "@angular/material/radio";
 import {ButtonsModule} from "../../pages/ui-features/buttons/buttons.module";
 import {ClubsService} from '../common/services/clubs.service';
+import {CommonUtilsService} from '../common/services/common-utils.service';
 import {LiveScoreConstants} from "../common/services/live-score-constants.service";
 import {LiveScoreService} from '../common/services/live-score.service';
+import {MatchesService} from '../common/services/matches.service';
 import {CtclSharedModule} from "../shared/shared.module";
 
 
@@ -55,7 +57,7 @@ import {CtclSharedModule} from "../shared/shared.module";
   ],
   declarations: [OnlineScoringComponent, LiveScoreComponent
   ],
-  providers: [LiveScoreConstants, LiveScoreService, DatePipe, ClubsService],
+  providers: [LiveScoreConstants, LiveScoreService, DatePipe, ClubsService, CommonUtilsService, MatchesService],
 })
 export class OnlineScoringModule {
 }
