@@ -10,7 +10,7 @@ export class LiveScoreConstants {
   extras_types = ['Select Extras Type', 'Wide', 'No Ball', 'Byes', 'leg Byes', 'Other'];
   out_types = ['Select Out Type', 'Caught', 'Bowled', 'Run Out', 'Stumped', 'C & B', 'Other'];
 
-  math_info_object = {
+  match_start_info = {
     id: '',
     home_team: '',
     guest_team: '',
@@ -25,9 +25,12 @@ export class LiveScoreConstants {
   };
   batsman_object = {
     id: '',
+    active: '',
+    striker: '',
+    live_game_id: '',
     name: '',
+    player_id: '',
     position: '',
-    is_striker: '',
     balls: '',
     overs: '',
     score: '',
@@ -35,6 +38,9 @@ export class LiveScoreConstants {
     sixes: '',
   };
   match_object = {
+    id: '',
+    active: '',
+    live_game_id: '',
     score: '',
     balls: '',
     overs: '',
@@ -44,15 +50,20 @@ export class LiveScoreConstants {
     wides: '',
     noballs: '',
     byes: '',
-    legByes: '',
+    legbyes: '',
   };
   bowler_object = {
     id: '',
+    active: '',
+    live_game_id: '',
     name: '',
+    player_id: '',
     position: '',
-    score: '',
     balls: '',
     overs: '',
+    maiden: '',
+    score: '',
+    wickets: '',
     fours: '',
     sixes: '',
     wides: '',
@@ -60,13 +71,15 @@ export class LiveScoreConstants {
   };
 
   wicket_info_object = {
+    id: '',
+    active: '',
     wicket_number: '',
     batsman_name: '',
     bowler_name: '',
     fielder_name: '',
     fow_score: '',
+    fow_over: '',
     how_out: '',
-
   };
 
   oversToBalls (overs): number {

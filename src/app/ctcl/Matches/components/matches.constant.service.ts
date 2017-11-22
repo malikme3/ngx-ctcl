@@ -1,7 +1,7 @@
 /**
  * Created by HudaZulifqar on 6/24/2017.
  */
-import {Injectable} from "@angular/core";
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class MatchesConstants {
@@ -29,30 +29,30 @@ export class MatchesConstants {
        },*/
       seasonName: {
         title: 'Season Name',
-        type: 'string'
+        type: 'string',
       },
       teams: {
         title: 'Teams',
-        type: 'string'
+        type: 'string',
       },
       formatted_date: {
         title: 'Date',
-        type: 'string'
+        type: 'string',
       },
       groundName: {
         title: 'Ground',
-        type: 'string'
+        type: 'string',
       },
       umpireName: {
         title: 'Umpire',
-        type: 'string'
+        type: 'string',
       },
       week: {
         title: 'Week',
-        type: 'string'
-      }
-    }
-  }
+        type: 'string',
+      },
+    },
+  };
 
 
   scoreTableSettings = {
@@ -110,32 +110,32 @@ export class MatchesConstants {
       BatterLName: {
         title: '',
         type: 'string',
-        width: '10px'
+        width: '10px',
       },
       BatterFName: {
         title: '',
         type: 'string',
-        width: '10px'
+        width: '10px',
       },
       runs: {
         title: 'R',
         type: 'number',
-        width: '5px'
+        width: '5px',
       },
       balls: {
         title: 'B',
         type: 'number',
-        width: '5px'
+        width: '5px',
       },
       fours: {
         title: '4s',
         type: 'number',
-        width: '5px'
+        width: '5px',
       },
       sixes: {
         title: '6s',
         type: 'number',
-        width: '5px'
+        width: '5px',
       },
 
       HowOutAbbrev: {
@@ -170,8 +170,8 @@ export class MatchesConstants {
       Batter_id: {
         title: 'SR',
         type: 'number',
-      }
-    }
+      },
+    },
   };
 
   getYesNo() {
@@ -183,8 +183,8 @@ export class MatchesConstants {
       no: {
         label: 'No',
         value: '1',
-      }
-    }]
+      },
+    }];
     return this.yesNoStatus;
   }
 
@@ -195,25 +195,25 @@ export class MatchesConstants {
       seasonId: 2,
       checked: false,
       disabled: false,
-      class: 'col-md-4'
+      class: 'col-md-4',
     }, {
       name: '30 Overs',
       disabled: true,
       checked: false,
-      class: 'col-md-4'
+      class: 'col-md-4',
     }, {
       name: '35 Overs',
       leagueId: 30,
       seasonId: 5,
       checked: false,
       disabled: false,
-      class: 'col-md-4'
+      class: 'col-md-4',
     }, {
       name: '40 Overs',
       checked: false,
       disabled: true,
-      class: 'col-md-4'
-    }]
+      class: 'col-md-4',
+    }];
     return this.checkLeagues;
 
   }
@@ -224,25 +224,25 @@ export class MatchesConstants {
       value: 16,
       checked: false,
       disabled: false,
-      class: 'col-md-4'
+      class: 'col-md-4',
     }, {
       name: 'HCCG',
       value: 14,
       checked: false,
       disabled: false,
-      class: 'col-md-4'
+      class: 'col-md-4',
     }, {
       name: 'ACAG',
       value: 24,
       checked: false,
       disabled: false,
-      class: 'col-md-4'
+      class: 'col-md-4',
     }, {
       name: 'TCCG',
       value: 22,
       checked: false,
       disabled: true,
-      class: 'col-md-4'
+      class: 'col-md-4',
     }];
     return this.checkVenues;
   }
@@ -254,31 +254,31 @@ export class MatchesConstants {
         name: 'completed',
         value: 1,
         checked: false,
-        class: 'col-md-3'
+        class: 'col-md-3',
       }, {
         text: 'Match Tied',
         name: 'tied',
         value: 1,
         checked: false,
-        class: 'col-md-3'
+        class: 'col-md-3',
       }, {
         text: 'Won by forfeit',
         name: 'forfeit',
         value: 1,
         checked: false,
-        class: 'col-md-3'
+        class: 'col-md-3',
       }, {
         text: 'Match Cancelled- No Play',
         name: 'cancelled',
         value: 1,
         checked: false,
-        class: 'col-md-3'
+        class: 'col-md-3',
       }, {
         text: 'Match Cancelled- SomePlay',
         name: 'cancelledplay',
         value: 1,
         checked: false,
-        class: 'col-md-3'
+        class: 'col-md-3',
       }];
     return this.checkResults;
   }
@@ -299,7 +299,7 @@ export class MatchesConstants {
       {label: 'Absent Hurt', value: 'absenthurt', position: 0},
       {label: 'Absent Ill', value: 'absentill', position: 0},
       {label: 'Retired Out', value: 'Retiredout', position: 0},
-      {label: 'Obstructing the field ', value: 'obstrfield', position: 0}
+      {label: 'Obstructing the field ', value: 'obstrfield', position: 0},
 
     ];
     return this.playerOutType;
@@ -310,57 +310,57 @@ export class MatchesConstants {
       {
         id: 1,
         type: 'First Batting Position',
-        wicket: 'fow1'
+        wicket: 'fow1',
       },
       {
         id: 2,
         type: 'Second Batting Position',
-        wicket: 'fow2'
+        wicket: 'fow2',
 
       },
       {
         id: 3,
         type: 'Third Batting Position',
-        wicket: 'fow3'
+        wicket: 'fow3',
       },
       {
         id: 4,
         type: 'Fourth Batting Position',
-        wicket: 'fow4'
+        wicket: 'fow4',
       },
       {
         id: 5,
         type: 'Fifth Batting Position',
-        wicket: 'fow5'
+        wicket: 'fow5',
       }, {
         id: 6,
         type: 'sixth Batting Position',
-        wicket: 'fow6'
+        wicket: 'fow6',
       },
       {
         id: 7,
         type: 'Seventh Batting Position',
-        wicket: 'fow7'
+        wicket: 'fow7',
       },
       {
         id: 8,
         type: 'Eighth Batting Position',
-        wicket: 'fow8'
+        wicket: 'fow8',
       },
       {
         id: 9,
         type: 'Ninth Batting Position',
-        wicket: 'fow9'
+        wicket: 'fow9',
       },
       {
         id: 10,
         type: 'Tenth Batting Position',
-        wicket: 'fow10'
+        wicket: 'fow10',
       }
       ,
       {
         id: 11,
-        type: 'Eleventh Batting Position'
+        type: 'Eleventh Batting Position',
       }];
 
     return this.battingPositions;

@@ -135,7 +135,7 @@
                     [ngClass]="is_striker_1 ? 'btn-success' :'btn-outline-warning' ">
               <label class="custom-control custom-radio">
                 <input type="checkbox" class="custom-control-input" (change)="UpdateStriker()"
-                       formControlName="is_striker" [checked]="is_striker_1">
+                       formControlName="striker" [checked]="is_striker_1">
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description custom-font">
                   {{ scoreForm.value?.batsman_1.score >0 ? scoreForm.value?.batsman_1.score : 0 | json }}
@@ -159,7 +159,7 @@
                     [ngClass]="is_striker_2 ? 'btn-success' :'btn-outline-warning' ">
               <label class="custom-control custom-radio">
                 <input type="checkbox" class="custom-control-input" (change)="UpdateStriker()"
-                       formControlName="is_striker" [checked]="is_striker_2">
+                       formControlName="striker" [checked]="is_striker_2">
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description custom-font">
                   {{ scoreForm.value?.batsman_2.score >0 ? scoreForm.value?.batsman_2.score : 0 | json }}
@@ -173,7 +173,7 @@
             </select>
           </div>
         </div>
-      </ng-container>
+      </ng-container>striker
     </div>
 
     <div formGroupName="bowler" class="dropdown col-sm-6" placement="bottom" ngbDropdown>

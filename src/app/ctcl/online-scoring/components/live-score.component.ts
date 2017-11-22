@@ -2,7 +2,10 @@
 import {ChangeDetectorRef, Component} from "@angular/core";
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LiveScoreConstants} from "../../common/services/live-score-constants.service";
+import {LiveScoreService} from '../../common/services/live-score.service';
+import { RefreshScoreInputs } from './RefreshScoreInputs';
 import {hexToRgb} from "@swimlane/ngx-charts/release/utils";
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'ctcl-live-score',
@@ -11,6 +14,7 @@ import {hexToRgb} from "@swimlane/ngx-charts/release/utils";
 })
 
 export class LiveScoreComponent {
+  private ngUnsubscribe: Subject<void> = new Subject<void>();
   scoreForm: FormGroup;
   batsman_1: FormGroup;
 
@@ -22,6 +26,7 @@ export class LiveScoreComponent {
   data: any;
   test: any;
   selection: any;
+  refreshScoreInputs: any[]= [];
 
   /**** Start:******   Current/Default Fields values **/
   current_batsman_1 = "Zulifqar Ahmad";
@@ -38,13 +43,19 @@ export class LiveScoreComponent {
 
 
   /**** End :******   Current/Default Fields values **/
+  //Output Responce
+  scoreForm_output: any;
+
 
 
 
   batsman: any;
 
 
-  constructor(private fb: FormBuilder, private liveScoreConstants: LiveScoreConstants, private cdRef: ChangeDetectorRef) {
+  constructor(private fb: FormBuilder,
+    private liveScoreConstants: LiveScoreConstants,
+    private liveScoreService: LiveScoreService,
+    private cdRef: ChangeDetectorRef) {
     this.createForm();
     this.initiateData();
     this.batsman_list = ['Basit', 'Wasim Akram', 'Majid', 'Zulifqar Ahmad', 'Sohail', 'Muhmmad Zubair'];
@@ -66,9 +77,11 @@ export class LiveScoreComponent {
 
   createForm() {
     this.scoreForm = this.fb.group({ // <-- the parent FormGroup
+      id: '',
       current_ball_runs: '',
       is_batsman_out: '',
       extras_types: '',
+      live_game_id: '',
       match: this.fb.group(this.liveScoreConstants.match_object),
       batsman_1: this.fb.group(this.liveScoreConstants.batsman_object),
       batsman_2: this.fb.group(this.liveScoreConstants.batsman_object),
@@ -125,7 +138,9 @@ export class LiveScoreComponent {
     } else {
       this._matchExtras(extrasType);
     }
+    this.reconsileScoreForm(this.scoreForm.value);
     this.syncNetScoreDetails();
+
   }
 
   updateBatsmanObject() {
@@ -247,8 +262,31 @@ export class LiveScoreComponent {
   }
 
 
-  reconsileScoreForm() {
+  reconsileScoreForm(scoreFrom_input) {
 
+    console.info("ReconsileForm Rquest this.scoreForm_output: ", this.scoreForm_output);
+    this.scoreForm_output = new RefreshScoreInputs();
+    this.scoreForm_output.liveGameId = "1221";
+    this.scoreForm_output.batsmanOne = 1;
+    this.scoreForm_output.batsmanTwo = 2;
+    
+ 
+    this.refreshScoreInputs = [{
+      live_game_id: 'gameId',
+      batsman_1: 1,
+      batsman_2: 2,
+
+    }];
+    console.info("ReconsileForm Rquest this.refreshScoreInputs: ", this.refreshScoreInputs);
+    const form$ = this.liveScoreService.reconsileScoreForm("RRCC-11142017",1,2);
+
+    form$.takeUntil(this.ngUnsubscribe).subscribe(responce => this.scoreForm_output = responce,
+      (err) => console.error('battingRecords: Response Error =>', err),
+      () => this.reconsildeResponce(this.scoreForm_output));
+  }
+
+  reconsildeResponce(val) {
+    console.log("Reconsile request Responce: ", val)
   }
   //after change issue fix
   ngAfterViewInit() {
