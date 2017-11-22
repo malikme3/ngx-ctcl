@@ -24,6 +24,8 @@ import {LiveScoreConstants} from "../common/services/live-score-constants.servic
 import {LiveScoreService} from '../common/services/live-score.service';
 import {MatchesService} from '../common/services/matches.service';
 import {CtclSharedModule} from "../shared/shared.module";
+import {PostLiveScoreComponent} from './components/post-live/post-live-score.component';
+import {PreLiveScoreComponent} from './components/pre-live/pre-live.component';
 
 
 @NgModule({
@@ -55,7 +57,7 @@ import {CtclSharedModule} from "../shared/shared.module";
     AutoCompleteModule,
     MatInputModule, MatRadioModule, ButtonsModule,
   ],
-  declarations: [OnlineScoringComponent, LiveScoreComponent
+  declarations: [OnlineScoringComponent, LiveScoreComponent, PreLiveScoreComponent, PostLiveScoreComponent,
   ],
   providers: [LiveScoreConstants, LiveScoreService, DatePipe, ClubsService, CommonUtilsService, MatchesService],
 })

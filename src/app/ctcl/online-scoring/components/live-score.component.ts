@@ -79,9 +79,9 @@ export class LiveScoreComponent {
     this.runs_typs = this.liveScoreConstants.runs_types;
     this.out_types = this.liveScoreConstants.out_types;
     this.extras_types = this.liveScoreConstants.extras_types;
-    this.scoreForm.patchValue({match: {overs: 'Overs: 00.00'}});
-    this.scoreForm.patchValue({match: {score: 'Score: 000'}});
-    this.scoreForm.patchValue({match: {wickets: 'Wickets: 00'}});
+    this.scoreForm.patchValue({match: {overs: '00.00'}});
+    this.scoreForm.patchValue({match: {score: '00'}});
+    this.scoreForm.patchValue({match: {wickets: '00'}});
 
   };
 
@@ -325,7 +325,13 @@ export class LiveScoreComponent {
   loadLiveScore() {
     console.log("YES I AM");
     var date = this.datePipe.transform(new Date(), 'MMddyy');
-    let liveGameId = this.scoreForm.get('innings').value + '-' + this.scoreForm.get('batting_team').value + '-' + this.scoreForm.get('ground').value + '-' + date;
+    let liveGameId =
+      this.scoreForm.get('innings').value + '-' +
+      this.scoreForm.get('batting_team').value + '-' +
+      this.scoreForm.get('ground').value + '-' + date;
+    //    setting live_game_id, will be unique for each game innings
+    this.scoreForm.patchValue({live_game_id: liveGameId});
+
     console.log("The Date time -->" + liveGameId);
   }
   //after change issue fix

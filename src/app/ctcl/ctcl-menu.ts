@@ -69,8 +69,16 @@ export const CTCL_MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-location',
     children: [
       {
+        title: 'Pre Live Scoring',
+        link: '/ctcl/online-scoring/pre-live-scoring',
+      },
+      {
         title: 'Live Scoring',
         link: '/ctcl/online-scoring/live-scoring',
+      },
+      {
+        title: 'Post Live Scoring',
+        link: '/ctcl/online-scoring/post-live-scoring',
       },
     ],
   },
