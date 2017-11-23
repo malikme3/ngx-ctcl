@@ -23,7 +23,7 @@ import {Subject} from 'rxjs/Subject';
 
 export class PreMatchUmpireComponent {
   private ngUnsubscribe: Subject<void> = new Subject<void>();
-  preScoreForm: FormGroup;
+  preMatchUmpireForm: FormGroup;
   active_grounds: any;
   teamsList: any;
   filteredTeams;
@@ -37,23 +37,34 @@ export class PreMatchUmpireComponent {
     private matchesService: MatchesService,
   ) {
     this.createForm();
+    this.getActiveGrounds();
+    this.getTeamslist();
   }
 
   createForm() {
-    this.preScoreForm = this.fb.group({ // <-- the parent FormGroup
+    this.preMatchUmpireForm = this.fb.group({ // <-- the parent FormGroup
       id: '',
-      innings: '',
+      league: '',
       ground: '',
-      batting_team: '',
-      current_ball_runs: '',
-      is_batsman_out: '',
-      extras_types: '',
-      live_game_id: '',
-      match: this.fb.group(this.liveScoreConstants.match_object),
-      batsman_1: this.fb.group(this.liveScoreConstants.batsman_object),
-      batsman_2: this.fb.group(this.liveScoreConstants.batsman_object),
-      bowler: this.fb.group(this.liveScoreConstants.bowler_object),
-      wicket: this.fb.group(this.liveScoreConstants.wicket_info_object),
+      home_team: '',
+      guest_team: '',
+      toss_won_team: '',
+      batting_frst_team: '',
+      batting_second_team: '',
+      umpire_team: '',
+      maxovers: '',
+      match_date: '',
+      match_week: '',
+      //      batting_team: '',
+      //      current_ball_runs: '',
+      //      is_batsman_out: '',
+      //      extras_types: '',
+      //      live_game_id: '',
+      //      match: this.fb.group(this.liveScoreConstants.match_object),
+      //      batsman_1: this.fb.group(this.liveScoreConstants.batsman_object),
+      //      batsman_2: this.fb.group(this.liveScoreConstants.batsman_object),
+      //      bowler: this.fb.group(this.liveScoreConstants.bowler_object),
+      //      wicket: this.fb.group(this.liveScoreConstants.wicket_info_object),
 
     });
 
@@ -77,11 +88,12 @@ export class PreMatchUmpireComponent {
   }
 
   getFilteredTeams(inputs) {
+    console.info('the in put val is', inputs);
     const query = inputs.query;
     this.filteredTeams = this.commonUtilsService.filterTeams(query, this.teamsList);
   }
   onSelectedTeam(value) {
     console.info('Selected Team is', value);
-    this.preScoreForm.patchValue({batting_team: value});
+    this.preMatchUmpireForm.patchValue({batting_team: value});
   }
 }

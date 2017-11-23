@@ -1,6 +1,6 @@
 /* tslint:disable */
-import { Injectable } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Http, Response, Headers} from '@angular/http';
 import * as jwt_decode from 'jwt-decode';
 import {ServicesConstants} from "../common/services/constants.services";
 import {TOKEN_AUTH_PASSWORD, TOKEN_AUTH_USERNAME} from "./auth.constant";
@@ -11,8 +11,8 @@ export const TOKEN_NAME: string = 'jwt_token';
 export class AuthenticationService {
 
   private url: string = 'api/auth';
-  static AUTH_TOKEN = 'http://localhost:8081';
-  private headers = new Headers({ 'Content-Type': 'application/json' });
+  static AUTH_TOKEN = 'http://arvinddeshpande.dyndns.org:56040';
+  private headers = new Headers({'Content-Type': 'application/json'});
 
   private header = this.pagesConstants.pagesContants.url.header;
   private options = this.pagesConstants.pagesContants.url.options;
@@ -24,7 +24,7 @@ export class AuthenticationService {
   private club_list_path_url = this.baseUrl + this.club_list_path;
   private players_roles_url = this.baseUrl + this.players_roles_path;
 
-  constructor(private http: Http,private pagesConstants: ServicesConstants) { }
+  constructor(private http: Http, private pagesConstants: ServicesConstants) {}
 
   getToken(): string {
     return localStorage.getItem(TOKEN_NAME);
@@ -45,17 +45,17 @@ export class AuthenticationService {
   }
 
   isTokenExpired(token?: string): boolean {
-    if(!token) token = this.getToken();
-    if(!token) return true;
+    if (!token) token = this.getToken();
+    if (!token) return true;
 
     const date = this.getTokenExpirationDate(token);
-    if(date === undefined) return false;
+    if (date === undefined) return false;
     return !(date.valueOf() > new Date().valueOf());
   }
 
   login2(user, password): Promise<string> {
     return this.http
-      .post(`${this.url}/login`, JSON.stringify(user), { headers: this.headers })
+      .post(`${this.url}/login`, JSON.stringify(user), {headers: this.headers})
       .toPromise()
       .then(res => res.text());
   }
