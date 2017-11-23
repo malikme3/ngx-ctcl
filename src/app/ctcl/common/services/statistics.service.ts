@@ -48,7 +48,7 @@ export class StatisticsService {
 
 
   private handleError(error: any): Promise<any> {
-    console.error('StatisticsService: Error while fetching date from servier', error);
+    console.error('StatisticsService: Error while fetching date from server', error);
     return Promise.reject(error.message || error);
   }
 

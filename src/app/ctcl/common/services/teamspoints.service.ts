@@ -685,7 +685,7 @@ export class TeamsPointsService {
   ];
 
   private handleError(error: any): Promise<any> {
-    console.error('Error while date from servier', error); // for demo purposes only
+    console.error('Error while date from server', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
 }
