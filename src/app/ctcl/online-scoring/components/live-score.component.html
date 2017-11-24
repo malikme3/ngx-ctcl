@@ -1,6 +1,6 @@
 <!-- <p>{{ scoreForm?.value | json }}</p> -->
 <form [formGroup]="scoreForm" class="form-horizontal">
-   <!--  <div class="row container-title custom-padding ">
+	<!--  <div class="row container-title custom-padding ">
         <button class="btn-icon btn-block" (click)="loadLiveScore()" [ngClass]="[scoreForm.dirty ? 'btn-danger' : 'btn-success']">
             <i class="alert-info"></i>Submit: Let's go live!
         </button>
@@ -29,135 +29,188 @@
             </div>
         </div>
     </div> -->
-    <div class="row container-title custom-padding">
+	<div class="row container-title custom-padding">
 
-        <div formGroupName="match" class="col-xlg-3 col-sm-4  btn btn-outline-divided-group">
+		<div formGroupName="match"
+			class="col-xlg-3 col-sm-4  btn btn-outline-divided-group">
 
-            <!--<p-dataTable [value]="data"  (onRowClick)="onRowClick($event)" >-->
-            <!--<p-column field="score" header="Score" [editable]="true"-->
-            <!--[style]="{'background':'#afaa83','margin-top':'1px'}"></p-column>-->
-            <!--<p-column field="runs" header="Overs" [editable]="true"-->
-            <!--[style]="{'background':'skyblue','margin-top':'1px'}"></p-column>-->
-            <!--<p-column field="wickets" header="Wicket" [editable]="true"-->
-            <!--[style]="{'background':'lightpink','margin-top':'1px'}"></p-column>-->
-            <!--</p-dataTable>-->
-            <input type="text" class="col-4 btn-semi-round btn  btn-outline-success" id="score" formControlName="score" placeholder="Score">
-            <input type="text" class="col-4 btn-semi-round btn  btn-outline-success" id="overs" formControlName="overs" placeholder="Overs">
-            <input type="text" class="col-4 btn-semi-round btn  btn-outline-success" id="wickets" formControlName="wickets" placeholder="Wickets">
-        </div>
+			<!--<p-dataTable [value]="data"  (onRowClick)="onRowClick($event)" >-->
+			<!--<p-column field="score" header="Score" [editable]="true"-->
+			<!--[style]="{'background':'#afaa83','margin-top':'1px'}"></p-column>-->
+			<!--<p-column field="runs" header="Overs" [editable]="true"-->
+			<!--[style]="{'background':'skyblue','margin-top':'1px'}"></p-column>-->
+			<!--<p-column field="wickets" header="Wicket" [editable]="true"-->
+			<!--[style]="{'background':'lightpink','margin-top':'1px'}"></p-column>-->
+			<!--</p-dataTable>-->
+			<input type="text"
+				class="col-4 btn-semi-round btn  btn-outline-success" id="score"
+				formControlName="score" placeholder="Score"> <input
+				type="text" class="col-4 btn-semi-round btn  btn-outline-success"
+				id="overs" formControlName="overs" placeholder="Overs"> <input
+				type="text" class="col-4 btn-semi-round btn  btn-outline-success"
+				id="wickets" formControlName="wickets" placeholder="Wickets">
+		</div>
 
-        <div class="col-xlg-3 col-sm-4  btn  btn-outline-info">
-            <nb-actions size="large" fullWidth>
-                <nb-action>
-                    <button class="btn-icon btn-block" [disabled]="!scoreForm.dirty" (click)="updateScoreObject()" [ngClass]="[scoreForm.dirty ? 'btn-danger' : 'btn-success']">
-                        <i class="alert-info"></i>Submit
-                    </button>
-                </nb-action>
-                <!--<nb-action>-->
-                <!--<button class=" btn-icon btn-block" [disabled]="!scoreForm.dirty" (click)="updateScore()"-->
-                <!--[ngClass]="[scoreForm.dirty ? 'btn-warning' : 'btn-success']"><i class="nb-skip-backward-outline"></i>{{is_update_score?'Submit' : 'Update'}}-->
-                <!--</button>-->
-                <!--</nb-action>-->
-            </nb-actions>
-        </div>
-        <div class=" col-xlg-6 col-sm-4 form-control btn btn-outline-info" data-toggle="buttons">
-            <div class="demo-radio ">
-                <label class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="0" selected="true">
-                    <span class="custom-control-indicator"></span> <span class="custom-control-description">0</span>
-                </label>
-                <label class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="1"> <span class="custom-control-indicator"></span> <span class="custom-control-description">1</span>
-                </label>
-                <label class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="2"> <span class="custom-control-indicator"></span> <span class="custom-control-description">2</span>
-                </label>
-                <label class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="3"> <span class="custom-control-indicator"></span> <span class="custom-control-description">3</span>
-                </label>
-            </div>
-            <div class="demo-radio">
-                <label class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="4"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Four</span>
-                </label>
-                <label class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="6"> <span class="custom-control-indicator"></span> <span class="custom-control-description">Six</span>
-                </label>
-                <label class="custom-control custom-radio">
-                    <input type="radio" class="custom-control-input" formControlName="current_ball_runs" [value]="5"> <span class="custom-control-indicator"></span> <span class="custom-control-description">5</span>
-                </label>
-                <label class="custom-control custom-radio" (click)="updateFieldFlags('out')">
-                    <input type="checkbox" class="custom-control-input" formControlName="is_batsman_out">
-                    <span class="custom-control-indicator"></span> <span class="custom-control-description">Out</span>
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="row container-title">
+		<div class="col-xlg-3 col-sm-4  btn  btn-outline-info">
+			<nb-actions size="large" fullWidth> <nb-action>
+			<button class="btn-icon btn-block" [disabled]="!scoreForm.dirty"
+				(click)="updateScoreObject()"
+				[ngClass]="[scoreForm.dirty ? 'btn-danger' : 'btn-success']">
+				<i class="alert-info"></i>Submit
+			</button>
+			</nb-action> <!--<nb-action>--> <!--<button class=" btn-icon btn-block" [disabled]="!scoreForm.dirty" (click)="updateScore()"-->
+			<!--[ngClass]="[scoreForm.dirty ? 'btn-warning' : 'btn-success']"><i class="nb-skip-backward-outline"></i>{{is_update_score?'Submit' : 'Update'}}-->
+			<!--</button>--> <!--</nb-action>--> </nb-actions>
+		</div>
+		<div class=" col-xlg-6 col-sm-4 form-control btn btn-outline-info"
+			data-toggle="buttons">
+			<div class="demo-radio ">
+				<label class="custom-control custom-radio"> <input
+					type="radio" class="custom-control-input"
+					formControlName="current_ball_runs" [value]="0" selected="true">
+					<span class="custom-control-indicator"></span> <span
+					class="custom-control-description">0</span>
+				</label> <label class="custom-control custom-radio"> <input
+					type="radio" class="custom-control-input"
+					formControlName="current_ball_runs" [value]="1"> <span
+					class="custom-control-indicator"></span> <span
+					class="custom-control-description">1</span>
+				</label> <label class="custom-control custom-radio"> <input
+					type="radio" class="custom-control-input"
+					formControlName="current_ball_runs" [value]="2"> <span
+					class="custom-control-indicator"></span> <span
+					class="custom-control-description">2</span>
+				</label> <label class="custom-control custom-radio"> <input
+					type="radio" class="custom-control-input"
+					formControlName="current_ball_runs" [value]="3"> <span
+					class="custom-control-indicator"></span> <span
+					class="custom-control-description">3</span>
+				</label>
+			</div>
+			<div class="demo-radio">
+				<label class="custom-control custom-radio"> <input
+					type="radio" class="custom-control-input"
+					formControlName="current_ball_runs" [value]="4"> <span
+					class="custom-control-indicator"></span> <span
+					class="custom-control-description">Four</span>
+				</label> <label class="custom-control custom-radio"> <input
+					type="radio" class="custom-control-input"
+					formControlName="current_ball_runs" [value]="6"> <span
+					class="custom-control-indicator"></span> <span
+					class="custom-control-description">Six</span>
+				</label> <label class="custom-control custom-radio"> <input
+					type="radio" class="custom-control-input"
+					formControlName="current_ball_runs" [value]="5"> <span
+					class="custom-control-indicator"></span> <span
+					class="custom-control-description">5</span>
+				</label> <label class="custom-control custom-radio"
+					(click)="updateFieldFlags('out')"> <input type="checkbox"
+					class="custom-control-input" formControlName="is_batsman_out">
+					<span class="custom-control-indicator"></span> <span
+					class="custom-control-description">Out</span>
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="row container-title">
 
-        <div formGroupName="batsman_1" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
-            <ng-container class="row form-control ">
-                <div class="col-md-12">
-                    <div class="btn-group btn-group-full-width" role="group">
-                        <button type="button" class="btn btn-group-icon btn-group-divider btn-fixed" [ngClass]="is_striker_1 ? 'btn-success' :'btn-outline-warning' ">
-                            <label class="custom-control custom-radio">
-                                <input type="checkbox" class="custom-control-input" (change)="UpdateStriker()" formControlName="striker" [checked]="is_striker_1"> <span class="custom-control-indicator"></span> <span class="custom-control-description custom-font"> {{
+		<div formGroupName="batsman_1" class="dropdown col-xlg-4 col-sm-6"
+			placement="bottom" ngbDropdown>
+			<ng-container class="row form-control ">
+			<div class="col-md-12">
+				<div class="btn-group btn-group-full-width" role="group">
+					<button type="button"
+						class="btn btn-group-icon btn-group-divider btn-fixed"
+						[ngClass]="is_striker_1 ? 'btn-success' :'btn-outline-warning' ">
+						<label class="custom-control custom-radio"> <input
+							type="checkbox" class="custom-control-input"
+							(change)="UpdateStriker()" formControlName="striker"
+							[checked]="is_striker_1"> <span
+							class="custom-control-indicator"></span> <span
+							class="custom-control-description custom-font"> {{
 								scoreForm.value?.batsman_1.score >0 ?
 								scoreForm.value?.batsman_1.score : 0 | json }} ({{
 								scoreForm.value?.batsman_1.balls >0 ?
 								scoreForm.value?.batsman_1.balls : 0 | json }})</span>
-                            </label>
-                        </button>
-                        <select class="form-control btn btn-outline-warning" formControlName="name" [(ngModel)]="current_batsman_1" [ngClass]=" this.scoreForm.get(['batsman_1', 'name']).value != 'Zulifqar Ahmad' ? 'btn-outline-success' : 'btn-outline-danger'">
-                            <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
-                        </select>
-                    </div>
-                </div>
-            </ng-container>
-        </div>
+						</label>
+					</button>
+					<select class="form-control btn btn-outline-warning"
+						formControlName="name" [(ngModel)]="current_batsman_1"
+						[ngClass]=" this.scoreForm.get(['batsman_1', 'name']).value != 'Zulifqar Ahmad' ? 'btn-outline-success' : 'btn-outline-danger'">
+						<option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
+					</select>
+				</div>
+			</div>
+			</ng-container>
+		</div>
 
-        <div formGroupName="batsman_2" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
-            <ng-container class="row form-control ">
-                <div class="col-md-12">
-                    <div class="btn-group btn-group-full-width">
-                        <button type="button" class="btn btn-group-icon btn-group-divider btn-fixed" [ngClass]="is_striker_2 ? 'btn-success' :'btn-outline-warning' ">
-                            <label class="custom-control custom-radio">
-                                <input type="checkbox" class="custom-control-input" (change)="UpdateStriker()" formControlName="striker" [checked]="is_striker_2"> <span class="custom-control-indicator"></span> <span class="custom-control-description custom-font"> {{
+		<div formGroupName="batsman_2" class="dropdown col-xlg-4 col-sm-6"
+			placement="bottom" ngbDropdown>
+			<ng-container class="row form-control ">
+			<div class="col-md-12">
+				<div class="btn-group btn-group-full-width">
+					<button type="button"
+						class="btn btn-group-icon btn-group-divider btn-fixed"
+						[ngClass]="is_striker_2 ? 'btn-success' :'btn-outline-warning' ">
+						<label class="custom-control custom-radio"> <input
+							type="checkbox" class="custom-control-input"
+							(change)="UpdateStriker()" formControlName="striker"
+							[checked]="is_striker_2"> <span
+							class="custom-control-indicator"></span> <span
+							class="custom-control-description custom-font"> {{
 								scoreForm.value?.batsman_2.score >0 ?
 								scoreForm.value?.batsman_2.score : 0 | json }} ({{
 								scoreForm.value?.batsman_2.balls >0 ?
 								scoreForm.value?.batsman_2.balls : 0 | json }})</span>
-                            </label>
-                        </button>
-                        <select class="form-control btn btn-outline-warning btn-group-icon btn-group-divider btn-fixed" formControlName="name" [(ngModel)]="current_batsman_2" [ngClass]=" this.scoreForm.get(['batsman_1', 'name']).value != 'Zulifqar Ahmad' ? 'btn-outline-success' : 'btn-outline-danger'">
-                            <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
-                        </select>
-                    </div>
-                </div>
-            </ng-container>
-            striker
-        </div>
+						</label>
+					</button>
+					<select
+						class="form-control btn btn-outline-warning btn-group-icon btn-group-divider btn-fixed"
+						formControlName="name" [(ngModel)]="current_batsman_2"
+						[ngClass]=" this.scoreForm.get(['batsman_1', 'name']).value != 'Zulifqar Ahmad' ? 'btn-outline-success' : 'btn-outline-danger'">
+						<option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
+					</select>
+				</div>
+			</div>
+			</ng-container>
+			striker
+		</div>
 
-        <div formGroupName="bowler" class="dropdown col-sm-6" placement="bottom" ngbDropdown>
-            <select class="form-control btn" formControlName="name" [(ngModel)]="current_bowler" [ngClass]="scoreForm.get('bowler').valid ? 'btn-outline-success' : 'btn-outline-danger'">
-                <option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
-            </select>
-        </div>
+		<div formGroupName="bowler" class="dropdown col-sm-6"
+			placement="bottom" ngbDropdown>
+			<select class="form-control btn" formControlName="name"
+				[(ngModel)]="current_bowler"
+				[ngClass]="scoreForm.get('bowler').valid ? 'btn-outline-success' : 'btn-outline-danger'">
+				<option *ngFor=" let option of batsman_list" value={{option}}>{{option}}</option>
+			</select>
+		</div>
 
-        <div class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
-            <select class="form-control btn btn-outline-primary btn-outline-success" formControlName="extras_types" [(ngModel)]="current_extras_type">
-                <option *ngFor=" let option of extras_types" value={{option}}>{{option}}</option>
-            </select>
-        </div>
-        <div *ngIf="scoreForm?.value?.is_batsman_out" formGroupName="wicket" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown [ngClass]="{'btn-outline-primary':scoreForm?.value?.is_batsman_out , 'btn-outline-danger':scoreForm?.value?.wicket.dirty}">
-            <select class="form-control btn" formControlName="how_out" [(ngModel)]="current_out_type" [ngClass]="scoreForm.controls?.wicket.dirty ? 'btn-outline-success' : 'btn-outline-danger'">
-                <option *ngFor=" let option of out_types" value={{option}}>{{option}}</option>
-            </select>
-        </div>
-        <div *ngIf="scoreForm?.value?.is_batsman_out && scoreForm?.value?.wicket?.how_out !='Bowled' && scoreForm?.value?.wicket?.how_out !='C & B'" formGroupName="wicket" class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown>
-            <select class="form-control btn" formControlName="fielder_name" [(ngModel)]="current_fielder" [ngClass]="scoreForm.controls?.wicket?.dirty ? 'btn-outline-success' : 'btn-outline-warning'">
-                <option *ngFor=" let option of fielder_list" value={{option}}>{{option}}</option>
-            </select>
-        </div>
-    </div>
+		<div class="dropdown col-xlg-4 col-sm-6" placement="bottom"
+			ngbDropdown>
+			<select
+				class="form-control btn btn-outline-primary btn-outline-success"
+				formControlName="extras_types" [(ngModel)]="current_extras_type">
+				<option *ngFor=" let option of extras_types" value={{option}}>{{option}}</option>
+			</select>
+		</div>
+		<div *ngIf="scoreForm?.value?.is_batsman_out" formGroupName="wicket"
+			class="dropdown col-xlg-4 col-sm-6" placement="bottom" ngbDropdown
+			[ngClass]="{'btn-outline-primary':scoreForm?.value?.is_batsman_out , 'btn-outline-danger':scoreForm?.value?.wicket.dirty}">
+			<select class="form-control btn" formControlName="how_out"
+				[(ngModel)]="current_out_type"
+				[ngClass]="scoreForm.controls?.wicket.dirty ? 'btn-outline-success' : 'btn-outline-danger'">
+				<option *ngFor=" let option of out_types" value={{option}}>{{option}}</option>
+			</select>
+		</div>
+		<div
+			*ngIf="scoreForm?.value?.is_batsman_out && scoreForm?.value?.wicket?.how_out !='Bowled' && scoreForm?.value?.wicket?.how_out !='C & B'"
+			formGroupName="wicket" class="dropdown col-xlg-4 col-sm-6"
+			placement="bottom" ngbDropdown>
+			<select class="form-control btn" formControlName="fielder_name"
+				[(ngModel)]="current_fielder"
+				[ngClass]="scoreForm.controls?.wicket?.dirty ? 'btn-outline-success' : 'btn-outline-warning'">
+				<option *ngFor=" let option of fielder_list" value={{option}}>{{option}}</option>
+			</select>
+		</div>
+	</div>
 </form>

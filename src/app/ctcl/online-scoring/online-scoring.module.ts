@@ -16,6 +16,7 @@ import {routing} from "./online-scoring.routing";
 import {LiveScoreComponent} from "./components/live-score.component";
 import {ThemeModule} from "../../@theme/theme.module";
 import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from '@angular/material';
 import {MatRadioModule} from "@angular/material/radio";
 import {ButtonsModule} from "../../pages/ui-features/buttons/buttons.module";
 import {ClubsService} from '../common/services/clubs.service';
@@ -57,7 +58,7 @@ import {PreLiveScoreComponent} from './components/pre-live/pre-live.component';
     RadioButtonModule,
     CheckboxModule,
     AutoCompleteModule,
-    MatInputModule, MatRadioModule, ButtonsModule,
+    MatInputModule, MatRadioModule, ButtonsModule, MatSelectModule,
   ],
   declarations: [OnlineScoringComponent, LiveScoreComponent, PreLiveScoreComponent, PostLiveScoreComponent, PreMatchCaptainsComponent, PreMatchUmpireComponent,
   ],

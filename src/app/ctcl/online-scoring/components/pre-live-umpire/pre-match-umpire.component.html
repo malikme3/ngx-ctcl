@@ -11,18 +11,17 @@
 					*ngFor="let venue of active_grounds"> <label
 					class="custom-control custom-radio"> <input
 					formControlName="ground" [value]="venue?.ground_abbrev"
-					class="custom-control-input" type="radio">
-					<span class="custom-control-indicator"></span> <span
+					class="custom-control-input" type="radio"> <span
+					class="custom-control-indicator"></span> <span
 					class="custom-control-description">{{venue?.ground_abbrev}}</span>
 				</label> </ng-container> </nb-card-body>
-				<nb-card-body> <ng-container
-					*ngFor="let venue of active_grounds"> <label
-					class="custom-control custom-radio"> <input
-					formControlName="league" [value]="venue?.ground_abbrev"
-					class="custom-control-input" type="radio">
-					<span class="custom-control-indicator"></span> <span
-					class="custom-control-description">{{venue?.ground_abbrev}}</span>
-				</label> </ng-container> </nb-card-body>
+				<nb-card-body> <select
+					class="form-control btn btn-outline-warning"
+					formControlName="ground">
+					<!-- [ngClass]=" this.scoreForm.get(['batsman_1', 'name']).value != 'Zulifqar Ahmad' ? 'btn-outline-success' : 'btn-outline-danger'"> -->
+					<option *ngFor=" let option of active_grounds"
+						value={{option?.ground_abbrev}}>{{option?.ground_abbrev}}</option>
+				</select> </nb-card-body>
 			</div>
 			<div class="col-sm-6">
 				<div class="form-group">
@@ -36,24 +35,30 @@
 		</div>
 	</div>
 	</ctcl-style>
-	<ctcl-style title="Select Match Teams">
+	<!-- <ctcl-style title="Select Match Teams"> -->
 	<div class="row">
 		<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
 
 			<!--Home Team -->
 			<nb-card-header> <label>Home Team</label> </nb-card-header>
 			<div class="form-group form-control form-control-danger">
-				<p-autoComplete formControlName="home_team"
+				<!-- <p-autoComplete formControlName="home_team"
 					[inputStyle]="{'width':'90%','font-size': '16px'}"
 					styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
 					[dropdown]="true" autoHighlight="true" id="home_team" field="label"
 					placeholder="Select home team"
 					(completeMethod)="getFilteredTeams($event)"
-					[suggestions]="filteredTeams"> </p-autoComplete>
+					[suggestions]="filteredTeams"> </p-autoComplete> -->
+				<select class="form-control btn btn-outline-warning"
+					formControlName="home_team">
+					<!-- [ngClass]=" this.scoreForm.get(['batsman_1', 'name']).value != 'Zulifqar Ahmad' ? 'btn-outline-success' : 'btn-outline-danger'"> -->
+					<option *ngFor=" let option of active_grounds"
+						value={{option?.ground_abbrev}}>{{option?.ground_abbrev}}</option>
+				</select>
 			</div>
 
 			<!--Guest Team -->
-			<nb-card-header> <label>Away Team</label> </nb-card-header>
+			<nb-card-header> <label>Guest Team</label> </nb-card-header>
 
 			<div class="form-group form-control form-control-warning">
 				<p-autoComplete formControlName="guest_team"
@@ -83,26 +88,24 @@
 					id="batting_first_id" field="label"
 					placeholder="Select Bat first team"
 					(completeMethod)="getFilteredTeams($event)"
-					[suggestions]="filteredTeams">
-				</p-autoComplete>
+					[suggestions]="filteredTeams"> </p-autoComplete>
 			</div>
 			<nb-card-header> <label>Bat Second Team</label> </nb-card-header>
 			<div class="form-group form-control form-control-warning">
-				<p-autoComplete formControlName="batting_second_team"
-					[inputStyle]="{'width':'90%','font-size': '16px'}"
-					styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30"
-					[dropdown]="true" autoHighlight="true" required="true"
-					id="batting_second_id" field="label"
-					placeholder="Select Bat second team"
-					(completeMethod)="getFilteredTeams($event)"
-					[suggestions]="filteredTeams">
-				</p-autoComplete>
+				<mat-form-field> <mat-select placeholder="Sample"
+					[disabled]="selectDisabled"> <mat-option
+					*ngFor="let opt of [1, 2, 3, 4]" [value]="opt"> Option
+				{{ opt }} </mat-option> </mat-select> </mat-form-field>
 			</div>
+			<button (click)="selectDisabled = false">Enable</button>
+			<button (click)="selectDisabled = true">Disable</button>
+
+			<pre>disabled: {{ selectDisabled }}</pre>
 
 		</div>
 		<!--</form>-->
 	</div>
-	</ctcl-style>
+	<!-- </ctcl-style> -->
 
 
 </form>
