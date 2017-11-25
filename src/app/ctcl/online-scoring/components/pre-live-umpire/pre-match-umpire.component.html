@@ -1,75 +1,110 @@
-<!--  FORM: {{preMatchUmpireForm.value | json}} -->
-<form [formGroup]="preMatchUmpireForm" class="form-horizontal">
-    <ctcl-style title="Match Basic Details">
-        <!--<nb-card>-->
-        <div class="row">
-            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                <!-- <nb-card-header>
-                    <label for="maxovers">Ground & League Type!</label>
-                </nb-card-header> -->
-                <div class="row demo-checkboxes-radio">
-                    <!--TODO: Populate grounds dynamically-->
-                    <!-- <nb-card-header>Select Ground</nb-card-header> -->
-                    <nb-card-body>
-                        <ng-container *ngFor="let venue of active_grounds">
-                            <label class="custom-control custom-radio">
-                                <input formControlName="ground" [value]="venue?.ground_abbrev" class="custom-control-input" type="radio"> <span class="custom-control-indicator"></span> <span class="custom-control-description">{{venue?.ground_abbrev}}</span>
-                            </label>
-                        </ng-container>
-                    </nb-card-body>
-                    <nb-card-body>
-                        <ng-container *ngFor="let venue of active_grounds">
-                            <label class="custom-control custom-radio">
-                                <input formControlName="ground" [value]="venue?.ground_abbrev" class="custom-control-input" type="radio"> <span class="custom-control-indicator"></span> <span class="custom-control-description">{{venue?.ground_abbrev}}</span>
-                            </label>
-                        </ng-container>
-                    </nb-card-body>
-                </div>
-            </div>
-            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <nb-card-header>
-                            <label for="maxovers">Max Overs
-                            </label>
-                        </nb-card-header>
-                        <input formControlName="maxovers" type="text" class="form-control" id="maxovers" placeholder="Maximum Overs">
-                    </div>
-                </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                        <nb-card-header>
-                            <label for="maxovers">Comments
-                            </label>
-                        </nb-card-header>
-                        <input formControlName="comments" type="text" class="form-control" id="comments" placeholder="Maximum Overs">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </ctcl-style>
-    <!-- <ctcl-style title="Select Match Teams"> -->
-    <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-            <!--Home Team -->
-            <nb-card-header>
-                <label>Home Team</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-warning">
-                <p-autoComplete formControlName="home_team" [inputStyle]="{'width':'90%','font-size': '16px'}" styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30" [dropdown]="true" autoHighlight="true" required="true" id="batting_first_id" field="label" placeholder="Select Home team" (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"> </p-autoComplete>
-            </div>
-            <!--Guest Team -->
-            <nb-card-header>
-                <label>Guest Team</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-warning">
-                <p-autoComplete formControlName="guest_team" [inputStyle]="{'width':'90%','font-size': '16px'}" styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30" [dropdown]="true" autoHighlight="true" required="true" id="batting_first_id" field="label" placeholder="Select Guest team" (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"> </p-autoComplete>
-            </div>
-            <nb-card-header>
-                <label>Winning Toss Team</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-warning">
-                <span class="ui-float-label"> <p-autoComplete
+FORM: {{preMatchUmpireForm.value | json}}
+<form
+	[formGroup]="preMatchUmpireForm"
+	class="form-horizontal"
+>
+	<ctcl-style title="Match Basic Details"> <!--<nb-card>-->
+	<div class="row">
+		<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+			<div class="row demo-checkboxes-radio">
+				<nb-card-body> <ng-container
+					*ngFor="let venue of active_grounds"
+				> <label class="custom-control custom-radio"> <input
+					formControlName="ground"
+					[value]="venue?.ground_abbrev"
+					class="custom-control-input"
+					type="radio"
+				> <span class="custom-control-indicator"></span> <span
+					class="custom-control-description"
+				>{{venue?.ground_abbrev}}</span>
+				</label> </ng-container> </nb-card-body>
+				<nb-card-body> <ng-container
+					*ngFor="let venue of active_grounds"
+				> <label class="custom-control custom-radio"> <input
+					formControlName="ground"
+					[value]="venue?.ground_abbrev"
+					class="custom-control-input"
+					type="radio"
+				> <span class="custom-control-indicator"></span> <span
+					class="custom-control-description"
+				>{{venue?.ground_abbrev}}</span>
+				</label> </ng-container> </nb-card-body>
+			</div>
+		</div>
+		<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<nb-card-header> <label for="maxovers">Max
+						Overs </label> </nb-card-header>
+					<input
+						formControlName="maxovers"
+						type="text"
+						class="form-control"
+						id="maxovers"
+						placeholder="Maximum Overs"
+					>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<nb-card-header> <label for="comments">Comments
+					</label> </nb-card-header>
+					<input
+						formControlName="comments"
+						type="text"
+						class="form-control"
+						id="comments"
+						placeholder="Match Comments"
+					>
+				</div>
+			</div>
+		</div>
+	</div>
+	</ctcl-style>
+	<!-- <ctcl-style title="Select Match Teams"> -->
+	<div class="row">
+		<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+			<!--Home Team -->
+			<nb-card-header> <label>Home Team</label> </nb-card-header>
+			<div class="form-group form-control form-control-warning">
+				<p-autoComplete
+					formControlName="home_team"
+					[inputStyle]="{'width':'90%','font-size': '16px'}"
+					styleClass="col-md-12 col-sm-12 col-12"
+					[minLength]="1"
+					[size]="30"
+					[dropdown]="true"
+					autoHighlight="true"
+					required="true"
+					id="batting_first_id"
+					field="label"
+					placeholder="Select Home team"
+					(completeMethod)="getFilteredTeams($event)"
+					[suggestions]="filteredTeams"
+				> </p-autoComplete>
+			</div>
+			<!--Guest Team -->
+			<nb-card-header> <label>Guest Team</label> </nb-card-header>
+			<div class="form-group form-control form-control-warning">
+				<p-autoComplete
+					formControlName="guest_team"
+					[inputStyle]="{'width':'90%','font-size': '16px'}"
+					styleClass="col-md-12 col-sm-12 col-12"
+					[minLength]="1"
+					[size]="30"
+					[dropdown]="true"
+					autoHighlight="true"
+					required="true"
+					id="batting_first_id"
+					field="label"
+					placeholder="Select Guest team"
+					(completeMethod)="getFilteredTeams($event)"
+					[suggestions]="filteredTeams"
+				> </p-autoComplete>
+			</div>
+			<nb-card-header> <label>Winning Toss Team</label> </nb-card-header>
+			<div class="form-group form-control form-control-warning">
+				<span class="ui-float-label"> <p-autoComplete
 						formControlName="toss_won_team"
 						[inputStyle]="{'width':'90%','font-size': '16px'}"
 						styleClass="col-md-12 col-sm-12 col-12"
@@ -79,32 +114,68 @@
 						autoHighlight="true"
 						id="float-input"
 						field="label"
-						placeholder="Select Guest team"
+						placeholder="Toss Won team"
 						(completeMethod)="getFilteredTeams($event)"
 						[suggestions]="filteredTeams"
 					> </p-autoComplete>
 				</span>
-            </div>
-        </div>
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-            <nb-card-header>
-                <label>Bat First Team</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-warning">
-                <p-autoComplete formControlName="batting_frst_team" [inputStyle]="{'width':'90%','font-size': '16px'}" styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30" [dropdown]="true" autoHighlight="true" required="true" id="batting_first_id" field="label" placeholder="Select Bat first team" (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"> </p-autoComplete>
-            </div>
-            <nb-card-header>
-                <label>Umpire Team #1</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-warning">
-                <p-autoComplete formControlName="batting_frst_team" [inputStyle]="{'width':'90%','font-size': '16px'}" styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30" [dropdown]="true" autoHighlight="true" required="true" id="batting_first_id" field="label" placeholder="Select Bat first team" (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"> </p-autoComplete>
-            </div>
-            <nb-card-header>
-                <label>Umpire Team #2</label>
-            </nb-card-header>
-            <div class="form-group form-control form-control-warning">
-                <p-autoComplete formControlName="batting_frst_team" [inputStyle]="{'width':'90%','font-size': '16px'}" styleClass="col-md-12 col-sm-12 col-12" [minLength]="1" [size]="30" [dropdown]="true" autoHighlight="true" required="true" id="batting_first_id" field="label" placeholder="Select Bat first team" (completeMethod)="getFilteredTeams($event)" [suggestions]="filteredTeams"> </p-autoComplete>
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+		<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+			<nb-card-header> <label>Bat First Team</label> </nb-card-header>
+			<div class="form-group form-control form-control-warning">
+				<p-autoComplete
+					formControlName="batting_frst_team"
+					[inputStyle]="{'width':'90%','font-size': '16px'}"
+					styleClass="col-md-12 col-sm-12 col-12"
+					[minLength]="1"
+					[size]="30"
+					[dropdown]="true"
+					autoHighlight="true"
+					required="true"
+					id="batting_first_id"
+					field="label"
+					placeholder="Select Bat first team"
+					(completeMethod)="getFilteredTeams($event)"
+					[suggestions]="filteredTeams"
+				> </p-autoComplete>
+			</div>
+			<nb-card-header> <label>Umpire Team #1</label> </nb-card-header>
+			<div class="form-group form-control form-control-warning">
+				<p-autoComplete
+					formControlName="umpire_team_1"
+					[inputStyle]="{'width':'90%','font-size': '16px'}"
+					styleClass="col-md-12 col-sm-12 col-12"
+					[minLength]="1"
+					[size]="30"
+					[dropdown]="true"
+					autoHighlight="true"
+					required="true"
+					id="umpire_team_1"
+					field="label"
+					placeholder="Umpire Team #1"
+					(completeMethod)="getFilteredTeams($event)"
+					[suggestions]="filteredTeams"
+				> </p-autoComplete>
+			</div>
+			<nb-card-header> <label>Umpire Team #2</label> </nb-card-header>
+			<div class="form-group form-control form-control-warning">
+				<p-autoComplete
+					formControlName="umpire_team_2"
+					[inputStyle]="{'width':'90%','font-size': '16px'}"
+					styleClass="col-md-12 col-sm-12 col-12"
+					[minLength]="1"
+					[size]="30"
+					[dropdown]="true"
+					autoHighlight="true"
+					required="true"
+					id="umpire_team_2"
+					field="label"
+					placeholder="Umpire Team #2"
+					(completeMethod)="getFilteredTeams($event)"
+					[suggestions]="filteredTeams"
+				> </p-autoComplete>
+			</div>
+		</div>
+	</div>
 </form>
