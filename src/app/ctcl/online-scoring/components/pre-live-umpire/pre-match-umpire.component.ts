@@ -27,12 +27,6 @@ export class PreMatchUmpireComponent {
   active_grounds: any;
   teamsList: any;
   filteredTeams;
-  selectDisabled = false;
-  foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
 
   constructor(private fb: FormBuilder,
     private liveScoreConstants: LiveScoreConstants,
@@ -61,6 +55,7 @@ export class PreMatchUmpireComponent {
       maxovers: '',
       match_date: '',
       match_week: '',
+      comments: '',
       //      batting_team: '',
       //      current_ball_runs: '',
       //      is_batsman_out: '',
@@ -80,9 +75,11 @@ export class PreMatchUmpireComponent {
     const form$ = this.clubsService.getCtclGrounds();
     form$.takeUntil(this.ngUnsubscribe).subscribe(responce => this.active_grounds = responce,
       (err) => console.error('getActiveGrounds: Response Error =>', err),
-      () => console.info('active grounds: ', this.active_grounds));
+      () => this.activeGroundReqComplete());
   }
-
+  activeGroundReqComplete() {
+    console.info('active grounds: ', this.active_grounds);
+  }
   getTeamslist() {
     console.info('Fetching results for teams list :');
     const teams$ = this.matchesService.getTeamslist();
