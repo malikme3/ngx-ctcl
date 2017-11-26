@@ -42,8 +42,9 @@ export class PreMatchUmpireComponent {
   }
 
   createForm() {
-    this.preMatchUmpireForm = this.fb.group({ // <-- the parent FormGroup
+    this.preMatchUmpireForm = this.fb.group({
       id: '',
+      match_game_id: '',
       league: '',
       ground: '',
       home_team: '',
@@ -57,17 +58,6 @@ export class PreMatchUmpireComponent {
       match_date: '',
       match_week: '',
       comments: '',
-      //      batting_team: '',
-      //      current_ball_runs: '',
-      //      is_batsman_out: '',
-      //      extras_types: '',
-      //      live_game_id: '',
-      //      match: this.fb.group(this.liveScoreConstants.match_object),
-      //      batsman_1: this.fb.group(this.liveScoreConstants.batsman_object),
-      //      batsman_2: this.fb.group(this.liveScoreConstants.batsman_object),
-      //      bowler: this.fb.group(this.liveScoreConstants.bowler_object),
-      //      wicket: this.fb.group(this.liveScoreConstants.wicket_info_object),
-
     });
 
   }
@@ -99,5 +89,32 @@ export class PreMatchUmpireComponent {
   onSelectedTeam(value) {
     console.info('Selected Team is', value);
     this.preMatchUmpireForm.patchValue({batting_team: value});
+  }
+
+  submitPreMatchInfo() {
+    this.setBattingOrder();
+    const date = this.datePipe.transform(new Date(), 'MMddyy');
+    this.preMatchUmpireForm.patchValue({match_date: date});
+    this.preMatchUmpireForm.patchValue({match_game_id: this.setLiveGameId(date)});
+    // Week # will be updated with calculated Week # in java with Java 8
+    this.preMatchUmpireForm.patchValue({match_week: 1});
+    console.info('Submitting form ::', this.preMatchUmpireForm);
+  }
+
+  setLiveGameId(date): any {
+    // constructing game id as bat first & second team id, ground id and today's date.
+    const bat_1 = this.preMatchUmpireForm.get('batting_frst_team').value.value;
+    const bat_2 = this.preMatchUmpireForm.get('batting_second_team').value.value;
+    const liveGameId =
+      bat_1 + '-' + bat_2 + '-' +
+      this.preMatchUmpireForm.get('ground').value + '-' + date;
+    return liveGameId;
+  }
+  setBattingOrder() {
+    if (this.preMatchUmpireForm.get('batting_frst_team').value.value === this.preMatchUmpireForm.get('home_team').value.value) {
+      this.preMatchUmpireForm.patchValue({batting_second_team: this.preMatchUmpireForm.get('guest_team').value});
+    } else if (this.preMatchUmpireForm.get('batting_frst_team').value.value === this.preMatchUmpireForm.get('guest_team').value.value) {
+      this.preMatchUmpireForm.patchValue({batting_second_team: this.preMatchUmpireForm.get('home_team').value});
+    }
   }
 }

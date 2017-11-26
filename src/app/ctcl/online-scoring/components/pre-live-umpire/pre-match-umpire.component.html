@@ -1,7 +1,11 @@
-FORM: {{preMatchUmpireForm.value | json}}
+FORM: {{preMatchUmpireForm.value | json}} label:
+{{preMatchUmpireForm.value?.batting_frst_team?.value | json}}
 <form
 	[formGroup]="preMatchUmpireForm"
 	class="form-horizontal"
+	(ngSubmit)="submitPreMatchInfo()"
+	#f="ngForm"
+	novalidate
 >
 	<ctcl-style title="Match Basic Details"> <!--<nb-card>-->
 	<div class="row">
@@ -11,7 +15,7 @@ FORM: {{preMatchUmpireForm.value | json}}
 					*ngFor="let venue of active_grounds"
 				> <label class="custom-control custom-radio"> <input
 					formControlName="ground"
-					[value]="venue?.ground_abbrev"
+					[value]="venue?.ground_id"
 					class="custom-control-input"
 					type="radio"
 				> <span class="custom-control-indicator"></span> <span
@@ -22,7 +26,7 @@ FORM: {{preMatchUmpireForm.value | json}}
 					*ngFor="let venue of active_grounds"
 				> <label class="custom-control custom-radio"> <input
 					formControlName="ground"
-					[value]="venue?.ground_abbrev"
+					[value]="venue?.ground_id"
 					class="custom-control-input"
 					type="radio"
 				> <span class="custom-control-indicator"></span> <span
@@ -178,4 +182,13 @@ FORM: {{preMatchUmpireForm.value | json}}
 			</div>
 		</div>
 	</div>
+	<div
+		class="form-group col-sm-6 offset-sm-3 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3"
+	>
+		<button
+			[disabled]="false"
+			class="btn btn-primary"
+		>Sign In</button>
+	</div>
+	<!-- <div *ngIf="error" class="alert alert-danger">{{error}}</div> -->
 </form>
