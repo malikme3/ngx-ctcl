@@ -11,7 +11,7 @@ import {LiveScoreConstants} from '../../../common/services/live-score-constants.
 import {LiveScoreService} from '../../../common/services/live-score.service';
 import {MatchesService} from '../../../common/services/matches.service';
 import {DatePipe} from '@angular/common';
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Subject} from 'rxjs/Subject';
 
@@ -27,8 +27,9 @@ export class PreMatchUmpireComponent {
   active_grounds: any;
   teamsList: any;
   filteredTeams;
+  preMatchInfoResponce: any;
 
-  constructor(private fb: FormBuilder,
+  constructor( @Inject(FormBuilder) private fb: FormBuilder,
     private liveScoreConstants: LiveScoreConstants,
     private liveScoreService: LiveScoreService,
     private clubsService: ClubsService,
@@ -44,7 +45,7 @@ export class PreMatchUmpireComponent {
   createForm() {
     this.preMatchUmpireForm = this.fb.group({
       id: '',
-      match_game_id: '',
+      // live_game_id: '',
       league: '',
       ground: '',
       home_team: '',
@@ -55,8 +56,8 @@ export class PreMatchUmpireComponent {
       umpire_team_1: '',
       umpire_team_2: '',
       maxovers: '',
-      match_date: '',
-      match_week: '',
+      // match_date: '',
+      // match_week: '',
       comments: '',
     });
 
@@ -91,16 +92,6 @@ export class PreMatchUmpireComponent {
     this.preMatchUmpireForm.patchValue({batting_team: value});
   }
 
-  submitPreMatchInfo() {
-    this.setBattingOrder();
-    const date = this.datePipe.transform(new Date(), 'MMddyy');
-    this.preMatchUmpireForm.patchValue({match_date: date});
-    this.preMatchUmpireForm.patchValue({match_game_id: this.setLiveGameId(date)});
-    // Week # will be updated with calculated Week # in java with Java 8
-    this.preMatchUmpireForm.patchValue({match_week: 1});
-    console.info('Submitting form ::', this.preMatchUmpireForm);
-  }
-
   setLiveGameId(date): any {
     // constructing game id as bat first & second team id, ground id and today's date.
     const bat_1 = this.preMatchUmpireForm.get('batting_frst_team').value.value;
@@ -116,5 +107,25 @@ export class PreMatchUmpireComponent {
     } else if (this.preMatchUmpireForm.get('batting_frst_team').value.value === this.preMatchUmpireForm.get('guest_team').value.value) {
       this.preMatchUmpireForm.patchValue({batting_second_team: this.preMatchUmpireForm.get('home_team').value});
     }
+    this.preMatchUmpireForm.patchValue({league: 20});
+    this.preMatchUmpireForm.patchValue({id: 123456});
+  }
+  submitPreMatchInfo() {
+    this.setBattingOrder();
+    const date = this.datePipe.transform(new Date(), 'MMddyy');
+    // this.preMatchUmpireForm.patchValue({match_date: date});
+    // this.preMatchUmpireForm.patchValue({live_game_id: this.setLiveGameId(date)});
+    // Week; # will; be; updated; with calculated Week; # in java; with Java 8;
+    // this.preMatchUmpireForm.patchValue({match_week: 1});
+    console.info('Submitting form ::', this.preMatchUmpireForm);
+    this.sendReqToServer(this.preMatchUmpireForm.value);
+
+  }
+
+  sendReqToServer(perMatchInfo) {
+    this.liveScoreService.preMatchInfoByUmpire(perMatchInfo).takeUntil(this.ngUnsubscribe).subscribe(
+      res => this.preMatchUmpireForm = res,
+      (err) => console.error('onSubmitBasicDetails: Res Error =>', err),
+      () => console.info('Match Info by Umpire server request completed'));
   }
 }
