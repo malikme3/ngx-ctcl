@@ -26,6 +26,7 @@ export class PreMatchUmpireComponent {
   preMatchUmpireForm: FormGroup;
   active_grounds: any;
   teamsList: any;
+  playingTeams: any[] = [];
   filteredTeams;
   preMatchInfoResponce: any;
 
@@ -87,20 +88,21 @@ export class PreMatchUmpireComponent {
     const query = inputs.query;
     this.filteredTeams = this.commonUtilsService.filterTeams(query, this.teamsList);
   }
+
+  getPlayingTeams(inputs) {
+    const query = inputs.query;
+    this.playingTeams = this.commonUtilsService.filterTeams(query, this.playingTeams);
+  }
+
   onSelectedTeam(value) {
     console.info('Selected Team is', value);
     this.preMatchUmpireForm.patchValue({batting_team: value});
   }
-
-  setLiveGameId(date): any {
-    // constructing game id as bat first & second team id, ground id and today's date.
-    const bat_1 = this.preMatchUmpireForm.get('batting_frst_team').value.value;
-    const bat_2 = this.preMatchUmpireForm.get('batting_second_team').value.value;
-    const liveGameId =
-      bat_1 + '-' + bat_2 + '-' +
-      this.preMatchUmpireForm.get('ground').value + '-' + date;
-    return liveGameId;
+  setPlayingTeams(team) {
+    this.playingTeams.push(team);
+    console.info('Playing Teams are: ', this.playingTeams);
   }
+
   setBattingOrder() {
     if (this.preMatchUmpireForm.get('batting_frst_team').value.value === this.preMatchUmpireForm.get('home_team').value.value) {
       this.preMatchUmpireForm.patchValue({batting_second_team: this.preMatchUmpireForm.get('guest_team').value});
@@ -112,11 +114,6 @@ export class PreMatchUmpireComponent {
   }
   submitPreMatchInfo() {
     this.setBattingOrder();
-    const date = this.datePipe.transform(new Date(), 'MMddyy');
-    // this.preMatchUmpireForm.patchValue({match_date: date});
-    // this.preMatchUmpireForm.patchValue({live_game_id: this.setLiveGameId(date)});
-    // Week; # will; be; updated; with calculated Week; # in java; with Java 8;
-    // this.preMatchUmpireForm.patchValue({match_week: 1});
     console.info('Submitting form ::', this.preMatchUmpireForm);
     this.sendReqToServer(this.preMatchUmpireForm.value);
 

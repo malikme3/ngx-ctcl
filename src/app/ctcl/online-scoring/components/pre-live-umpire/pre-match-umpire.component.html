@@ -82,6 +82,7 @@ FORM: {{preMatchUmpireForm.value | json}} label:
 					id="batting_first_id"
 					field="label"
 					placeholder="Select Home team"
+					(onSelect) = "setPlayingTeams($event)"
 					(completeMethod)="getFilteredTeams($event)"
 					[suggestions]="filteredTeams"
 				> </p-autoComplete>
@@ -101,6 +102,7 @@ FORM: {{preMatchUmpireForm.value | json}} label:
 					id="batting_first_id"
 					field="label"
 					placeholder="Select Guest team"
+					(onSelect) = "setPlayingTeams($event)"
 					(completeMethod)="getFilteredTeams($event)"
 					[suggestions]="filteredTeams"
 				> </p-autoComplete>
@@ -118,8 +120,8 @@ FORM: {{preMatchUmpireForm.value | json}} label:
 						id="float-input"
 						field="label"
 						placeholder="Toss Won team"
-						(completeMethod)="getFilteredTeams($event)"
-						[suggestions]="filteredTeams"
+						(completeMethod)="getPlayingTeams($event)"
+						[suggestions]="playingTeams"
 					> </p-autoComplete>
 				</span>
 			</div>
@@ -139,8 +141,8 @@ FORM: {{preMatchUmpireForm.value | json}} label:
 					id="batting_first_id"
 					field="label"
 					placeholder="Select Bat first team"
-					(completeMethod)="getFilteredTeams($event)"
-					[suggestions]="filteredTeams"
+					(completeMethod)="getPlayingTeams($event)"
+					[suggestions]="playingTeams"
 				> </p-autoComplete>
 			</div>
 			<nb-card-header> <label>Umpire Team #1</label> </nb-card-header>
