@@ -29,6 +29,8 @@ import {PostLiveScoreComponent} from './components/post-live/post-live-score.com
 import {PreMatchCaptainsComponent} from './components/pre-live-captains/pre-match-captains.component';
 import {PreMatchUmpireComponent} from './components/pre-live-umpire/pre-match-umpire.component';
 import {PreLiveScoreComponent} from './components/pre-live/pre-live.component';
+import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
+
 
 
 @NgModule({
@@ -58,7 +60,7 @@ import {PreLiveScoreComponent} from './components/pre-live/pre-live.component';
     RadioButtonModule,
     CheckboxModule,
     AutoCompleteModule,
-    MatInputModule, MatRadioModule, ButtonsModule, MatSelectModule,
+    MatInputModule, MatRadioModule, ButtonsModule, MatSelectModule, AngularMultiSelectModule,
   ],
   declarations: [OnlineScoringComponent, LiveScoreComponent, PreLiveScoreComponent, PostLiveScoreComponent, PreMatchCaptainsComponent, PreMatchUmpireComponent,
   ],

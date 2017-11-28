@@ -1,1 +1,57 @@
-Welcome to Pre Live Match Captains Job !!
+FORM: {{playingXiForm.value | json}}
+<div
+	class="row col-12"
+	*ngIf='playingXiForm'
+>
+	<form
+		[formGroup]="playingXiForm"
+		class="form-horizontal"
+		(ngSubmit)="submitPlayingXI()"
+	>
+		<div class="row">
+			<nb-card-header> <label>Playing Team</label> </nb-card-header>
+			<div class="form-group form-control form-control-warning">
+				<p-autoComplete
+					formControlName="team"
+					[inputStyle]="{'width':'90%','font-size': '16px'}"
+					styleClass="col-md-12 col-sm-12 col-12"
+					[minLength]="1"
+					[size]="30"
+					[dropdown]="true"
+					autoHighlight="true"
+					required="true"
+					id="batting_first_id"
+					field="label"
+					placeholder="Select Guest team"
+					(onSelect)="getPlayersByTeamId($event)"
+					(completeMethod)="getFilteredTeams($event)"
+					[suggestions]="filteredTeams"
+				> </p-autoComplete>
+			</div>
+			<nb-card-header> <label>Teams Players</label> </nb-card-header>
+			<div class="form-group form-control form-control-success">
+				<angular2-multiselect
+					[data]="playersByTeamId"
+					[(ngModel)]="selectedPlayers"
+					formControlName="regularPlayers"
+				> </angular2-multiselect>
+			</div>
+			<nb-card-header> <label>Portables Players</label> </nb-card-header>
+			<div class="form-group form-control form-control-danger">
+				<angular2-multiselect
+					[data]="playersAllTeams"
+					[(ngModel)]="selectedPortablesPlayers"
+					[settings]="settings"
+					formControlName="portablesPlayers"
+				> </angular2-multiselect>
+			</div>
+		</div>
+		<div
+			class="form-group col-sm-6 offset-sm-3 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3">
+			<button
+				[disabled]="false"
+				class="btn btn-primary"
+			>Sign In</button>
+		</div>
+	</form>
+</div>

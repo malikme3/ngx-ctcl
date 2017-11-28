@@ -14,8 +14,12 @@ export class LiveScoreService {
 
   private reconsileScore = 'liveScoring/refreshScore/?';
   private preMatchInfobyUmpire = 'preMatchInfo/byUmpire';
+  private playersByTeamId = 'player/byTeamId?';
+  private playingXi = '/playingXI/byCaptain';
   private reconsileScore_url = this.baseUrl + this.reconsileScore;
   private preMatchInfobyUmpire_url = this.baseUrl + this.preMatchInfobyUmpire;
+  private playersByTeamId_url = this.baseUrl + this.playersByTeamId;
+  private playingXi_url = this.baseUrl + this.playingXi;
 
 
   reconsileScoreForm(liveGameId: string, batsmanOne: number, batsmanTwo: number): Observable<any> {
@@ -30,9 +34,25 @@ export class LiveScoreService {
     return this.http.post(this.preMatchInfobyUmpire_url, matchInfo, this.options).map(responce => responce.json())
       .catch(this.handleError);
   }
+
+  submitPlayingXI(players): Observable<any> {
+    return this.http.post(this.playingXi_url, players, this.options).map(responce => responce.json())
+      .catch(this.handleError);
+  }
+
+  playerByTeamId(teamId) {
+    const url = `${ this.playersByTeamId_url }id=${ teamId }`;
+    console.info('Call for playerByTeamId() with url : ', url);
+    return this.http.get(url, {headers: this.header}).map(responce => responce.json())
+      .catch(this.handleError);
+  }
+
+
   private handleError(error: any): Promise<any> {
     console.error('LiveScoreService: Error while fetching date from server', error);
     return Promise.reject(error.message || error);
   }
 
 }
+
+
