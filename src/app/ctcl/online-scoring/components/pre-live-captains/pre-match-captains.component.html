@@ -1,4 +1,4 @@
-FORM: {{playingXiForm.value | json}}
+<!-- FORM: {{playingXiForm.value | json}} -->
 <div
 	class="row col-12"
 	*ngIf='playingXiForm'
@@ -9,7 +9,7 @@ FORM: {{playingXiForm.value | json}}
 		(ngSubmit)="submitPlayingXI()"
 	>
 		<div class="row">
-			<nb-card-header> <label>Playing Team</label> </nb-card-header>
+			<!-- <nb-card-header> <label>Playing Team</label> </nb-card-header> -->
 			<div class="form-group form-control form-control-warning">
 				<p-autoComplete
 					formControlName="team"
@@ -50,8 +50,8 @@ FORM: {{playingXiForm.value | json}}
 			class="form-group col-sm-6 offset-sm-3 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3">
 			<button
 				[disabled]="false"
-				class="btn btn-primary"
-			>Sign In</button>
+				class="btn bg-hint name bold header"
+			>Submit Playing XI</button>
 		</div>
 	</form>
 </div>

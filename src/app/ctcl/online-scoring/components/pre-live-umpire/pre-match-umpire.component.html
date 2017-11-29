@@ -1,12 +1,12 @@
-FORM: {{preMatchUmpireForm.value | json}} label:
-{{preMatchUmpireForm.value?.batting_frst_team?.value | json}}
+<!-- FORM: {{preMatchUmpireForm.value | json}} label:
+{{preMatchUmpireForm.value?.batting_frst_team?.value | json}} -->
 <div *ngIf='preMatchUmpireForm'>
 <form
 	[formGroup]="preMatchUmpireForm"
 	class="form-horizontal"
 	(ngSubmit)="submitPreMatchInfo()">
 
-	<ctcl-style title="Match Basic Details"> <!--<nb-card>-->
+	<ctcl-style > <!--<nb-card>-->
 	<div class="row">
 		<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
 			<div class="row demo-checkboxes-radio">
@@ -188,8 +188,8 @@ FORM: {{preMatchUmpireForm.value | json}} label:
 	>
 		<button
 			[disabled]="false"
-			class="btn btn-primary"
-		>Sign In</button>
+			class="btn bg-hint name bold header"
+		>Submit Match Details</button>
 	</div>
 	<!-- <div *ngIf="error" class="alert alert-danger">{{error}}</div> -->
 </form>

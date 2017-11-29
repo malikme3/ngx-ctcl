@@ -154,11 +154,20 @@ export class LiveScoreComponent {
     }
     this.reconsileScoreForm(this.scoreForm.value);
     this.syncNetScoreDetails();
+    this.updateStrikerEnd();
 
   }
 
-  updateBatsmanObject() {
-
+  updateStrikerEnd() {
+    if ((this.scoreForm.get('current_ball_runs').value) === 1 || (this.scoreForm.get('current_ball_runs').value) === 3) {
+      if (this.is_striker_1) {
+        this.is_striker_1 = false;
+        this.is_striker_2 = true;
+      } else if (this.is_striker_2) {
+        this.is_striker_2 = false;
+        this.is_striker_1 = true;
+      }
+    }
   }
 
   updateBowlerObject(extrasVal) {
