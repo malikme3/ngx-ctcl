@@ -7,7 +7,6 @@ import {LiveScoreConstants} from "../../common/services/live-score-constants.ser
 import {LiveScoreService} from '../../common/services/live-score.service';
 import {MatchesService} from '../../common/services/matches.service';
 import {DatePipe} from '@angular/common';
-import {hexToRgb} from "@swimlane/ngx-charts/release/utils";
 import {Subject} from 'rxjs';
 
 @Component({

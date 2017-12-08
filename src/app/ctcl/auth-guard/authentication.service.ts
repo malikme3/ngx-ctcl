@@ -14,7 +14,7 @@ export class AuthenticationService {
   static AUTH_TOKEN = 'http://arvinddeshpande.dyndns.org:56040';
   private headers = new Headers({'Content-Type': 'application/json'});
 
-  private header = this.pagesConstants.pagesContants.url.header;
+  // private header = this.pagesConstants.pagesContants.url.header;
   private options = this.pagesConstants.pagesContants.url.options;
   private baseUrl = this.pagesConstants.pagesContants.url.baseUrl;
 
@@ -55,13 +55,13 @@ export class AuthenticationService {
 
   login2(user, password): Promise<string> {
     return this.http
-      .post(`${this.url}/login`, JSON.stringify(user), {headers: this.headers})
+      .post(`${ this.url }/login`, JSON.stringify(user), {headers: this.headers})
       .toPromise()
       .then(res => res.text());
   }
 
   login(username: string, password: string) {
-    const body = `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}&grant_type=password`;
+    const body = `username=${ encodeURIComponent(username) }&password=${ encodeURIComponent(password) }&grant_type=password`;
 
     const headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -83,14 +83,14 @@ export class AuthenticationService {
     //     'Content-Type': 'application/json'
     //   });
     console.log('header', headers);
-    return this.http.post(AuthenticationService.AUTH_TOKEN, body, header)
-      .map(res => res.json())
-      .map((res: any) => {
-        if (res.access_token) {
-          return res.access_token;
-        }
-        return null;
-      });
+    //    return this.http.post(AuthenticationService.AUTH_TOKEN, body, header)
+    //      .map(res => res.json())
+    //      .map((res: any) => {
+    //        if (res.access_token) {
+    //          return res.access_token;
+    //        }
+    //        return null;
+    //      });
   }
 
 }
