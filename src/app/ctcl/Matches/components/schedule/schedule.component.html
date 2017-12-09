@@ -16,23 +16,24 @@
 <!--</ng-container>-->
 
 <ng-container *ngIf="data; else loading;">
+
 <p-panel>
   <p-header>
     <div class="ui-helper-clearfix">
-      <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">Schedules: 30 Overs Leagues</span>
+      <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">Schedule</span>
 
-      <p-splitButton [style]="{'float':'right'}" label="Pick Leagues Type !!" icon="fa-check" (onClick)="save()"
+      <p-splitButton [style]="{'float':'right'}" label="Pick Leagues Type !!" icon="fa-check" (onClick)="update()"
                      [model]="items"></p-splitButton>
     </div>
   </p-header>
   <div class="row">
 
       <p-dataTable [value]="data" selectionMode="single" (onRowSelect)="onRowEdit($event)"
-                   [rows]="10" [paginator]="true" [globalFilter]="gb" #dt>
+                   [rows]="10" [paginator]="true" [responsive]="true">
         <p-column field="seasonName" header="Season" [style]="{'width':'30%','margin-top':'8px'}"
-                  [sortable]="true"></p-column>
-        <p-column field="teams" header="Teans" [sortable]="true"
-                  [style]="{'width':'14%','margin-top':'8px'}"></p-column>
+                  [sortable]="true" frozen="true"></p-column>
+        <p-column  field="teams" header="Teams" [sortable]="true"
+                  [style]="{'width':'14%','margin-top':'8px', 'overflow':'visible'}"></p-column>
         <p-column field="formatted_date" header="Date" [sortable]="true"
                   [style]="{'width':'14%','margin-top':'8px'}"></p-column>
         <p-column field="groundName" header="Ground" [sortable]="true"

@@ -14,21 +14,39 @@ import {Subject} from "rxjs/Subject";
 })
 export class ScheduleComponent {
   private ngUnsubscribe: Subject<void> = new Subject<void>();
-  constructor(private matchesService: MatchesService, private  matchesConstants: MatchesConstants) {
+  constructor(private matchesService: MatchesService, private matchesConstants: MatchesConstants) {
   }
 
   data;
+  items: any[] = [];
   // Default schedule for all leagues
   leagueType = 'null';
-  options2017 = [
-    {id: 'null', name: '2017: All Format', year: 2017},
-    {id: '31', name: '2017:20 Overs', year: 2017},
-    {id: '30', name: '2017:35 Overs', year: 2017}];
 
   ngOnInit(): void {
     this.data = this.getSeasonGroups(this.leagueType);
+    this.items = [
+      {
+        label: '2017: All Format', icon: 'fa-refresh', command: () => {
+          this.update();
+        }
+      },
+      {
+        label: '2017:20 Overs', icon: 'fa-link', command: () => {
+          this.update();
+        }
+      },
+      {label: '2017:35 Overs', icon: 'fa-link'},
+      // routing purpose
+      {label: 'Recent Matches', icon: 'fa-paint-brush', routerLink: ['/']}
+    ];
   }
 
+  update() {
+    console.log("Leagues type is updated");
+  }
+  onRowEdit(val) {
+    console.log("Row is selected");
+  }
   settings = this.matchesConstants.scheduelTable;
   getSeasonGroups(seasonId: string) {
     console.info('Request for league schedules from schedule component');
@@ -41,7 +59,7 @@ export class ScheduleComponent {
   getLeagueSchedule() {
     this.getSeasonGroups(this.leagueType);
   }
-  seasonGroupsLoaded(value){
+  seasonGroupsLoaded(value) {
     console.log("seasonGroupsLoaded request is completed");
   }
 }

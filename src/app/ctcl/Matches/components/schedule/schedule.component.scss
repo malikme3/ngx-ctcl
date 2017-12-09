@@ -1,9 +1,62 @@
-
 @import '../../../../theme/sass/conf/conf';
 
 :host /deep/ .widgets {
   .smart-table-container {
     width: 100%;
+  }
+
+}
+
+:host /deep/ {
+
+  .ui-widget-content {
+    border: 2px solid #404640;
+    border-style: solid;
+    background: #eeeeee;
+    color: #d9534f;
+  }
+
+  .ui-steps .ui-steps-item {
+    width: 20%;
+  }
+
+  .ui-state-highlight {
+    border-color: rgba(250, 99, 34, 0.8);
+    background: rgba(255, 41, 253, 0.54);
+    color: #FFFFFF;
+    overflow: hidden;
+  }
+}
+
+:host /deep/ {
+  .nb-theme-cosmic .btn.btn-warning {
+    background-color: rgb(188, 207, 232);
+  }
+}
+
+.col-xl-6 {
+  padding-top: 10px;
+}
+//providing more space for mobile screen
+:host /deep/ {
+  @media screen and (min-width: 320px) and (max-width: 640px) {
+
+    .col-xl-6 {
+      padding-top: 20px;
+      padding-right: 0px;
+      padding-bottom: 6px;
+      padding-left: 0px;
+    }
+    .ui-accordion .ui-accordion-content {
+      padding: 1em .2em;
+      border-top: 0;
+      margin-top: -2px;
+      position: relative;
+      top: 1px;
+      margin-bottom: 2px;
+      overflow: auto;
+      zoom: 1;
+    }
   }
 }
 
@@ -15,7 +68,7 @@
       vertical-align: middle;
     }
     th {
-      background-color :darkslategrey;
+      background-color: darkslategrey;
     }
 
     table tr td {
