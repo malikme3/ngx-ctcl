@@ -1,3 +1,4 @@
+///<reference path="../../../../node_modules/primeng/components/panel/panel.d.ts"/>
 /* tslint:disable */
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
@@ -15,8 +16,8 @@ import {MatchesService} from "../common/services/matches.service";
 import {LabelComponent} from "./components/label/labelComponent";
 import {MatchesDataStoreService} from "./components/matches-data-store";
 import {
-    DataTableModule, DropdownModule, ProgressBarModule, SharedModule,
-    SplitButtonModule,FieldsetModule,
+  DataTableModule, DropdownModule, ProgressBarModule, SharedModule,
+  SplitButtonModule, FieldsetModule, PanelModule,
 } from "primeng/primeng";
 import {HomePageService} from "../common/services/homepage.service";
 import {CtclSharedModule} from "../shared/shared.module";
@@ -36,7 +37,6 @@ import {ScheduleComponent} from "./components/schedule/schedule.component";
         routing,
         Ng2SmartTableModule,
         DataTableModule,
-        HttpModule,
         ReactiveFormsModule,
         ProgressBarModule,
         SplitButtonModule,
@@ -45,7 +45,8 @@ import {ScheduleComponent} from "./components/schedule/schedule.component";
         SharedModule,
         FieldsetModule,
         CtclSharedModule,
-        RouterModule
+        RouterModule,
+        PanelModule,
         //SharedModule
 
     ],

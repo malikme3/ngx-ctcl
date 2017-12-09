@@ -16,8 +16,9 @@ export class ServicesConstants {
   /*private headers = new Headers({ 'Content-Type': 'application/json' });*/
   private options = new RequestOptions({headers: this.headers});
 
-  private url = 'http://localhost:8081/api/';  // URL to middle tier Java (Spring MVC)
-  //http://arvinddeshpande.dyndns.org:56040/
+  // URL to middle tier Java (Spring MVC)
+  private url = 'http://localhost:8081/api/';
+ // private url = 'http://arvinddeshpande.dyndns.org:56040/api/';
   pagesContants = {
     url: {
       header: this.headers,
