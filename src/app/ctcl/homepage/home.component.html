@@ -12,16 +12,15 @@
 
 
 <div class="row">
-  <div class="col-xlg-6 col-xl-6 col-lg-6  col-md-12 col-sm-12 col-12">
-    <!--<ba-card title="dashboard.match_features" baCardClass="medium-card with-scroll">-->
-    <iframe width="560" height="360" src="https://www.youtube.com/embed/dH7zZPcI1U8" frameborder="0"
-            allowfullscreen></iframe>
-    <!--</ba-card>-->
-  </div>
-
   <div class="col-xlg-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
     <ctcl-pol-chart></ctcl-pol-chart>
   </div>
+  <div class="col-xlg-6 col-xl-6 col-lg-6  col-md-12 col-sm-12 col-12">
+    <!--<ba-card title="dashboard.match_features" baCardClass="medium-card with-scroll">-->
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ibxZ7zjy4lE" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+    <!--</ba-card>-->
+  </div>
+  
 </div>
 
 <div class="row" *ngFor="let group of groups, let i = index">
@@ -42,8 +41,8 @@
   <!--baCardClass="xmedium-card feed-comply-panel with-scroll todo-panel">-->
 
   <ng-container *ngFor=" let news of newsList;  let i=index">
-    <ng-container *ngIf="i<9">
-      <p-panel header="{{news.title}}" [toggleable]="true" collapsed="false" [styleClass]="dashboard"
+    <ng-container *ngIf="i<8">
+      <p-panel header="{{news.title}}" [toggleable]="true" collapsed="false"
                [style]="{'margin-bottom':'20px', 'background':'rgba(29, 63, 74, 0.53)'}">
         {{news.article}}
       </p-panel>

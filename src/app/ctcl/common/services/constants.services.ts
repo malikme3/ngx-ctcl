@@ -18,7 +18,7 @@ export class ServicesConstants {
 
   // URL to middle tier Java (Spring MVC)
   private url = 'http://localhost:8081/api/';
- // private url = 'http://arvinddeshpande.dyndns.org:56040/api/';
+  //private url = 'http://arvinddeshpande.dyndns.org:56040/api/';
   pagesContants = {
     url: {
       header: this.headers,
