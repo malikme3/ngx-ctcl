@@ -4,7 +4,7 @@
 
       <p-header >
         Matches Results
-            <p class="float-right h5 " id="options" (onClick)="onCliked($event)">
+            <p class="float-right h5 " id="options">
               <select class="btn-outline-warning" [(ngModel)]="leagueType" (ngModelChange)="getLeagueResults()">
                 <option *ngFor=" let option of options2017" value={{option.id}}>{{option.name}}</option>
               </select>
@@ -17,7 +17,7 @@
         <input #gb type="text" placeholder="Global Filter">
       </div>
 
-      <p-dataTable [value]="result" selectionMode="single" (onRowSelect)="onRowSelect($event)"
+      <p-dataTable [value]="result" selectionMode="single" (onRowSelect)="getDetailedScore($event)"
                    [rows]="30" [paginator]="true" [responsive]="true" [globalFilter]="gb" #dt>
         <p-column field="game_date" header="Game Date" [sortable]="true"></p-column>
         <p-column field="host_team" header="Host Team" [sortable]="true"></p-column>

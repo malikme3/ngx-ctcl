@@ -12,13 +12,13 @@ import {HomePageService} from "../../../common/services/homepage.service";
 })
 export class LatestMatchesComponent {
   private ngUnsubscribe: Subject<void> = new Subject<void>();
-  private url: string = '/pages/matches/scoreView';
+  private url: string = '/ctcl/matches/scoreView';
   matchesResult: any;
   nextMatchesResult: any;
   diplayScore: any = [];
   nextMatchesData: any = [];
   displayScoreData: any = [];
-  slow:string = "slow";
+  slow: string = "slow";
 
   constructor(private router: Router, private dashboardService: HomePageService) {
   }
@@ -37,9 +37,7 @@ export class LatestMatchesComponent {
   }
 
   nextMatches(seasonId) {
-
     const types$ = this.dashboardService.getNextMatches(seasonId);
-    console.info("types$: ",types$);
     types$.takeUntil(this.ngUnsubscribe).subscribe(responce => this.nextMatchesResult = responce.filter(x => x.row_number < 10),
       (err) => console.error('next matches: Response Error =>', err),
       () => this.loadNextMatches(this.nextMatchesResult));
@@ -82,8 +80,7 @@ export class LatestMatchesComponent {
   }
 
   getDetailedScore(gameId) {
-    /*const id: string = gameId.data.game_id;*/
-    console.info(" *** Sending :: gameId = ***", gameId);
+    console.info("Details Score of gameId: ", gameId);
     this.router.navigate([this.url], {queryParams: {gameId: gameId}});
   }
 
