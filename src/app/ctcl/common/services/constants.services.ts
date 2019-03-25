@@ -2,8 +2,8 @@
 /**
  * Created by HudaZulifqar on 6/26/2017.
  */
-import {Injectable} from '@angular/core';
-import {RequestOptions, Headers} from "@angular/http";
+import { Injectable } from '@angular/core';
+import { RequestOptions, Headers } from "@angular/http";
 
 @Injectable()
 export class ServicesConstants {
@@ -14,10 +14,10 @@ export class ServicesConstants {
   });
 
   /*private headers = new Headers({ 'Content-Type': 'application/json' });*/
-  private options = new RequestOptions({headers: this.headers});
+  private options = new RequestOptions({ headers: this.headers });
 
   // URL to middle tier Java (Spring MVC)
-  private url = 'http://localhost:8081/api/';
+  private url = 'http://localhost:7861/api/';
   //private url = 'http://arvinddeshpande.dyndns.org:56040/api/';
   pagesContants = {
     url: {
